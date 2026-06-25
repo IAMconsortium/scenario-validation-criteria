@@ -1,12 +1,9 @@
 """Preprocess criteria definitions for use with IAMC nomenclature package."""
 import pandas as pd
 
-from . import load_criteria
+from nomenclature import countries
 
-try:
-    import pycountry
-except ImportError as ex:
-    raise Exception("The `pycountry` package must be installed.")
+from . import load_criteria
 
 
 def load_criteria_combined() -> pd.DataFrame:
@@ -53,10 +50,7 @@ def load_criteria_combined() -> pd.DataFrame:
     )
 
     # Step 3: Replace `All Countries` with country codes and explode.
-    all_countries = (
-        [country.alpha_3 for country in pycountry.countries] +
-        ["KOS"]
-    )
+    all_countries = [country.alpha_3 for country in countries]
     criteria_step3 = (
         criteria_step2
         .assign(region=lambda df: df["region"].map(

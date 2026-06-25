@@ -2,8 +2,13 @@
 import re
 from typing import Optional
 
-from pybtex.database import BibliographyData
-from pybtex.plugin import find_plugin
+try:
+    from pybtex.database import BibliographyData
+    from pybtex.plugin import find_plugin
+except ImportError as e:
+    raise ImportError(
+        "The formatting of sources requires the 'pybtex' package."
+    ) from e
 
 
 def format_sources(
