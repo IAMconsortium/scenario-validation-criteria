@@ -25,16 +25,16 @@ authors:
     email: huppmann@iiasa.ac.at
     affiliation: International Institute for Applied Systems Analysis
     orcid: 'https://orcid.org/0000-0002-7729-7389'
-  - given-names: Gunnar
-    family-names: Luderer
-    email: luderer@pik-potsdam.de
-    affiliation: Potsdam Institute for Climate Impact Research
-    orcid: 'https://orcid.org/0000-0002-9057-6155'
   - given-names: Karl
     family-names: Scheifinger
     email: scheifinger@iiasa.ac.at
     affiliation: International Institute for Applied Systems Analysis
     orcid: 'https://orcid.org/0009-0001-9464-4098'
+  - given-names: Gunnar
+    family-names: Luderer
+    email: luderer@pik-potsdam.de
+    affiliation: Potsdam Institute for Climate Impact Research
+    orcid: 'https://orcid.org/0000-0002-9057-6155'
 keywords:
   - Integrated Assessment Modelling
   - Scenario

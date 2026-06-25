@@ -1,7 +1,7 @@
 # Scenario Validation Criteria
 
-Common definitions of validation criteria for scenarios produced by
-Integrated Assessment Models (IAMs).
+Validation criteria for scenarios produced by Integrated Assessment
+Models (IAMs), energy system models and similar tools.
 
 ---
 
@@ -28,6 +28,12 @@ standards.
 
 If you use this package in your research, please cite it using the metadata in
 [`CITATION.cff`](CITATION.cff).
+
+---
+
+## Funding acknowledgment
+This work was started as part of the Scenario Compass Initiative (SCI).
+Visit https://scenariocompass.org for more information.
 
 ---
 
