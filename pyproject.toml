@@ -6,8 +6,8 @@ authors = [
     { name = "Tomoko Hasegawa", email = "thase@fc.ritsumei.ac.jp" },
     { name = "Pascal Weigmann", email = "pascal.weigmann@pik-potsdam.de" },
     { name = "Daniel Huppmann", email = "huppmann@iiasa.ac.at" },
-    { name = "Gunnar Luderer", email = "luderer@pik-potsdam.de" },
     { name = "Karl Scheifinger", email = "scheifinger@iiasa.ac.at" },
+    { name = "Gunnar Luderer", email = "luderer@pik-potsdam.de" },
 ]
 license = "MIT"
 version = "0.1.0"
