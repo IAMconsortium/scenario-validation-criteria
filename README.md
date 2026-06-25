@@ -24,6 +24,25 @@ standards.
 
 ---
 
+## Repository structure
+
+The core data lives in `inst/extdata/`:
+
+```
+inst/extdata/
+├── criteria-types.yaml          # Definitions of criterion types
+├── sources.bib                  # Bibliographic references
+├── criteria/
+│   ├── [criteria type]/         # Label of a criteria type
+│   │   ├── thresholds.csv       # Threshold values (variable, region, year, bounds)
+│   │   └── metadata.yaml        # Justifications for criteria and thresholds
+│   └── […]                      # More criteria types
+└── reference-data/
+    └── *.csv                    # External datasets used as threshold references
+```
+
+---
+
 ## Citation
 
 If you use this package in your research, please cite it using the metadata in

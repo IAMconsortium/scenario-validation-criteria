@@ -1,0 +1,4 @@
+# source: CEDS-2025
+# description: Data from {{source}} linearly extrapolated to 2025.
+variable,year,region,unit,value
+Emissions|CO2|Energy and Industrial Processes,2025,World,Mt CO2/yr,39383.48519999999

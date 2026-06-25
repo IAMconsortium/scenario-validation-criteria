@@ -1,0 +1,4 @@
+# source: CEDS-2025
+# description: Data from {{source}} averaged over period Jan 2018 till Dec 2022 (to account for the idiosyncratic COVID-19 dip in 2020).
+variable,year,region,unit,value
+Emissions|CO2|Energy and Industrial Processes,2020,World,Mt CO2/yr,36874.1129
