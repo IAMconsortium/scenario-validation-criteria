@@ -1,0 +1,51 @@
+cff-version: 1.2.0
+title: Scenario Validation Criteria
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Philipp C.
+    family-names: Verpoort
+    email: philipp.verpoort@pik-potsdam.de
+    affiliation: Potsdam Institute for Climate Impact Research
+    orcid: 'https://orcid.org/0000-0003-1319-5006'
+  - given-names: Tomoko
+    family-names: Hasegawa
+    email: thase@fc.ritsumei.ac.jp
+    affiliation: Taisho University
+    orcid: 'https://orcid.org/0000-0002-2352-1269'
+  - given-names: Pascal
+    family-names: Weigmann
+    email: pascal.weigmann@pik-potsdam.de
+    affiliation: Potsdam Institute for Climate Impact Research
+    orcid: 'https://orcid.org/0000-0001-8801-173X'
+  - given-names: Daniel
+    family-names: Huppmann
+    email: huppmann@iiasa.ac.at
+    affiliation: International Institute for Applied Systems Analysis
+    orcid: 'https://orcid.org/0000-0002-7729-7389'
+  - given-names: Gunnar
+    family-names: Luderer
+    email: luderer@pik-potsdam.de
+    affiliation: Potsdam Institute for Climate Impact Research
+    orcid: 'https://orcid.org/0000-0002-9057-6155'
+  - given-names: Karl
+    family-names: Scheifinger
+    email: scheifinger@iiasa.ac.at
+    affiliation: International Institute for Applied Systems Analysis
+    orcid: 'https://orcid.org/0009-0001-9464-4098'
+keywords:
+  - Integrated Assessment Modelling
+  - Scenario
+  - Pathways
+  - Vetting
+  - Criteria
+  - Validation
+  - Climate
+  - Energy
+  - Land-use
+  - Emissions
+license: MIT
+version: 0.1.0
+date-released: '2026-07-15'
