@@ -47,6 +47,13 @@ THRESHOLD_COLS_DTYPES: dict[str, str] = {
 CSV_ENGINES: set[str] = {"pandas", "python"}
 
 
+def _format_prefix(prefix: str) -> str:
+    """Convert dashes to spaces and capitalise every word."""
+    return " ".join(
+        word[:1].upper() + word[1:] for word in prefix.split("-")
+    )
+
+
 def _expand_metadata_templates(metadata: dict) -> dict:
     """Expand template entries (those with a 'replacements' field) in a
     metadata dict into individual entries, applying all substitutions to
@@ -152,8 +159,8 @@ def _load_criteria_file(
                                 comment="#",
                                 dtype=THRESHOLD_COLS_DTYPES,
                             ).assign(
-                                criterion=lambda df: (
-                                    f"{criteria_type}|" + df["criterion"]
+                                criterion=lambda df, ct=criteria_type: (
+                                    f"{_format_prefix(ct)}|" + df["criterion"]
                                 )
                             )
                             for criteria_type, criteria_dir in
@@ -178,7 +185,7 @@ def _load_criteria_file(
                                 started = True
                                 continue
 
-                            row[0] = f"{criteria_type}|" + row[0]
+                            row[0] = f"{_format_prefix(criteria_type)}|" + row[0]
 
                             ret.append(row)
 
@@ -205,7 +212,7 @@ def _load_criteria_file(
                         crit_defs = yaml.safe_load(file_handle)
                         crit_defs = _expand_metadata_templates(crit_defs)
                         ret |= {
-                            f"{criteria_type}|" + crit_key: crit_specs
+                            f"{_format_prefix(criteria_type)}|" + crit_key: crit_specs
                             for crit_key, crit_specs in crit_defs.items()
                         }
 
