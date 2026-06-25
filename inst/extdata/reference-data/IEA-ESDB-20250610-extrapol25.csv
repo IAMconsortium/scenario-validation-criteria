@@ -1,0 +1,8 @@
+# source: IEA-ESDB-20250610
+# description: Data from {{source}} extrapolated to 2025 using the 2021-2023 average growth rate. Primary Energy variables are taken from the total energy supply reported by the IEA.
+variable,year,region,unit,value
+Final Energy,2025,World,EJ/yr,442.651
+Primary Energy|Coal,2025,World,EJ/yr,182.501
+Primary Energy|Gas,2025,World,EJ/yr,142.44
+Primary Energy|Oil,2025,World,EJ/yr,200.356
+Primary Energy|Nuclear,2025,World,EJ/yr,9.602

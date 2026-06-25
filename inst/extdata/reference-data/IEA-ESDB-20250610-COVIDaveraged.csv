@@ -1,0 +1,8 @@
+# source: IEA-ESDB-20250610
+# description: Data from {{source}} averaged over period Jan 2018 till Dec 2022 (to account for the idiosyncratic COVID-19 dip in 2020). Primary Energy variables are taken from the total energy supply reported by the IEA.
+variable,year,region,unit,value
+Final Energy,2020,World,EJ/yr,411.687
+Primary Energy|Coal,2020,World,EJ/yr,164.576
+Primary Energy|Gas,2020,World,EJ/yr,140.505
+Primary Energy|Oil,2020,World,EJ/yr,188.133
+Primary Energy|Nuclear,2020,World,EJ/yr,9.844

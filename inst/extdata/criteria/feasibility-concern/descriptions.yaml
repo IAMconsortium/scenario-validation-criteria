@@ -1,0 +1,253 @@
+Hydropower Capacity:
+    justification_criterion: >-
+        This scenario assumes a deployment of hydropower plants that is
+        inconsistent with near-term projections.
+
+
+        Near-term upper and lower capacity projections can be derived from
+        existing capacities and from current project announcements and known
+        project lead times. Robust upper projections can be made because
+        projects take at least 5 years to plan and construct and therefore
+        will not be operational by 2030 if not yet announced by today. Robust
+        lower projections can be made based on exisiting capacities and
+        because retirement rates can reasonably be assumed to be low.
+
+
+        Specifically, hydropower plants take 4–7 years to construct (for
+        medium-sized projects) and up to 15 years (for large-sized projects)
+        to plan and construct. Small projects that can be completed within
+        less than 4 years make up less than 3% of all projects planned
+        globally in 2021.
+
+
+        For details on hydropower projects, see the Hydropower Special Market
+        Report {{citep:IEA-Hydropow-2021}}.
+    justification_threshold: >-
+        Data on hydro power plant projects was published by the IEA in 2021. 
+        Details can be found here:
+        https://www.iea.org/data-and-statistics/data-tools/hydropower-data-explorer
+        
+
+        The IEA publishes capacities in three categories:
+
+        • Operational: in operation in 2021
+
+        • Expected: expected to come online by 2030
+
+        • Accelerated: capacity that could come online by 2030 given an
+        acceleration in efforts.
+        
+
+        We assume the following thresholds for 2030 based on data provided by 
+        the IEA:
+
+        • Lower, red:  10% less than currently operational capacities.
+
+        • Lower, yellow: 5% less than what is expected to come online
+        according to the IEA by 2030.
+
+        • Upper, yellow: 5% more than what is expected to come online
+        assuming accelerated efforts according to the IEA by 2030.
+
+        • Upper, red: 45% more than what is expected to come online
+        assuming accelerated efforts according to the IEA by 2030.
+Nuclear Capacity:
+    justification_criterion: >-
+        This scenario assumes a deployment of nuclear power plants that is
+        inconsistent with near-term projections.
+
+
+        Near-term upper and lower capacity projections can be derived from
+        existing capacities and from current project announcements and known
+        project lead times. Robust upper projections can be made because
+        projects take at least 5 years to plan and construct and therefore
+        will not be operational by 2030 if not yet announced by today. Robust
+        lower projections can be made based on exisiting capacities and
+        because retirement rates can reasonably be assumed to be low.
+    justification_threshold: >-
+        Data on nuclear power plants is published by the International Atomic
+        Energy Agency and, including plant-level data {{citep:IAEA-PRIS-2024}}
+        and estimates until 2050 {{citep:IAEA-E50-2024}}.
+
+
+        The IAEA publishes capacities in three categories:
+
+        • Operational: in operation in 2024
+
+        • Construction: currently under construction
+
+        • Retired: inactive capacity that has been retired
+        
+
+        We assume the following thresholds for 2030 based on the plant-level
+        data:
+
+        • Lower, red:  30% less than currently operational capacities
+        {{citep:IAEA-PRIS-2024}}.
+
+        • Lower, yellow:  15% less than currently operational capacities
+        {{citep:IAEA-PRIS-2024}}.
+
+        • Upper, yellow:  5% more than plants operational today plus bringing
+        retired plants in Japan back online plus 75% of plants under
+        construction {{citep:IAEA-PRIS-2024}}.
+
+        • Upper, red:  10% more than the highest estimate (461 GW) published
+        by the {{cite:IAEA-E50-2024}}.
+Carbon Capture:
+    justification_criterion: >-
+        This scenario assumes a deployment of CCU/S technologies that is
+        inconsistent with near-term projections (2030) or long-term feasibility
+        constraints (2035–2040).
+
+
+        Near-term (2030): near-term upper and lower capacity projections can
+        be derived from existing capacities and from current project
+        announcements and known project lead times. Robust upper projections
+        can be made because projects take at least 5 years to plan and
+        construct and therefore will not be operational by 2030 if not yet
+        announced by today. Robust lower projections can be made based on
+        existing capacities and because retirement rates can reasonably be
+        assumed to be low.
+
+
+        Long-term (2035–2040): CCU/S involves capturing CO₂ from flue gases
+        and storing it geologically or in products. The required technologies
+        for these activities are highly non-modular and application-specific.
+        Additionally, CCS depends on infrastructure like CO₂ pipeline
+        networks, which still have to be built. Therefore it will likely grow
+        more slowly than modular technologies with some degree of existing
+        infrastructure, such as solar, wind, and batteries.
+    justification_threshold: >-
+        Near-term (2030): CCU/S projects are tracked by the IEA and published
+        annually in its CCUS Database. Details can be found here:
+        https://www.iea.org/data-and-statistics/data-product/ccus-projects-database
+
+
+        Projects in the CCUS database have one of the following statuses:
+
+        • Operational: in operation in 2024
+
+        • Construction: currently under construction
+
+        • Planned: announced but without final investment decision in 2024.
+        Projects that were decommissioned or suspended are not counted.
+
+
+        We assume the following thresholds for 2030 based on data provided by
+        the IEA CCUS database:
+
+        • Lower, red:  10% less than currently operational capacities.
+
+        • Lower, yellow:  5% less than currently operational capacities and
+        50% of projects under construction.
+
+        • Upper, yellow:  5% more than plants operational today plus all
+        projects under construction plus 20% of projects planned without FID.
+
+        • Upper, red:  10% more than all projects operational, under
+        construction, and announced.
+
+
+        Long-term (2035–2040): this scenario assumes capacity deployment of
+        CCS in 2035 and 2040 that would require unlikely growth rates
+        (compare {{cite:Kazlou-2024}}).
+Solar PV Capacity:
+    justification_criterion: >-
+        This scenario assumes a deployment of solar photovoltaics that is
+        inconsistent with near-term market outlooks.
+
+
+        This technology is available at scale and has short project lead
+        times, meaning that there are no fundamental obstacles to fast
+        deployment. Yet, its near-term growth can be estimated based on
+        today's market dynamics. While these estimates have their limitations,
+        they can be used to set broad ranges of near-term feasibility.
+    justification_threshold: >-
+        Existing capacities in 2023 are reported by {{cite:Ember-2024}}. Yearly 
+        additions for 2024–2030 are estimated in a market outlook by 
+        {{cite:BNEF-2024}}.
+
+
+        We assume the following thresholds for 2030:
+
+        • Lower, red: 10% less than existing capacities plus
+        37.5% of market outlook.
+
+        • Lower, yellow: 5% less than existing capacities plus
+        75% of market outlook.
+
+        • Upper, yellow: 5% more than existing capacities plus
+        150% of market outlook.
+
+        • Upper, red: 10% more than existing capacities plus
+        200% of market outlook.
+Onshore Wind Capacity:
+    justification_criterion: >-
+        This scenario assumes a deployment of on-shore wind that is
+        inconsistent with near-term market outlooks.
+
+
+        This technology is available at scale and has short project lead
+        times, meaning that there are no fundamental obstacles to fast
+        deployment. Yet, its near-term growth can be estimated based on
+        today's market dynamics. While these estimates have their limitations,
+        they can be used to set broad ranges of near-term feasibility.
+    justification_threshold: >-
+        Existing capacities in 2022 are reported by {{cite:Ember-2024}}. Yearly 
+        additions for 2023–2028 are estimated in a market outlook by the 
+        {{cite:GWEC-2024}}.
+
+
+        This outlook is based on input from regional wind associations, 
+        government targets, tender results, announced auction plans, available 
+        project pipeline, and input from industry experts.
+
+
+        We assume the following thresholds for 2030:
+
+        • Lower, red: 10% less than existing capacities plus
+        37.5% of market outlook.
+
+        • Lower, yellow: 5% less than existing capacities plus
+        75% of market outlook.
+
+        • Upper, yellow: 5% more than existing capacities plus
+        150% of market outlook.
+
+        • Upper, red: 10% more than existing capacities plus
+        200% of market outlook.
+Wind Capacity:
+    justification_criterion: >-
+        This scenario assumes a deployment of total wind power capacity
+        (onshore and offshore combined) that falls below near-term minimum
+        expectations.
+
+
+        Since available near-term projections primarily cover onshore wind,
+        the onshore wind lower bounds are used as a conservative floor for
+        total wind capacity. This is justified by the assumption that onshore
+        wind deployment alone should at minimum match these thresholds, making
+        the onshore lower bounds applicable as floor values for total wind
+        capacity.
+    justification_threshold: >-
+        The lower bounds are derived from the same sources as the Onshore Wind
+        Capacity criterion. Existing capacities in 2022 are reported by
+        {{cite:Ember-2024}}. Yearly additions for 2023–2028 are estimated in a
+        market outlook by the {{cite:GWEC-2024}}.
+
+
+        This outlook is based on input from regional wind associations,
+        government targets, tender results, announced auction plans, available
+        project pipeline, and input from industry experts.
+
+
+        The same lower bounds as for Onshore Wind Capacity are applied to
+        total wind capacity, reflecting the assumption that onshore wind
+        alone provides a sufficient lower bound for total deployment:
+
+        • Lower, red: 10% less than existing capacities plus
+        37.5% of market outlook.
+
+        • Lower, yellow: 5% less than existing capacities plus
+        75% of market outlook.
