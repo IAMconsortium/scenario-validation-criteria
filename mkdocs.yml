@@ -1,0 +1,74 @@
+site_name: Definitions of vetting criteria for integrated assessment modelling scenarios
+site_url: https://iamconsortium.github.io/scenario-validation-criteria/
+repo_name: scenario-vetting-criteria
+repo_url: https://github.com/IAMconsortium/scenario-validation-criteria/
+copyright: © 2025 Integrated Assessment Modelling Consortium (IAMC)
+theme:
+  features:
+  - content.tabs.link
+  - navigation.tabs
+  - navigation.tabs.sticky
+  - navigation.path
+  - navigation.indexes
+  - navigation.expand
+  - toc.integrate
+  logo: assets/logos/logo-dark.svg
+  favicon: assets/logos/favicon.ico
+  name: material
+  palette:
+  - scheme: default
+    toggle:
+      icon: material/weather-night
+      name: Switch to dark mode
+  - scheme: slate
+    toggle:
+      icon: material/weather-sunny
+      name: Switch to light mode
+
+markdown_extensions:
+- admonition
+- attr_list
+- md_in_html
+- tables
+- pymdownx.superfences
+- pymdownx.details
+- pymdownx.tabbed:
+    alternate_style: yes
+- pymdownx.snippets:
+    base_path: docs
+- pymdownx.arithmatex:
+    generic: yes
+- pymdownx.emoji:
+    emoji_index: !!python/name:material.extensions.emoji.twemoji
+    emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra_css:
+  - assets/css/extra.css
+
+plugins:
+  - search
+  - macros:
+      module_name: scripts/mkdocs_macros
+  - gen-files:
+      scripts:
+        - scripts/gen_pages.py
+  - literate-nav:
+        nav_file: nav.md
+  - include-markdown
+  - markdown-exec
+  - mkdocs-jupyter:
+      execute: True
+      include_requirejs: True
+      include_source: True
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            show_root_heading: True
+            show_source: True
+            members_order: source
+            merge_init_into_class: True
+            separate_signature: True
+            docstring_style: numpy
+            filters: ["!^_"]
+          paths: [python]
