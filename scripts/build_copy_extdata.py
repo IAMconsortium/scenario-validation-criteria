@@ -6,7 +6,7 @@ from shutil import rmtree, copytree
 def attach_data(setup_kwargs):
     # define source and target paths
     DATA_DIR_SOURCE: Path = Path(__file__).parent.parent / 'inst' / 'extdata'
-    DATA_DIR_TARGET: Path = Path(__file__).parent.parent / 'python' / 'scenario_vetting_criteria' / 'data'
+    DATA_DIR_TARGET: Path = Path(__file__).parent.parent / 'python' / 'scenario_validation_criteria' / 'data'
 
     # remove target directory if it exists
     if DATA_DIR_TARGET.exists():
