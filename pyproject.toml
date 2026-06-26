@@ -34,7 +34,6 @@ script = "scripts/build_copy_extdata.py"
 
 [tool.poetry.group.devtools.dependencies]
 pytest = "^8.0"
-pycountry = "^24.0"
 ruff = "^0.12.1"
 pyyaml = "^6.0.2"
 pandas = "^2.3.0"
