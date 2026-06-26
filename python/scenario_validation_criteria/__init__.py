@@ -54,6 +54,14 @@ def _format_prefix(prefix: str) -> str:
     )
 
 
+def _deformat_prefix(label: str) -> str:
+    """Inverse of `_format_prefix`: lower-case and convert spaces to dashes.
+
+    Idempotent for directory-form input (already lower-case, no spaces).
+    """
+    return label.lower().replace(" ", "-")
+
+
 def _expand_metadata_templates(metadata: dict) -> dict:
     """Expand template entries (those with a 'replacements' field) in a
     metadata dict into individual entries, applying all substitutions to
@@ -124,6 +132,11 @@ def _load_criteria_file(
                 if criteria_dir.is_dir()
             }
             if criteria_types is not None:
+                # Accept formatted labels (e.g. "Historical Vetting") by
+                # converting them back to directory-name form.
+                criteria_types = [
+                    _deformat_prefix(ct) for ct in criteria_types
+                ]
                 criteria_dirs = {
                     k: v
                     for k, v in criteria_dirs.items()
