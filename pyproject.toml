@@ -1,0 +1,66 @@
+[project]
+name = "scenario-validation-criteria"
+description = "Common definitions of validation criteria for IAM scenarios"
+authors = [
+    { name = "Philipp C. Verpoort", email = "philipp.verpoort@pik-potsdam.de" },
+    { name = "Tomoko Hasegawa", email = "thase@fc.ritsumei.ac.jp" },
+    { name = "Pascal Weigmann", email = "pascal.weigmann@pik-potsdam.de" },
+    { name = "Daniel Huppmann", email = "huppmann@iiasa.ac.at" },
+    { name = "Karl Scheifinger", email = "scheifinger@iiasa.ac.at" },
+    { name = "Gunnar Luderer", email = "luderer@pik-potsdam.de" },
+]
+license = "MIT"
+version = "0.1.0"
+readme = "README.md"
+requires-python = ">=3.11, <3.14"
+dependencies = [
+    "nomenclature-iamc (>=0.30.0,<2.0)",
+]
+
+[project.urls]
+repository = "https://github.com/IAMconsortium/scenario-validation-criteria/"
+
+[project.optional-dependencies]
+formatting = ["pybtex>=0.25.1"]
+
+[tool.poetry]
+packages = [
+    { include = "scenario_validation_criteria", from = "python" },
+]
+
+[tool.poetry.build]
+generate-setup-file = false
+script = "scripts/build_copy_extdata.py"
+
+[tool.poetry.group.devtools.dependencies]
+pytest = "^8.0"
+ruff = "^0.12.1"
+pyyaml = "^6.0.2"
+pandas = "^2.3.0"
+polars = "^1.31.0"
+pybtex = "^0.25.1"
+jupyterlab = "^4.4.4"
+jupyterlab-spreadsheet-editor = "^0.7.2"
+plotly = "^6.7.0"
+yamllint = "^1.38.0"
+
+[tool.poetry.group.docs.dependencies]
+mkdocs = "^1.6.1"
+sphinx = "^8.2.3"
+sphinx-markdown-builder = "^0.6.8"
+mkdocs-material = "^9.6.15"
+mkdocstrings = "^0.29.1"
+mkdocstrings-python = "^1.16.12"
+mkdocs-jupyter = "^0.25.1"
+markdown-exec = {extras = ["sessions"], version = "^1.11.0"}
+itables = "^2.4.3"
+mkdocs-include-markdown-plugin = "^7.1.6"
+mkdocs-macros-plugin = "^1.5.0"
+mkdocs-literate-nav = "^0.6.3"
+mkdocs-gen-files = "^0.6.1"
+mike = "^2.2.0"
+sigfig = "^1.3.19"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
