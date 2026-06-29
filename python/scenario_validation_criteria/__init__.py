@@ -4,8 +4,8 @@ Use the `load_criteria` function to load definitions from raw definition files.
 """
 
 from pathlib import Path
-from typing import Literal
 
+import pandas
 import yaml
 
 
@@ -43,10 +43,6 @@ THRESHOLD_COLS_DTYPES: dict[str, str] = {
     "upper": "float64",
     "lower": "float64",
 }
-
-
-# CSV engines that can be used for loading the criteria definitions.
-CSV_ENGINES: set[str] = {"pandas", "python"}
 
 
 def _format_prefix(prefix: str) -> str:
@@ -119,7 +115,6 @@ def _expand_metadata_templates(metadata: dict) -> dict:
 # Load criteria definitions from a specific criteria file.
 def _load_criteria_file(
     component: str,
-    csv_engine: Literal["pandas", "python"],
     criteria_types: list[str],
     reference_subset: list[str],
     criteria_dir: Path,
@@ -157,59 +152,24 @@ def _load_criteria_file(
                 ))
 
             if component == "criteria-thresholds":
-                if csv_engine == "pandas":
-                    try:
-                        import pandas
-                    except ModuleNotFoundError:
-                        raise Exception(
-                            f"Loading '{component}' with CSV engine pandas "
-                            f"requires pandas to be installed."
-                        )
-                    return pandas.concat(
-                        [
-                            pandas.read_csv(
-                                criteria_dir / "thresholds.csv",
-                                delimiter=",",
-                                quotechar='"',
-                                comment="#",
-                                dtype=THRESHOLD_COLS_DTYPES,
-                            ).assign(
-                                criterion=lambda df, ct=criteria_type: (
-                                    f"{_format_prefix(ct)}|" + df["criterion"]
-                                )
-                            )
-                            for criteria_type, criteria_dir in
-                            criteria_dirs.items()
-                        ],
-                        ignore_index=True,
-                    )
-                elif csv_engine == "python":
-                    import csv
-
-                    ret = []
-                    for criteria_type, criteria_dir in criteria_dirs.items():
-                        started = False
-                        for row in csv.reader(
-                            (criteria_dir / "thresholds.csv").open("r"),
+                return pandas.concat(
+                    [
+                        pandas.read_csv(
+                            criteria_dir / "thresholds.csv",
                             delimiter=",",
                             quotechar='"',
-                        ):
-                            if row[0].startswith("#"):
-                                continue
-                            elif not started:
-                                started = True
-                                continue
-
-                            row[0] = f"{_format_prefix(criteria_type)}|" + row[0]
-
-                            ret.append(row)
-
-                    return ret
-                else:
-                    raise Exception(
-                        f"Unknown CSV engine: {csv_engine}. Please choose one "
-                        f"from: {', '.join(CSV_ENGINES)}"
-                    )
+                            comment="#",
+                            dtype=THRESHOLD_COLS_DTYPES,
+                        ).assign(
+                            criterion=lambda df, ct=criteria_type: (
+                                f"{_format_prefix(ct)}|" + df["criterion"]
+                            )
+                        )
+                        for criteria_type, criteria_dir in
+                        criteria_dirs.items()
+                    ],
+                    ignore_index=True,
+                )
             elif component == "criteria-descriptions":
                 ret = {}
                 for criteria_type, criteria_dir in criteria_dirs.items():
@@ -229,29 +189,19 @@ def _load_criteria_file(
         case "criteria-variables":
             criteria_thresholds = _load_criteria_file(
                 component="criteria-thresholds",
-                csv_engine=csv_engine,
                 criteria_types=criteria_types,
                 reference_subset=reference_subset,
                 criteria_dir=CRITERIA_DIR,
             )
-            if csv_engine == "pandas":
-                return (
-                    criteria_thresholds["variable"]
-                    .str.split(",")
-                    .explode()
-                    .str.strip()
-                    .drop_duplicates()
-                    .sort_values()
-                    .tolist()
-                )
-            elif csv_engine == "python":
-                return list(sorted(set(
-                    var.strip()
-                    for row in criteria_thresholds
-                    for var in row[1].split(",")
-                )))
-            else:
-                raise Exception(f"Unknown CSV engine: {csv_engine}")
+            return (
+                criteria_thresholds["variable"]
+                .str.split(",")
+                .explode()
+                .str.strip()
+                .drop_duplicates()
+                .sort_values()
+                .tolist()
+            )
 
         # Load criteria types from YAML files into a dict.
         case "criteria-types":
@@ -282,46 +232,18 @@ def _load_criteria_file(
 
             # Load data.
             if component == "reference-data":
-                if csv_engine == "pandas":
-                    try:
-                        import pandas
-                    except ModuleNotFoundError:
-                        raise Exception(
-                            f"Loading '{component}' with CSV engine pandas "
-                            f"requires pandas to be installed."
-                        )
-                    return pandas.concat(
-                        [
-                            pandas.read_csv(
-                                ref_data_path,
-                                delimiter=",",
-                                quotechar='"',
-                                comment="#",
-                            ).assign(reference_data=ref_data)
-                            for ref_data, ref_data_path in reference_data.items()
-                        ],
-                        ignore_index=True,
-                    )
-                elif csv_engine == "python":
-                    import csv
-
-                    return {
-                        ref_data: list(
-                            row
-                            for row in csv.reader(
-                                ref_data_path.open("r"),
-                                delimiter=",",
-                                quotechar='"',
-                            )
-                            if not row.startswith("#")
-                        )
+                return pandas.concat(
+                    [
+                        pandas.read_csv(
+                            ref_data_path,
+                            delimiter=",",
+                            quotechar='"',
+                            comment="#",
+                        ).assign(reference_data=ref_data)
                         for ref_data, ref_data_path in reference_data.items()
-                    }
-                else:
-                    raise Exception(
-                        f"Unknown CSV engine: {csv_engine}. Please choose one "
-                        f"from: {', '.join(CSV_ENGINES)}"
-                    )
+                    ],
+                    ignore_index=True,
+                )
             # Load metadata.
             elif component == "reference-metadata":
                 ret = {}
@@ -352,7 +274,6 @@ def _load_criteria_file(
 def load_criteria(
     components: str | list[str] | tuple[str] | None = None,
     load_all: bool = False,
-    csv_engine: Literal["pandas", "python"] = "pandas",
     criteria_types: str | list[str] | None = None,
     reference_subset: str | list[str] | tuple[str] | None = None,
 ):
@@ -367,10 +288,6 @@ def load_criteria(
         Alternatively to providing the names of individual components, the
         loading of all components can be instructed with the key-word argument
         `load_all=True`.
-    csv_engine : str = 'pandas', optional
-        The method for loading CSV files if these are supposed to be loaded.
-        Must be one of `pandas` or `python`. Defaults to `pandas`. The output
-        changes accordingly.
     criteria_types : str | list[str] | tuple[str], optional
         When loading the components `thresholds` and `descriptions`, by default
         all criteria types are loaded. Alternatively, a single string or a
@@ -414,7 +331,6 @@ def load_criteria(
     if isinstance(components, str):
         return _load_criteria_file(
             component=components,
-            csv_engine=csv_engine,
             criteria_types=criteria_types,
             reference_subset=reference_subset,
             criteria_dir=CRITERIA_DIR,
@@ -426,7 +342,6 @@ def load_criteria(
         return {
             component: _load_criteria_file(
                 component=component,
-                csv_engine=csv_engine,
                 criteria_types=criteria_types,
                 reference_subset=reference_subset,
                 criteria_dir=CRITERIA_DIR,
