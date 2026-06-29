@@ -6,6 +6,8 @@ Use the `load_criteria` function to load definitions from raw definition files.
 from pathlib import Path
 from typing import Literal
 
+import yaml
+
 
 # Define path to data directory and check if it exists.
 DATA_DIR: Path = Path(__file__).parent / "data"
@@ -209,14 +211,6 @@ def _load_criteria_file(
                         f"from: {', '.join(CSV_ENGINES)}"
                     )
             elif component == "criteria-descriptions":
-                try:
-                    import yaml
-                except ModuleNotFoundError:
-                    raise Exception(
-                        f"Loading '{component}' requires pyyaml to be "
-                        f"installed."
-                    )
-
                 ret = {}
                 for criteria_type, criteria_dir in criteria_dirs.items():
                     with (
@@ -261,12 +255,6 @@ def _load_criteria_file(
 
         # Load criteria types from YAML files into a dict.
         case "criteria-types":
-            try:
-                import yaml
-            except ModuleNotFoundError:
-                raise Exception(
-                    f"Loading '{component}' requires pyyaml to be installed."
-                )
             with (criteria_dir / "criteria-types.yaml").open() as file_handle:
                 return yaml.safe_load(file_handle)
 
@@ -336,13 +324,6 @@ def _load_criteria_file(
                     )
             # Load metadata.
             elif component == "reference-metadata":
-                try:
-                    import yaml
-                except ModuleNotFoundError:
-                    raise Exception(
-                        f"Loading '{component}' requires pyyaml to be "
-                        f"installed."
-                    )
                 ret = {}
                 for ref_data, ref_data_path in reference_data.items():
                     with open(ref_data_path) as file_handle:
