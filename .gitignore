@@ -1,6 +1,7 @@
 /python/scenario_validation_criteria/data/
 /.jupyter/
 *.ipynb
+/docs/code/R.md
 
 
 # Created by https://www.toptal.com/developers/gitignore/api/r,kate,linux,macos,python,windows,powershell,libreoffice,pycharm+all,microsoftoffice,visualstudiocode,jupyternotebooks
