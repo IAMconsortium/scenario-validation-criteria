@@ -1,7 +1,7 @@
 """Tests for the BibTeX sources file."""
 import yaml
 
-from scenario_vetting_criteria import _expand_metadata_templates
+from scenario_validation_criteria import _expand_metadata_templates
 from utils import extract_citations, read_ref_data_header, load_csv_rows
 
 
