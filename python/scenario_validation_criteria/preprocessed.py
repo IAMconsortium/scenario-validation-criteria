@@ -62,7 +62,8 @@ def load_criteria_combined() -> pd.DataFrame:
     criteria_step4 = (
         pd.concat(
             [
-                # Extract operator and individual source names from reference_data.
+                # Extract operator and individual source names from
+                # reference_data.
                 criteria_step3["reference_data"].str.extract(
                     r"(?P<reference_multi_operator>[a-z]+)?"
                     r"\(?(?P<reference_data>[^\)]+)\)?"

@@ -159,7 +159,7 @@ def _load_criteria_file(
                 return pandas.concat(
                     [
                         pandas.read_csv(
-                            criteria_dir / "thresholds.csv",
+                            crit_dir / "thresholds.csv",
                             delimiter=",",
                             quotechar='"',
                             comment="#",
@@ -169,7 +169,7 @@ def _load_criteria_file(
                                 f"{_format_prefix(ct)}|" + df["criterion"]
                             )
                         )
-                        for criteria_type, criteria_dir in criteria_dirs.items()
+                        for criteria_type, crit_dir in criteria_dirs.items()
                     ],
                     ignore_index=True,
                 )
