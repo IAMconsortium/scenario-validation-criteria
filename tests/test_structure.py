@@ -26,8 +26,12 @@ def test_required_directories_present():
 
 
 def test_criteria_dirs_match_types(criteria_types_dict, criteria_dirs):
+    from utils import format_type_prefix
     defined = set(criteria_types_dict)
-    present = set(criteria_dirs)
+    # Directory names are kebab-case; criteria-types.yaml keys are the
+    # formatted labels. Convert directory names to labels before comparing,
+    # matching how the package reconciles the two forms.
+    present = {format_type_prefix(name) for name in criteria_dirs}
     errors = []
     if extra := present - defined:
         errors.append(f"directories not listed in criteria-types.yaml: {sorted(extra)}")

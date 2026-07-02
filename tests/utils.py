@@ -20,6 +20,16 @@ METADATA_REQUIRED_KEYS = {"justification_criterion", "justification_threshold"}
 VALID_LEVEL_OF_CONCERN = {"medium", "strong"}
 
 
+def format_type_prefix(prefix: str) -> str:
+    """Convert a criteria-type directory name to its formatted label.
+
+    Mirrors ``scenario_validation_criteria._format_prefix``: dashes become
+    spaces and every word is capitalised (e.g. ``historical-vetting`` ->
+    ``Historical Vetting``), matching the keys used in criteria-types.yaml.
+    """
+    return " ".join(word[:1].upper() + word[1:] for word in prefix.split("-"))
+
+
 def load_csv_rows(path: Path) -> list[dict]:
     """Read a CSV, skipping lines starting with '#'."""
     with path.open() as f:
