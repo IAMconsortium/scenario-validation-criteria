@@ -1,0 +1,69 @@
+name: Docs (latest)
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  deploy-docs:
+    name: Build and deploy docs of latest commit
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+
+      - name: Sync dependencies for docs
+        run: |
+          poetry install --with docs
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+      - name: Install R and IRkernel
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends r-base libzmq3-dev
+          sudo Rscript -e "install.packages(c('IRkernel', 'Rd2md'), repos='https://packagemanager.posit.co/cran/__linux__/noble/latest')"
+          mkdir -p /tmp/ir_kernel
+          printf '{"argv":["/usr/bin/R","--slave","-e","IRkernel::main()","--args","{connection_file}"],"display_name":"R","language":"R"}' \
+            > /tmp/ir_kernel/kernel.json
+          poetry run jupyter kernelspec install /tmp/ir_kernel --name ir --user
+
+      - name: Generate R documentation
+        run: |
+          Rscript -e "
+          library(Rd2md)
+          fns <- list.files('./man/', pattern='[.]Rd$', full.names=TRUE)
+          out <- file('./docs/code/R.md', 'w')
+          for (f in fns) { writeLines(as_markdown(read_rdfile(f)), out); writeLines('\n\n---\n\n', out) }
+          close(out)
+          "
+
+      - name: Run mike to deploy mkdocs as latest
+        env:
+          LD_LIBRARY_PATH: ""
+        run: |
+          poetry run mike deploy latest --update-aliases
+
+      - name: Push gh-pages branch
+        run: |
+          git push origin gh-pages
