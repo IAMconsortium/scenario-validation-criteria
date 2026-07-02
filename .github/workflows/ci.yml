@@ -1,0 +1,80 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    name: Tests, Lint, Docs
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+
+      - name: Sync dependencies for unit tests
+        run: |
+          poetry install
+
+      - name: Run unit tests
+        run: |
+          poetry run pytest tests/ -v
+
+      - name: Sync dependencies for ruff
+        run: |
+          poetry install --with devtools
+
+      - name: Ruff lint
+        run: |
+          poetry run ruff check ./python/ ./tests/
+
+      - name: Ruff format check
+        run: |
+          poetry run ruff format --check ./python/ ./tests/
+
+      - name: Sync dependencies
+        run: |
+          poetry install --with docs
+
+      - name: Install R and IRkernel
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends r-base libzmq3-dev
+          sudo Rscript -e "install.packages(c('IRkernel', 'Rd2md'), repos='https://packagemanager.posit.co/cran/__linux__/noble/latest')"
+          mkdir -p /tmp/ir_kernel
+          printf '{"argv":["/usr/bin/R","--slave","-e","IRkernel::main()","--args","{connection_file}"],"display_name":"R","language":"R"}' \
+            > /tmp/ir_kernel/kernel.json
+          poetry run jupyter kernelspec install /tmp/ir_kernel --name ir --user
+
+      - name: Generate R documentation
+        run: |
+          Rscript -e "
+          library(Rd2md)
+          fns <- list.files('./man/', pattern='[.]Rd$', full.names=TRUE)
+          out <- file('./docs/code/R.md', 'w')
+          for (f in fns) { writeLines(as_markdown(read_rdfile(f)), out); writeLines('\n\n---\n\n', out) }
+          close(out)
+          "
+
+      - name: Build documentation
+        env:
+          LD_LIBRARY_PATH: ""
+        run: |
+          poetry run mkdocs build
