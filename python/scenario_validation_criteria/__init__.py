@@ -61,8 +61,10 @@ def _deformat_prefix(label: str) -> str:
 
 
 def _expand_metadata_templates(metadata: dict) -> dict:
-    """Expand template entries (those with a 'replacements' field) in a
-    metadata dict into individual entries, applying all substitutions to
+    """Expand template metadata entries into individual entries.
+
+    Template entries (those with a 'replacements' field) in a metadata dict
+    are expanded into individual entries, applying all substitutions to
     both the criterion key and the text fields.
 
     A template entry looks like:
@@ -94,7 +96,8 @@ def _expand_metadata_templates(metadata: dict) -> dict:
             new_key = key
             for sub_var, sub_val in subs.items():
                 if sub_val is None:
-                    # Tilde (~) entry: strip the placeholder and its adjacent pipe.
+                    # Tilde (~) entry: strip the placeholder and its
+                    # adjacent pipe.
                     new_key = (new_key
                         .replace(f"|{{{sub_var}}}", "")
                         .replace(f"{{{sub_var}}}|", "")
@@ -106,7 +109,9 @@ def _expand_metadata_templates(metadata: dict) -> dict:
                 if isinstance(field_v, str):
                     for sub_var, sub_val in subs.items():
                         if sub_val is not None:
-                            field_v = field_v.replace(f"{{{sub_var}}}", sub_val)
+                            field_v = field_v.replace(
+                                f"{{{sub_var}}}", sub_val
+                            )
                 new_spec[field_k] = field_v
             result[new_key] = new_spec
     return result
@@ -178,8 +183,9 @@ def _load_criteria_file(
                     ).open() as file_handle:
                         crit_defs = yaml.safe_load(file_handle)
                         crit_defs = _expand_metadata_templates(crit_defs)
+                        prefix = _format_prefix(criteria_type)
                         ret |= {
-                            f"{_format_prefix(criteria_type)}|" + crit_key: crit_specs
+                            f"{prefix}|" + crit_key: crit_specs
                             for crit_key, crit_specs in crit_defs.items()
                         }
 

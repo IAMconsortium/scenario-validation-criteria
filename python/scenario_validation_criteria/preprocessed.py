@@ -60,7 +60,8 @@ def load_criteria_combined() -> pd.DataFrame:
         .reset_index(drop=True)
     )
 
-    # Step 4: Explode sources; preserve the original full expression for display.
+    # Step 4: Explode sources; preserve the original full expression for
+    # display.
     criteria_step4 = (
         pd.concat([
             # Extract operator and individual source names from reference_data.
@@ -95,7 +96,9 @@ def load_criteria_combined() -> pd.DataFrame:
         )
         # Assign new value and unit; retain relative and reference columns.
         .assign(
-            value=lambda df: df.value_y + (df.value_x - 1.0) * df.value_y.abs(),
+            value=lambda df: (
+                df.value_y + (df.value_x - 1.0) * df.value_y.abs()
+            ),
             unit=lambda df: df.unit_y.fillna(df.unit_x),
             value_rel=lambda df: df.value_x,
             reference_value=lambda df: df.value_y,
@@ -151,7 +154,8 @@ def load_criteria_combined() -> pd.DataFrame:
             "threshold_type",
         ], dropna=False)
         [["reference_multi_operator", "unit", "value",
-          "value_rel", "reference_value", "reference_data", "reference_data_expr"]]
+          "value_rel", "reference_value", "reference_data",
+          "reference_data_expr"]]
         .apply(combine)
         .reset_index()
     )
