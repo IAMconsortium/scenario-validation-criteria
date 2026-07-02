@@ -1,4 +1,5 @@
 """Tests for the BibTeX sources file."""
+
 import yaml
 
 from scenario_validation_criteria import _expand_metadata_templates
@@ -13,6 +14,7 @@ def _load_metadata(crit_dir):
 # ---------------------------------------------------------------------------
 # Citations in metadata YAML must resolve to valid BibTeX keys
 # ---------------------------------------------------------------------------
+
 
 def test_metadata_citations_are_valid(criteria_dirs, bib_keys):
     errors = []
@@ -32,6 +34,7 @@ def test_metadata_citations_are_valid(criteria_dirs, bib_keys):
 # ---------------------------------------------------------------------------
 # Every BibTeX entry must be cited at least once
 # ---------------------------------------------------------------------------
+
 
 def test_all_bib_entries_are_cited(
     criteria_dirs, reference_datasets, bib_keys
@@ -54,6 +57,4 @@ def test_all_bib_entries_are_cited(
         all_cited |= extract_citations(str(header.get("description", "")))
 
     uncited = bib_keys - all_cited
-    assert not uncited, (
-        f"sources.bib: entries never cited: {sorted(uncited)}"
-    )
+    assert not uncited, f"sources.bib: entries never cited: {sorted(uncited)}"

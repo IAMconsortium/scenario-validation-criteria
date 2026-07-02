@@ -1,4 +1,5 @@
 """Shared utility functions for the test suite."""
+
 import csv
 import re
 import yaml
@@ -12,8 +13,15 @@ REF_DATA_COL_RE = re.compile(r"^(?P<op>[a-z][a-z-]*)?\(?(?P<data>[^)]+)\)?$")
 
 VALID_OPERATORS = {"range", "min", "max", "min-max"}
 EXPECTED_THRESHOLD_COLS = {
-    "criterion", "variable", "region", "year",
-    "reference_data", "unit", "level_of_concern", "lower", "upper",
+    "criterion",
+    "variable",
+    "region",
+    "year",
+    "reference_data",
+    "unit",
+    "level_of_concern",
+    "lower",
+    "upper",
 }
 EXPECTED_REF_DATA_COLS = ["variable", "year", "region", "unit", "value"]
 METADATA_REQUIRED_KEYS = {"justification_criterion", "justification_threshold"}

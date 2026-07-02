@@ -47,9 +47,7 @@ THRESHOLD_COLS_DTYPES: dict[str, str] = {
 
 def _format_prefix(prefix: str) -> str:
     """Convert dashes to spaces and capitalise every word."""
-    return " ".join(
-        word[:1].upper() + word[1:] for word in prefix.split("-")
-    )
+    return " ".join(word[:1].upper() + word[1:] for word in prefix.split("-"))
 
 
 def _deformat_prefix(label: str) -> str:
@@ -98,10 +96,11 @@ def _expand_metadata_templates(metadata: dict) -> dict:
                 if sub_val is None:
                     # Tilde (~) entry: strip the placeholder and its
                     # adjacent pipe.
-                    new_key = (new_key
-                        .replace(f"|{{{sub_var}}}", "")
+                    new_key = (
+                        new_key.replace(f"|{{{sub_var}}}", "")
                         .replace(f"{{{sub_var}}}|", "")
-                        .replace(f"{{{sub_var}}}", ""))
+                        .replace(f"{{{sub_var}}}", "")
+                    )
                 else:
                     new_key = new_key.replace(f"{{{sub_var}}}", sub_val)
             new_spec = {}
@@ -144,17 +143,17 @@ def _load_criteria_file(
                     for k, v in criteria_dirs.items()
                     if k in criteria_types
                 }
-                unknown = [
-                    r for r in criteria_types if r not in criteria_dirs
-                ]
+                unknown = [r for r in criteria_types if r not in criteria_dirs]
                 if unknown:
                     raise Exception(
                         f"Criteria type unknown: {', '.join(unknown)}"
                     )
-                criteria_dirs = dict(sorted(
-                    criteria_dirs.items(),
-                    key=lambda d: criteria_types.index(d[0]),
-                ))
+                criteria_dirs = dict(
+                    sorted(
+                        criteria_dirs.items(),
+                        key=lambda d: criteria_types.index(d[0]),
+                    )
+                )
 
             if component == "criteria-thresholds":
                 return pandas.concat(
@@ -170,8 +169,7 @@ def _load_criteria_file(
                                 f"{_format_prefix(ct)}|" + df["criterion"]
                             )
                         )
-                        for criteria_type, criteria_dir in
-                        criteria_dirs.items()
+                        for criteria_type, criteria_dir in criteria_dirs.items()
                     ],
                     ignore_index=True,
                 )
@@ -341,9 +339,8 @@ def load_criteria(
             reference_subset=reference_subset,
             criteria_dir=CRITERIA_DIR,
         )
-    elif (
-        isinstance(components, list) and
-        all(isinstance(c, str) for c in components)
+    elif isinstance(components, list) and all(
+        isinstance(c, str) for c in components
     ):
         return {
             component: _load_criteria_file(

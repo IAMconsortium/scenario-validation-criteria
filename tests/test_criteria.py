@@ -1,12 +1,18 @@
 """Tests for criteria thresholds and metadata."""
+
 import yaml
 import pycountry
 
 from scenario_validation_criteria import _expand_metadata_templates
 from utils import (
-    load_csv_rows, parse_ref_data_col, extract_citations,
-    EXPECTED_THRESHOLD_COLS, METADATA_REQUIRED_KEYS,
-    VALID_LEVEL_OF_CONCERN, VALID_OPERATORS, is_float,
+    load_csv_rows,
+    parse_ref_data_col,
+    extract_citations,
+    EXPECTED_THRESHOLD_COLS,
+    METADATA_REQUIRED_KEYS,
+    VALID_LEVEL_OF_CONCERN,
+    VALID_OPERATORS,
+    is_float,
 )
 
 _COUNTRY_CODES = {c.alpha_3 for c in pycountry.countries} | {"KOS"}
@@ -21,6 +27,7 @@ def _load_metadata(crit_dir):
 # ---------------------------------------------------------------------------
 # Column structure
 # ---------------------------------------------------------------------------
+
 
 def test_threshold_column_names(criteria_dirs):
     errors = []
@@ -46,12 +53,12 @@ def test_threshold_column_names(criteria_dirs):
 # Criterion-name consistency between thresholds and metadata
 # ---------------------------------------------------------------------------
 
+
 def test_every_threshold_criterion_has_metadata(criteria_dirs):
     errors = []
     for name, path in criteria_dirs.items():
         threshold_ids = {
-            row["criterion"]
-            for row in load_csv_rows(path / "thresholds.csv")
+            row["criterion"] for row in load_csv_rows(path / "thresholds.csv")
         }
         metadata_ids = set(_load_metadata(path))
         missing = threshold_ids - metadata_ids
@@ -67,8 +74,7 @@ def test_every_metadata_criterion_has_threshold(criteria_dirs):
     errors = []
     for name, path in criteria_dirs.items():
         threshold_ids = {
-            row["criterion"]
-            for row in load_csv_rows(path / "thresholds.csv")
+            row["criterion"] for row in load_csv_rows(path / "thresholds.csv")
         }
         metadata_ids = set(_load_metadata(path))
         missing = metadata_ids - threshold_ids
@@ -83,6 +89,7 @@ def test_every_metadata_criterion_has_threshold(criteria_dirs):
 # ---------------------------------------------------------------------------
 # Metadata content
 # ---------------------------------------------------------------------------
+
 
 def test_metadata_required_keys(criteria_dirs):
     errors = []
@@ -100,6 +107,7 @@ def test_metadata_required_keys(criteria_dirs):
 # ---------------------------------------------------------------------------
 # Threshold row values
 # ---------------------------------------------------------------------------
+
 
 def test_threshold_required_string_columns_non_empty(criteria_dirs):
     errors = []
@@ -178,6 +186,7 @@ def test_threshold_lower_or_upper_set(criteria_dirs):
 # ---------------------------------------------------------------------------
 # reference_data column
 # ---------------------------------------------------------------------------
+
 
 def test_threshold_reference_data_format(criteria_dirs):
     errors = []

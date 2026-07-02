@@ -1,4 +1,5 @@
 """Shared pytest fixtures."""
+
 import yaml
 import pytest
 from pathlib import Path

@@ -1,10 +1,14 @@
 """Tests for reference data CSV files."""
+
 import yaml
 import pycountry
 
 from utils import (
-    load_csv_rows, parse_ref_data_col, extract_citations,
-    read_ref_data_header, parse_bib_keys,
+    load_csv_rows,
+    parse_ref_data_col,
+    extract_citations,
+    read_ref_data_header,
+    parse_bib_keys,
     EXPECTED_REF_DATA_COLS,
 )
 
@@ -14,6 +18,7 @@ _VALID_REGIONS = {"World"} | {c.alpha_3 for c in pycountry.countries} | {"KOS"}
 # ---------------------------------------------------------------------------
 # Every reference dataset must be used somewhere in thresholds
 # ---------------------------------------------------------------------------
+
 
 def test_reference_datasets_are_used(reference_datasets, criteria_dirs):
     # Collect dataset names appearing in any threshold reference_data column.
@@ -40,6 +45,7 @@ def test_reference_datasets_are_used(reference_datasets, criteria_dirs):
 # Header (YAML comment block)
 # ---------------------------------------------------------------------------
 
+
 def test_reference_data_header_has_required_keys(reference_datasets):
     errors = []
     for name, path in reference_datasets.items():
@@ -53,6 +59,7 @@ def test_reference_data_header_has_required_keys(reference_datasets):
 # ---------------------------------------------------------------------------
 # CSV columns
 # ---------------------------------------------------------------------------
+
 
 def test_reference_data_column_names_and_order(reference_datasets):
     errors = []
@@ -74,6 +81,7 @@ def test_reference_data_column_names_and_order(reference_datasets):
 # Region values
 # ---------------------------------------------------------------------------
 
+
 def test_reference_data_regions(reference_datasets):
     errors = []
     for name, path in reference_datasets.items():
@@ -90,6 +98,7 @@ def test_reference_data_regions(reference_datasets):
 # ---------------------------------------------------------------------------
 # Year values — integers divisible by 5
 # ---------------------------------------------------------------------------
+
 
 def test_reference_data_years(reference_datasets):
     errors = []
@@ -114,9 +123,8 @@ def test_reference_data_years(reference_datasets):
 # Source and citation keys against the BibTeX file
 # ---------------------------------------------------------------------------
 
-def test_reference_data_source_is_valid_bib_key(
-    reference_datasets, bib_keys
-):
+
+def test_reference_data_source_is_valid_bib_key(reference_datasets, bib_keys):
     errors = []
     for name, path in reference_datasets.items():
         header = read_ref_data_header(path)
