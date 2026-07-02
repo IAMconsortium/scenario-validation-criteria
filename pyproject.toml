@@ -46,6 +46,23 @@ jupyterlab-spreadsheet-editor = "^0.7.2"
 plotly = "^6.7.0"
 yamllint = "^1.38.0"
 
+[tool.poetry.group.docs.dependencies]
+mkdocs = "^1.6.1"
+sphinx = "^8.2.3"
+sphinx-markdown-builder = "^0.6.8"
+mkdocs-material = "^9.6.15"
+mkdocstrings = "^0.29.1"
+mkdocstrings-python = "^1.16.12"
+mkdocs-jupyter = "^0.25.1"
+markdown-exec = {extras = ["sessions"], version = "^1.11.0"}
+itables = "^2.4.3"
+mkdocs-include-markdown-plugin = "^7.1.6"
+mkdocs-macros-plugin = "^1.5.0"
+mkdocs-literate-nav = "^0.6.3"
+mkdocs-gen-files = "^0.6.1"
+mike = "^2.2.0"
+sigfig = "^1.3.19"
+
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
