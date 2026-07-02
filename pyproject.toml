@@ -73,3 +73,7 @@ line-length = 79
 [tool.ruff.lint]
 select = ["D"]
 extend-select = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+# Test functions use descriptive names rather than docstrings.
+"tests/**" = ["D103"]

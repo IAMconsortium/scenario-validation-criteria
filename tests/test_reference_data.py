@@ -16,7 +16,7 @@ _VALID_REGIONS = {"World"} | {c.alpha_3 for c in pycountry.countries} | {"KOS"}
 # ---------------------------------------------------------------------------
 
 def test_reference_datasets_are_used(reference_datasets, criteria_dirs):
-    # Collect all dataset names appearing in any threshold reference_data column.
+    # Collect dataset names appearing in any threshold reference_data column.
     used: set[str] = set()
     for crit_dir in criteria_dirs.values():
         for row in load_csv_rows(crit_dir / "thresholds.csv"):
@@ -64,7 +64,8 @@ def test_reference_data_column_names_and_order(reference_datasets):
         actual = list(rows[0].keys())
         if actual != EXPECTED_REF_DATA_COLS:
             errors.append(
-                f"{name}.csv: columns are {actual}, expected {EXPECTED_REF_DATA_COLS}"
+                f"{name}.csv: columns are {actual}, "
+                f"expected {EXPECTED_REF_DATA_COLS}"
             )
     assert not errors, "\n".join(errors)
 
@@ -98,7 +99,9 @@ def test_reference_data_years(reference_datasets):
             try:
                 yr = int(yr_str)
             except ValueError:
-                errors.append(f"{name}.csv row {i}: year '{yr_str}' is not an integer")
+                errors.append(
+                    f"{name}.csv row {i}: year '{yr_str}' is not an integer"
+                )
                 continue
             if yr % 5 != 0:
                 errors.append(
@@ -120,7 +123,8 @@ def test_reference_data_source_is_valid_bib_key(
         source = header.get("source", "").strip()
         if source and source not in bib_keys:
             errors.append(
-                f"{name}.csv: header 'source: {source}' not found in sources.bib"
+                f"{name}.csv: header 'source: {source}' "
+                f"not found in sources.bib"
             )
     assert not errors, "\n".join(errors)
 

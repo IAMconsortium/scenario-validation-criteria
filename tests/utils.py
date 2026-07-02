@@ -33,7 +33,9 @@ def format_type_prefix(prefix: str) -> str:
 def load_csv_rows(path: Path) -> list[dict]:
     """Read a CSV, skipping lines starting with '#'."""
     with path.open() as f:
-        return list(csv.DictReader(row for row in f if not row.startswith("#")))
+        return list(
+            csv.DictReader(row for row in f if not row.startswith("#"))
+        )
 
 
 def parse_bib_keys(bib_path: Path) -> set[str]:
@@ -42,13 +44,12 @@ def parse_bib_keys(bib_path: Path) -> set[str]:
 
 
 def extract_citations(text: str) -> set[str]:
-    """Return all citation keys referenced via {{cite:KEY}} or {{citep:KEY}}."""
+    """Return all citation keys from {{cite:KEY}} or {{citep:KEY}}."""
     return set(CITATION_RE.findall(text))
 
 
 def parse_ref_data_col(col: str) -> tuple[str, list[str]]:
-    """
-    Parse a reference_data column value.
+    """Parse a reference_data column value.
 
     Returns (operator, [dataset_names]).
     Empty string returns ("range", []).

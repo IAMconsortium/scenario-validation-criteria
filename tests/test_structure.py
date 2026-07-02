@@ -34,9 +34,14 @@ def test_criteria_dirs_match_types(criteria_types_dict, criteria_dirs):
     present = {format_type_prefix(name) for name in criteria_dirs}
     errors = []
     if extra := present - defined:
-        errors.append(f"directories not listed in criteria-types.yaml: {sorted(extra)}")
+        errors.append(
+            f"directories not listed in criteria-types.yaml: {sorted(extra)}"
+        )
     if missing := defined - present:
-        errors.append(f"types in criteria-types.yaml with no directory: {sorted(missing)}")
+        errors.append(
+            f"types in criteria-types.yaml with no directory: "
+            f"{sorted(missing)}"
+        )
     assert not errors, "; ".join(errors)
 
 

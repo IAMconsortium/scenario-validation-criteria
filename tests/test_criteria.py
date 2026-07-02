@@ -49,12 +49,16 @@ def test_threshold_column_names(criteria_dirs):
 def test_every_threshold_criterion_has_metadata(criteria_dirs):
     errors = []
     for name, path in criteria_dirs.items():
-        threshold_ids = {row["criterion"] for row in load_csv_rows(path / "thresholds.csv")}
+        threshold_ids = {
+            row["criterion"]
+            for row in load_csv_rows(path / "thresholds.csv")
+        }
         metadata_ids = set(_load_metadata(path))
         missing = threshold_ids - metadata_ids
         if missing:
             errors.append(
-                f"{name}: criteria in thresholds with no metadata entry: {sorted(missing)}"
+                f"{name}: criteria in thresholds with no "
+                f"metadata entry: {sorted(missing)}"
             )
     assert not errors, "\n".join(errors)
 
@@ -62,12 +66,16 @@ def test_every_threshold_criterion_has_metadata(criteria_dirs):
 def test_every_metadata_criterion_has_threshold(criteria_dirs):
     errors = []
     for name, path in criteria_dirs.items():
-        threshold_ids = {row["criterion"] for row in load_csv_rows(path / "thresholds.csv")}
+        threshold_ids = {
+            row["criterion"]
+            for row in load_csv_rows(path / "thresholds.csv")
+        }
         metadata_ids = set(_load_metadata(path))
         missing = metadata_ids - threshold_ids
         if missing:
             errors.append(
-                f"{name}: criteria in metadata with no threshold row: {sorted(missing)}"
+                f"{name}: criteria in metadata with no "
+                f"threshold row: {sorted(missing)}"
             )
     assert not errors, "\n".join(errors)
 
@@ -83,7 +91,8 @@ def test_metadata_required_keys(criteria_dirs):
             missing = METADATA_REQUIRED_KEYS - set(spec)
             if missing:
                 errors.append(
-                    f"{name}/{criterion}: missing metadata keys: {sorted(missing)}"
+                    f"{name}/{criterion}: missing metadata keys: "
+                    f"{sorted(missing)}"
                 )
     assert not errors, "\n".join(errors)
 
@@ -98,7 +107,9 @@ def test_threshold_required_string_columns_non_empty(criteria_dirs):
         for i, row in enumerate(load_csv_rows(path / "thresholds.csv"), 1):
             for col in ("criterion", "variable", "unit"):
                 if not row.get(col, "").strip():
-                    errors.append(f"{name}/thresholds.csv row {i}: '{col}' is empty")
+                    errors.append(
+                        f"{name}/thresholds.csv row {i}: '{col}' is empty"
+                    )
     assert not errors, "\n".join(errors)
 
 
@@ -110,7 +121,8 @@ def test_threshold_region_values(criteria_dirs):
                 region = region.strip()
                 if region and region not in VALID_THRESHOLD_REGIONS:
                     errors.append(
-                        f"{name}/thresholds.csv row {i}: invalid region '{region}'"
+                        f"{name}/thresholds.csv row {i}: "
+                        f"invalid region '{region}'"
                     )
     assert not errors, "\n".join(errors)
 
@@ -226,7 +238,9 @@ def test_threshold_variables_present_in_reference_data(
                 _, datasets = parse_ref_data_col(ref_col)
             except ValueError:
                 continue
-            threshold_vars = {v.strip() for v in row.get("variable", "").split(",")}
+            threshold_vars = {
+                v.strip() for v in row.get("variable", "").split(",")
+            }
             for ds in datasets:
                 if ds not in ref_vars:
                     continue  # caught by existence test

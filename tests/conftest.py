@@ -17,27 +17,27 @@ def bib_keys():
 
 @pytest.fixture
 def criteria_types_dict():
-    """Parsed criteria-types.yaml."""
+    """Return the parsed criteria-types.yaml."""
     return yaml.safe_load((EXTDATA / "criteria-types.yaml").read_text())
 
 
 @pytest.fixture
 def criteria_dirs():
-    """Mapping of criteria type name → directory path."""
+    """Return a mapping of criteria type name to directory path."""
     root = EXTDATA / "criteria"
     return {d.name: d for d in sorted(root.iterdir()) if d.is_dir()}
 
 
 @pytest.fixture
 def reference_datasets():
-    """Mapping of dataset stem → CSV path for all reference data files."""
+    """Return a mapping of dataset stem to CSV path for reference data."""
     ref_dir = EXTDATA / "reference-data"
     return {p.stem: p for p in sorted(ref_dir.glob("*.csv"))}
 
 
 @pytest.fixture
 def all_threshold_rows(criteria_dirs):
-    """All parsed threshold rows across every criteria type, with '_type' injected."""
+    """Return all threshold rows across criteria types, with '_type' set."""
     rows = []
     for crit_type, crit_dir in criteria_dirs.items():
         for row in load_csv_rows(crit_dir / "thresholds.csv"):
