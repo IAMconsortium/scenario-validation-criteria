@@ -77,6 +77,12 @@ if (!dir.exists(.DATA_DIR)) {
     paste(words, collapse = " ")
 }
 
+.deformat_prefix <- function(label) {
+    # Inverse of .format_prefix: lower-case and convert spaces to dashes.
+    # Idempotent for directory-form input (already lower-case, no spaces).
+    tolower(gsub(" ", "-", label))
+}
+
 .read_csv <- function(file_path, csv_engine) {
     if (!(csv_engine %in% .csv_engines)) {
         stop(paste(
@@ -121,6 +127,9 @@ if (!dir.exists(.DATA_DIR)) {
         criteria_dirs <- setNames(as.list(criteria_dirs), basename(criteria_dirs))
 
         if (!is.null(criteria_types)) {
+            # Accept formatted labels (e.g. "Historical Vetting") by
+            # converting them back to directory-name form.
+            criteria_types <- .deformat_prefix(criteria_types)
             unknown <- setdiff(criteria_types, names(criteria_dirs))
             if (length(unknown) > 0) {
                 stop(paste("Criteria type(s) unknown:", toString(unknown)))
