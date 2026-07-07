@@ -7,8 +7,10 @@ on:
       - main
 
 jobs:
-  test:
-    name: Tests, Lint, Docs
+  # 1a) Validate the raw definition files in inst/extdata. These tests do not
+  #     import the Python package, so only a minimal dependency set is needed.
+  raw-data-tests:
+    name: Raw data tests
     runs-on: ubuntu-latest
 
     strategy:
@@ -29,17 +31,66 @@ jobs:
         run: |
           curl -sSL https://install.python-poetry.org | python3 -
 
-      - name: Sync dependencies for unit tests
+      - name: Install dependencies (no package)
         run: |
-          poetry install
+          poetry install --with tests-data --no-root
 
-      - name: Run unit tests
+      - name: Run raw data tests
         run: |
-          poetry run pytest tests/ -v
+          poetry run pytest tests/data -v
 
-      - name: Sync dependencies for ruff
+  # 1b) Test the functionality of the Python package (load_criteria & helpers).
+  package-tests:
+    name: Package tests
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install Poetry
         run: |
-          poetry install --with devtools
+          curl -sSL https://install.python-poetry.org | python3 -
+
+      - name: Install package and dependencies
+        run: |
+          poetry install --with tests-package
+
+      - name: Run package tests
+        run: |
+          poetry run pytest tests/package -v
+
+  # 2) Lint and formatting checks with ruff.
+  lint:
+    name: Lint & format (ruff)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+
+      - name: Install devtools dependencies
+        run: |
+          poetry install --only devtools --no-root
 
       - name: Ruff lint
         run: |
@@ -49,7 +100,25 @@ jobs:
         run: |
           poetry run ruff format --check ./python/ ./tests/
 
-      - name: Sync dependencies
+  # 3) Build the documentation (including the generated R reference).
+  docs:
+    name: Build docs
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+
+      - name: Install package and docs dependencies
         run: |
           poetry install --with docs
 

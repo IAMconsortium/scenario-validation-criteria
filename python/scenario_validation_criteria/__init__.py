@@ -321,7 +321,7 @@ def load_criteria(
             "at the same time."
         )
     if load_all:
-        components = COMPONENTS
+        components = list(COMPONENTS)
     if criteria_types is not None:
         if isinstance(criteria_types, str):
             criteria_types = [criteria_types]

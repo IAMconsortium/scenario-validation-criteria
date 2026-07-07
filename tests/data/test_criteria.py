@@ -1,10 +1,10 @@
 """Tests for criteria thresholds and metadata."""
 
 import yaml
-import pycountry
+from nomenclature import countries
 
-from scenario_validation_criteria import _expand_metadata_templates
 from utils import (
+    expand_metadata_templates,
     load_csv_rows,
     parse_ref_data_col,
     extract_citations,
@@ -15,13 +15,13 @@ from utils import (
     is_float,
 )
 
-_COUNTRY_CODES = {c.alpha_3 for c in pycountry.countries} | {"KOS"}
+_COUNTRY_CODES = {c.alpha_3 for c in countries}
 VALID_THRESHOLD_REGIONS = {"World", "All Countries"} | _COUNTRY_CODES
 
 
 def _load_metadata(crit_dir):
     raw = yaml.safe_load((crit_dir / "descriptions.yaml").read_text())
-    return _expand_metadata_templates(raw)
+    return expand_metadata_templates(raw)
 
 
 # ---------------------------------------------------------------------------

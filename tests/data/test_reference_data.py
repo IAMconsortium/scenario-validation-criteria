@@ -1,7 +1,7 @@
 """Tests for reference data CSV files."""
 
 import yaml
-import pycountry
+from nomenclature import countries
 
 from utils import (
     load_csv_rows,
@@ -12,7 +12,7 @@ from utils import (
     EXPECTED_REF_DATA_COLS,
 )
 
-_VALID_REGIONS = {"World"} | {c.alpha_3 for c in pycountry.countries} | {"KOS"}
+_VALID_REGIONS = {"World"} | {c.alpha_3 for c in countries}
 
 
 # ---------------------------------------------------------------------------

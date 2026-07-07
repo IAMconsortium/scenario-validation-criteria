@@ -1,6 +1,7 @@
 """Shared utility functions for the test suite."""
 
 import csv
+import itertools
 import re
 import yaml
 from pathlib import Path
@@ -87,3 +88,54 @@ def is_float(s: str) -> bool:
         return True
     except (ValueError, TypeError):
         return False
+
+
+def expand_metadata_templates(metadata: dict) -> dict:
+    """Expand template metadata entries into individual entries.
+
+    Standalone copy of ``scenario_validation_criteria._expand_metadata_``
+    ``templates`` so the raw-data tests can validate ``descriptions.yaml``
+    without importing the Python package. The package's own expansion logic
+    is exercised separately by the package-functionality tests.
+
+    Template entries (those with a 'replacements' field) are expanded into
+    individual entries, applying all substitutions to both the criterion key
+    and the text fields.
+    """
+    result = {}
+    for key, spec in metadata.items():
+        if "replacements" not in spec:
+            result[key] = spec
+            continue
+        replacements = spec["replacements"]
+        base_spec = {k: v for k, v in spec.items() if k != "replacements"}
+        var_names = list(replacements.keys())
+        option_lists = [list(replacements[v].items()) for v in var_names]
+        for combo in itertools.product(*option_lists):
+            subs: dict[str, str] = {}
+            for var_name, (option_key, text_subs) in zip(var_names, combo):
+                subs[var_name] = option_key
+                subs.update(text_subs or {})
+            new_key = key
+            for sub_var, sub_val in subs.items():
+                if sub_val is None:
+                    # Tilde (~) entry: strip the placeholder and its
+                    # adjacent pipe.
+                    new_key = (
+                        new_key.replace(f"|{{{sub_var}}}", "")
+                        .replace(f"{{{sub_var}}}|", "")
+                        .replace(f"{{{sub_var}}}", "")
+                    )
+                else:
+                    new_key = new_key.replace(f"{{{sub_var}}}", sub_val)
+            new_spec = {}
+            for field_k, field_v in base_spec.items():
+                if isinstance(field_v, str):
+                    for sub_var, sub_val in subs.items():
+                        if sub_val is not None:
+                            field_v = field_v.replace(
+                                f"{{{sub_var}}}", sub_val
+                            )
+                new_spec[field_k] = field_v
+            result[new_key] = new_spec
+    return result

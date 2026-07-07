@@ -34,6 +34,13 @@ packages = [
 generate-setup-file = false
 script = "scripts/build_copy_extdata.py"
 
+[tool.poetry.group.tests-data.dependencies]
+pytest = "^8.0"
+
+[tool.poetry.group.tests-package.dependencies]
+pytest = "^8.0"
+pybtex = "^0.25.1"
+
 [tool.poetry.group.devtools.dependencies]
 pytest = "^8.0"
 ruff = "^0.12.1"

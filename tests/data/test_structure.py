@@ -7,7 +7,7 @@ REQUIRED_DIRS = {"criteria", "reference-data"}
 def test_required_files_present(criteria_types_dict, bib_keys):
     from pathlib import Path
 
-    EXTDATA = Path(__file__).parent.parent / "inst" / "extdata"
+    EXTDATA = Path(__file__).parents[2] / "inst" / "extdata"
     present = {p.name for p in EXTDATA.iterdir()}
     missing = REQUIRED_FILES - present
     assert not missing, f"missing required files: {sorted(missing)}"
@@ -16,7 +16,7 @@ def test_required_files_present(criteria_types_dict, bib_keys):
 def test_required_directories_present():
     from pathlib import Path
 
-    EXTDATA = Path(__file__).parent.parent / "inst" / "extdata"
+    EXTDATA = Path(__file__).parents[2] / "inst" / "extdata"
     present = {p.name for p in EXTDATA.iterdir() if p.is_dir()}
     missing = REQUIRED_DIRS - present
     assert not missing, f"missing required directories: {sorted(missing)}"
