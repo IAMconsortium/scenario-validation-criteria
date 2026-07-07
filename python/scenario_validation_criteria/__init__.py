@@ -47,9 +47,7 @@ THRESHOLD_COLS_DTYPES: dict[str, str] = {
 
 def _format_prefix(prefix: str) -> str:
     """Convert dashes to spaces and capitalise every word."""
-    return " ".join(
-        word[:1].upper() + word[1:] for word in prefix.split("-")
-    )
+    return " ".join(word[:1].upper() + word[1:] for word in prefix.split("-"))
 
 
 def _deformat_prefix(label: str) -> str:
@@ -61,8 +59,10 @@ def _deformat_prefix(label: str) -> str:
 
 
 def _expand_metadata_templates(metadata: dict) -> dict:
-    """Expand template entries (those with a 'replacements' field) in a
-    metadata dict into individual entries, applying all substitutions to
+    """Expand template metadata entries into individual entries.
+
+    Template entries (those with a 'replacements' field) in a metadata dict
+    are expanded into individual entries, applying all substitutions to
     both the criterion key and the text fields.
 
     A template entry looks like:
@@ -94,11 +94,13 @@ def _expand_metadata_templates(metadata: dict) -> dict:
             new_key = key
             for sub_var, sub_val in subs.items():
                 if sub_val is None:
-                    # Tilde (~) entry: strip the placeholder and its adjacent pipe.
-                    new_key = (new_key
-                        .replace(f"|{{{sub_var}}}", "")
+                    # Tilde (~) entry: strip the placeholder and its
+                    # adjacent pipe.
+                    new_key = (
+                        new_key.replace(f"|{{{sub_var}}}", "")
                         .replace(f"{{{sub_var}}}|", "")
-                        .replace(f"{{{sub_var}}}", ""))
+                        .replace(f"{{{sub_var}}}", "")
+                    )
                 else:
                     new_key = new_key.replace(f"{{{sub_var}}}", sub_val)
             new_spec = {}
@@ -106,7 +108,9 @@ def _expand_metadata_templates(metadata: dict) -> dict:
                 if isinstance(field_v, str):
                     for sub_var, sub_val in subs.items():
                         if sub_val is not None:
-                            field_v = field_v.replace(f"{{{sub_var}}}", sub_val)
+                            field_v = field_v.replace(
+                                f"{{{sub_var}}}", sub_val
+                            )
                 new_spec[field_k] = field_v
             result[new_key] = new_spec
     return result
@@ -139,23 +143,23 @@ def _load_criteria_file(
                     for k, v in criteria_dirs.items()
                     if k in criteria_types
                 }
-                unknown = [
-                    r for r in criteria_types if r not in criteria_dirs
-                ]
+                unknown = [r for r in criteria_types if r not in criteria_dirs]
                 if unknown:
                     raise Exception(
                         f"Criteria type unknown: {', '.join(unknown)}"
                     )
-                criteria_dirs = dict(sorted(
-                    criteria_dirs.items(),
-                    key=lambda d: criteria_types.index(d[0]),
-                ))
+                criteria_dirs = dict(
+                    sorted(
+                        criteria_dirs.items(),
+                        key=lambda d: criteria_types.index(d[0]),
+                    )
+                )
 
             if component == "criteria-thresholds":
                 return pandas.concat(
                     [
                         pandas.read_csv(
-                            criteria_dir / "thresholds.csv",
+                            crit_dir / "thresholds.csv",
                             delimiter=",",
                             quotechar='"',
                             comment="#",
@@ -165,8 +169,7 @@ def _load_criteria_file(
                                 f"{_format_prefix(ct)}|" + df["criterion"]
                             )
                         )
-                        for criteria_type, criteria_dir in
-                        criteria_dirs.items()
+                        for criteria_type, crit_dir in criteria_dirs.items()
                     ],
                     ignore_index=True,
                 )
@@ -178,8 +181,9 @@ def _load_criteria_file(
                     ).open() as file_handle:
                         crit_defs = yaml.safe_load(file_handle)
                         crit_defs = _expand_metadata_templates(crit_defs)
+                        prefix = _format_prefix(criteria_type)
                         ret |= {
-                            f"{_format_prefix(criteria_type)}|" + crit_key: crit_specs
+                            f"{prefix}|" + crit_key: crit_specs
                             for crit_key, crit_specs in crit_defs.items()
                         }
 
@@ -317,7 +321,7 @@ def load_criteria(
             "at the same time."
         )
     if load_all:
-        components = COMPONENTS
+        components = list(COMPONENTS)
     if criteria_types is not None:
         if isinstance(criteria_types, str):
             criteria_types = [criteria_types]
@@ -335,9 +339,8 @@ def load_criteria(
             reference_subset=reference_subset,
             criteria_dir=CRITERIA_DIR,
         )
-    elif (
-        isinstance(components, list) and
-        all(isinstance(c, str) for c in components)
+    elif isinstance(components, list) and all(
+        isinstance(c, str) for c in components
     ):
         return {
             component: _load_criteria_file(

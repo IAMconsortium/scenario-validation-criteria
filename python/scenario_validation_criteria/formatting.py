@@ -1,4 +1,5 @@
 """Format bibliographic information on sources."""
+
 import re
 from typing import Optional
 
