@@ -6,7 +6,7 @@ The thresholds values come in two levels of concern: medium concern and strong
 concern.
 
 Some thresholds are defined in relation to some reference, as set by the
-reference data column. The [reference data](../reference_data.md) is defined
+reference data column. The [reference data](reference_data.md) is defined
 separately. The values defined as thresholds therefore have to be multiplied
 with the values from the reference data before applying the criteria to scenario
 data.

@@ -3,6 +3,26 @@ site_url: https://iamconsortium.github.io/scenario-validation-criteria/
 repo_name: scenario-vetting-criteria
 repo_url: https://github.com/IAMconsortium/scenario-validation-criteria/
 copyright: © 2025 Integrated Assessment Modelling Consortium (IAMC)
+
+nav:
+  - Home: index.md
+  - Summary: summary.md
+  - Components:
+    - components/index.md
+    - Types: components/types.md
+    - Descriptions: components/descriptions.md
+    - Thresholds: components/thresholds.md
+    - Reference data: components/reference_data.md
+    - Sources: components/sources.md
+  - Tutorials:
+    - tutorials/index.md
+    - Raw: tutorials/raw.md
+    - R: tutorials/R.py
+    - Python: tutorials/python.py
+  - Code documentation:
+    - R: code/R.md
+    - Python: code/python.md
+
 theme:
   features:
   - content.tabs.link
@@ -44,16 +64,12 @@ markdown_extensions:
 
 extra_css:
   - assets/css/extra.css
+  - assets/css/theme-toggle.css
 
 plugins:
   - search
   - macros:
       module_name: scripts/mkdocs_macros
-  - gen-files:
-      scripts:
-        - scripts/gen_pages.py
-  - literate-nav:
-        nav_file: nav.md
   - include-markdown
   - markdown-exec
   - mkdocs-jupyter:

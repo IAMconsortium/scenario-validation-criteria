@@ -50,12 +50,21 @@ If you use this package in your research, please cite it using the metadata in
 
 ---
 
-## Funding acknowledgment
-This work was started as part of the Scenario Compass Initiative (SCI).
-Visit https://scenariocompass.org for more information.
+## License
+
+All data and code are published under the [MIT licence](LICENSE.md).
 
 ---
 
-## License
+## Acknowledgments
+This collection of scenario validation criteria was curated as part of the 
+[Scenario Compass Initiative (SCI)](https://scenariocompass.org). Some of 
+the reference data was previously derived in the 
+[PRISMA](https://www.net0prisma.eu/) project.
 
-All data and code are published under the [MIT](LICENSE.md) licence.
+SCI is supported financially by the Bezos Earth Fund. PRISMA has received 
+funding from the European Union’s Horizon Europe research and innovation 
+programme under grant agreement No. 101081604 (PRISMA).
+
+![SCI Logo](docs/assets/logos/sci-light.svg)
+![PRISMA Logo](docs/assets/logos/prisma-light.svg)
