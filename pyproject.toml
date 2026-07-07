@@ -20,7 +20,10 @@ dependencies = [
 ]
 
 [project.urls]
+homepage = "https://scenario-validation-criteria.iamconsortium.org/"
+documentation = "https://scenario-validation-criteria.iamconsortium.org/"
 repository = "https://github.com/IAMconsortium/scenario-validation-criteria/"
+issues = "https://github.com/IAMconsortium/scenario-validation-criteria/issues"
 
 [project.optional-dependencies]
 formatting = ["pybtex>=0.25.1"]
