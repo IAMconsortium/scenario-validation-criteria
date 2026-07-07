@@ -1261,11 +1261,7 @@ are returned inside a keyworded list.</p>
 
             <details class="quote">
               <summary>Source code in <code>python/scenario_validation_criteria/__init__.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">274</span>
-<span class="normal">275</span>
-<span class="normal">276</span>
-<span class="normal">277</span>
-<span class="normal">278</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">278</span>
 <span class="normal">279</span>
 <span class="normal">280</span>
 <span class="normal">281</span>
@@ -1341,7 +1337,10 @@ are returned inside a keyworded list.</p>
 <span class="normal">351</span>
 <span class="normal">352</span>
 <span class="normal">353</span>
-<span class="normal">354</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">load_criteria</span><span class="p">(</span>
+<span class="normal">354</span>
+<span class="normal">355</span>
+<span class="normal">356</span>
+<span class="normal">357</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">load_criteria</span><span class="p">(</span>
     <span class="n">components</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">load_all</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="n">criteria_types</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -1387,7 +1386,7 @@ are returned inside a keyworded list.</p>
             <span class="s2">&quot;at the same time.&quot;</span>
         <span class="p">)</span>
     <span class="k">if</span> <span class="n">load_all</span><span class="p">:</span>
-        <span class="n">components</span> <span class="o">=</span> <span class="n">COMPONENTS</span>
+        <span class="n">components</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">COMPONENTS</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">criteria_types</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">criteria_types</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
             <span class="n">criteria_types</span> <span class="o">=</span> <span class="p">[</span><span class="n">criteria_types</span><span class="p">]</span>
@@ -1405,9 +1404,8 @@ are returned inside a keyworded list.</p>
             <span class="n">reference_subset</span><span class="o">=</span><span class="n">reference_subset</span><span class="p">,</span>
             <span class="n">criteria_dir</span><span class="o">=</span><span class="n">CRITERIA_DIR</span><span class="p">,</span>
         <span class="p">)</span>
-    <span class="k">elif</span> <span class="p">(</span>
-        <span class="nb">isinstance</span><span class="p">(</span><span class="n">components</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span>
-        <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">components</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">components</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span>
+        <span class="nb">isinstance</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">components</span>
     <span class="p">):</span>
         <span class="k">return</span> <span class="p">{</span>
             <span class="n">component</span><span class="p">:</span> <span class="n">_load_criteria_file</span><span class="p">(</span>
@@ -1608,8 +1606,7 @@ with any excluded fields removed.</p>
 
             <details class="quote">
               <summary>Source code in <code>python/scenario_validation_criteria/formatting.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 14</span>
-<span class="normal"> 15</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 15</span>
 <span class="normal"> 16</span>
 <span class="normal"> 17</span>
 <span class="normal"> 18</span>
@@ -1729,7 +1726,8 @@ with any excluded fields removed.</p>
 <span class="normal">132</span>
 <span class="normal">133</span>
 <span class="normal">134</span>
-<span class="normal">135</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">format_sources</span><span class="p">(</span>
+<span class="normal">135</span>
+<span class="normal">136</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">format_sources</span><span class="p">(</span>
     <span class="n">bib_data</span><span class="p">:</span> <span class="n">BibliographyData</span><span class="p">,</span>
     <span class="n">style</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;alpha&quot;</span><span class="p">,</span>
     <span class="n">target</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;plaintext&quot;</span><span class="p">,</span>
@@ -1961,8 +1959,7 @@ with any excluded fields removed.</p>
 
             <details class="quote">
               <summary>Source code in <code>python/scenario_validation_criteria/formatting.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">138</span>
-<span class="normal">139</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">139</span>
 <span class="normal">140</span>
 <span class="normal">141</span>
 <span class="normal">142</span>
@@ -1991,7 +1988,8 @@ with any excluded fields removed.</p>
 <span class="normal">165</span>
 <span class="normal">166</span>
 <span class="normal">167</span>
-<span class="normal">168</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">insert_citations</span><span class="p">(</span>
+<span class="normal">168</span>
+<span class="normal">169</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">insert_citations</span><span class="p">(</span>
     <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">citations</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]],</span>
     <span class="n">link</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
