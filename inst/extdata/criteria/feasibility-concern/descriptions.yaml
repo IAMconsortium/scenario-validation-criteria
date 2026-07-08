@@ -82,8 +82,9 @@ Nuclear Capacity:
         We assume the following thresholds for 2030 based on the plant-level
         data:
 
-        • Lower, red:  30% less than currently operational capacities
-        {{citep:IAEA-PRIS-2024}}.
+        • Lower, red:  0.0 GW to account for the fact that nuclear energy
+        could, in principle, be phased out quickly, as observed in a few
+        countries (e.g. Germany).
 
         • Lower, yellow:  15% less than currently operational capacities
         {{citep:IAEA-PRIS-2024}}.
