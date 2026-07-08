@@ -70,14 +70,14 @@ programme under grant agreement No. 101081604 (PRISMA).
   <picture>
     <source
         media="(prefers-color-scheme: dark)"
-        srcset="assets/logos/sci-dark.svg"
+        srcset="docs/assets/logos/sci-dark.svg"
     >
     <source
         media="(prefers-color-scheme: light)"
-        srcset="assets/logos/sci-light.svg"
+        srcset="docs/assets/logos/sci-light.svg"
     >
     <img
-        src="assets/logos/sci-light.svg"
+        src="docs/assets/logos/sci-light.svg"
         alt="SCI Logo"
         height="50"
     >
@@ -85,14 +85,14 @@ programme under grant agreement No. 101081604 (PRISMA).
   <picture>
     <source
         media="(prefers-color-scheme: dark)"
-        srcset="assets/logos/prisma-dark.png"
+        srcset="docs/assets/logos/prisma-dark.png"
     >
     <source
         media="(prefers-color-scheme: light)"
-        srcset="assets/logos/prisma-light.png"
+        srcset="docs/assets/logos/prisma-light.png"
     >
     <img
-        src="assets/logos/prisma-light.png"
+        src="docs/assets/logos/prisma-light.png"
         alt="PRISMA Logo"
         height="50"
     >
