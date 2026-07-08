@@ -83,8 +83,8 @@ All data and code are published under the [MIT licence](https://github.com/IAMco
 {{ readme_section('## Acknowledgments') }}
 
 <p align="center">
-  <img src="assets/logos/sci-light.svg" class="only-light" alt="SCI Logo" style="max-width: 400px; width: 100%; margin-bottom: 20px;">
-  <img src="assets/logos/sci-dark.svg" class="only-dark" alt="SCI Logo" style="max-width: 400px; width: 100%; margin-bottom: 20px;">
-  <img src="assets/logos/prisma-light.png" class="only-light" alt="PRISMA Logo" style="max-width: 400px; width: 100%; margin-bottom: 20px;">
-  <img src="assets/logos/prisma-dark.png" class="only-dark" alt="PRISMA Logo" style="max-width: 400px; width: 100%; margin-bottom: 20px;">
+  <img src="assets/logos/sci-light.svg" class="only-light" alt="SCI Logo" style="height: 50px; margin-bottom: 20px;">
+  <img src="assets/logos/sci-dark.svg" class="only-dark" alt="SCI Logo" style="height: 50px; margin-bottom: 20px;">
+  <img src="assets/logos/prisma-light.png" class="only-light" alt="PRISMA Logo" style="height: 50px; margin-bottom: 20px;">
+  <img src="assets/logos/prisma-dark.png" class="only-dark" alt="PRISMA Logo" style="height: 50px; margin-bottom: 20px;">
 </p>

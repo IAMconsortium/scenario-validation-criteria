@@ -9,7 +9,7 @@ def define_env(env):
         readme = (Path(env.conf["docs_dir"]).parent / "README.md").read_text()
         start_idx = readme.find(start)
         end_idx = readme.find("---", start_idx)
-        end_idx2 = readme.find("![", start_idx)
+        end_idx2 = readme.find("<p", start_idx)
         if end_idx == -1 or end_idx2 < end_idx:
             end_idx = end_idx2
         return readme[start_idx:end_idx].rstrip()

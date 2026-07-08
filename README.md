@@ -66,5 +66,35 @@ SCI is supported financially by the Bezos Earth Fund. PRISMA has received
 funding from the European Union’s Horizon Europe research and innovation 
 programme under grant agreement No. 101081604 (PRISMA).
 
-![SCI Logo](docs/assets/logos/sci-light.svg)
-![PRISMA Logo](docs/assets/logos/prisma-light.svg)
+<p align="center">
+  <picture>
+    <source
+        media="(prefers-color-scheme: dark)"
+        srcset="assets/logos/sci-dark.svg"
+    >
+    <source
+        media="(prefers-color-scheme: light)"
+        srcset="assets/logos/sci-light.svg"
+    >
+    <img
+        src="assets/logos/sci-light.svg"
+        alt="SCI Logo"
+        height="50"
+    >
+  </picture>
+  <picture>
+    <source
+        media="(prefers-color-scheme: dark)"
+        srcset="assets/logos/prisma-dark.png"
+    >
+    <source
+        media="(prefers-color-scheme: light)"
+        srcset="assets/logos/prisma-light.png"
+    >
+    <img
+        src="assets/logos/prisma-light.png"
+        alt="PRISMA Logo"
+        height="50"
+    >
+  </picture>
+</p>
