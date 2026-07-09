@@ -219,7 +219,10 @@ def load_criteria_for_validator() -> list[dict]:
         # Pass the validation outcome to the validator as `warning_level`
         # for the concern outcomes (`medium`/`high`), but drop it for the
         # vetting outcome (`failed`).
-        entry = {"upper_bound": row["upper_bound"], "lower_bound": row["lower_bound"]}
+        entry = {
+            "upper_bound": row["upper_bound"],
+            "lower_bound": row["lower_bound"],
+        }
         if row["validation_outcome"] != "failed":
             entry = {"warning_level": row["validation_outcome"], **entry}
         return entry
