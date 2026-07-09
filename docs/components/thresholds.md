@@ -1,9 +1,11 @@
 Each criterion comes with a set of threshold values that scenarios have to
-surpass in order to be assigned a specific level of concern in regards to this
+surpass in order to be assigned a specific validation outcome in regards to this
 criterion.
 
-The thresholds values come in two levels of concern: medium concern and strong
-concern.
+The validation outcome that a scenario is assigned depends on the
+[criterion type](types.md): concern criteria distinguish `medium` and `high`
+concern, whereas vetting criteria mark a scenario as `failed`. A scenario that
+surpasses none of the thresholds is assigned the implicit outcome `ok`.
 
 Some thresholds are defined in relation to some reference, as set by the
 reference data column. The [reference data](reference_data.md) is defined

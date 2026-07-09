@@ -22,13 +22,12 @@ EXPECTED_THRESHOLD_COLS = {
     "year",
     "reference_data",
     "unit",
-    "level_of_concern",
+    "validation_outcome",
     "lower",
     "upper",
 }
 EXPECTED_REF_DATA_COLS = ["variable", "year", "region", "unit", "value"]
 METADATA_REQUIRED_KEYS = {"justification_criterion", "justification_threshold"}
-VALID_LEVEL_OF_CONCERN = {"medium", "strong"}
 
 
 def format_type_prefix(prefix: str) -> str:

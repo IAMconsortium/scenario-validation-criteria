@@ -40,7 +40,7 @@ def _pivot(df):
     # Pivot absolute values, relative multipliers, and reference values together.
     pivoted = (
         d.pivot_table(
-            index=["variable", "region", "year", "level_of_concern", "unit"],
+            index=["variable", "region", "year", "validation_outcome", "unit"],
             columns="threshold_type",
             values=["value", "value_rel", "reference_value"],
             aggfunc="first",
@@ -57,10 +57,10 @@ def _pivot(df):
     if has_ref:
         # reference_data_expr is the same for both threshold types; attach once.
         ref_expr = (
-            d.groupby(["variable", "year", "level_of_concern"], dropna=False)
+            d.groupby(["variable", "year", "validation_outcome"], dropna=False)
             ["reference_data_expr"].first().reset_index()
         )
-        pivoted = pivoted.merge(ref_expr, on=["variable", "year", "level_of_concern"], how="left")
+        pivoted = pivoted.merge(ref_expr, on=["variable", "year", "validation_outcome"], how="left")
 
         for col in ["Lower (rel)", "Upper (rel)"]:
             pivoted[col] = pivoted[col].apply(
@@ -82,7 +82,7 @@ def _pivot(df):
             )
 
     col_order = [
-        "variable", "region", "year", "unit", "level_of_concern",
+        "variable", "region", "year", "unit", "validation_outcome",
         "Lower (abs)",
         *(["Lower (rel)", "Lower (ref)"] if has_ref else []),
         "Upper (abs)",
@@ -103,6 +103,13 @@ for crit_type in criteria_types:
         continue
 
     print(f"## {crit_type}\n")
+
+    type_spec = criteria_types[crit_type]
+    print(f"{_fmt(type_spec['description'])}\n")
+    print("**Possible validation outcomes:**\n")
+    for outcome, outcome_desc in type_spec["validation_outcomes"].items():
+        print(f"* `{outcome}` — {outcome_desc}")
+    print("")
 
     for criterion in type_criteria:
         criterion_name = criterion.split("|", 1)[1]

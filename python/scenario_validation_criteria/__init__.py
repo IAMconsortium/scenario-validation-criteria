@@ -39,7 +39,7 @@ THRESHOLD_COLS_DTYPES: dict[str, str] = {
     "year": "str",
     "reference_data": "str",
     "unit": "str",
-    "level_of_concern": "str",
+    "validation_outcome": "str",
     "upper": "float64",
     "lower": "float64",
 }

@@ -11,8 +11,8 @@ from utils import (
     extract_citations,
     EXPECTED_THRESHOLD_COLS,
     METADATA_REQUIRED_KEYS,
-    VALID_LEVEL_OF_CONCERN,
     VALID_OPERATORS,
+    format_type_prefix,
     is_float,
 )
 
@@ -136,16 +136,22 @@ def test_threshold_region_values(criteria_dirs):
     assert not errors, "\n".join(errors)
 
 
-def test_threshold_level_of_concern(criteria_dirs):
+def test_threshold_validation_outcome(criteria_dirs, criteria_types_dict):
     errors = []
     for name, path in criteria_dirs.items():
+        # Allowed outcomes for this criteria type are declared in
+        # criteria-types.yaml. "ok" is the implicit default and never appears
+        # in the threshold files, so it is excluded from the accepted values.
+        type_label = format_type_prefix(name)
+        outcomes = criteria_types_dict[type_label]["validation_outcomes"]
+        valid = set(outcomes) - {"ok"}
         for i, row in enumerate(load_csv_rows(path / "thresholds.csv"), 1):
-            loc = row.get("level_of_concern", "").strip()
-            if loc not in VALID_LEVEL_OF_CONCERN:
+            outcome = row.get("validation_outcome", "").strip()
+            if outcome not in valid:
                 errors.append(
                     f"{name}/thresholds.csv row {i}: "
-                    f"invalid level_of_concern '{loc}' "
-                    f"(expected one of {sorted(VALID_LEVEL_OF_CONCERN)})"
+                    f"invalid validation_outcome '{outcome}' "
+                    f"(expected one of {sorted(valid)})"
                 )
     assert not errors, "\n".join(errors)
 
