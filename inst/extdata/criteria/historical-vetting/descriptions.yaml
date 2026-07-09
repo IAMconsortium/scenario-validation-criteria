@@ -66,7 +66,7 @@ Emissions|CO2|Energy and Industrial Processes:
         The threshold for 2025 is derived from data in 2022 and 2023 through
         linear extrapolation. To account for the COVID-19 shock, the threshold
         for 2020 is derived using both the reported value in 2020 and the value
-        averaged over the period Jan 2018 till Dec 2022, taking whichever is
+        averaged over the period Jan 2018 until Dec 2022, taking whichever is
         more permissive for the scenario in question.
 Final Energy:
     justification_criterion: >-
