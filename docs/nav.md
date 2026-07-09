@@ -1,7 +1,0 @@
-- Tutorials
-    - [Basic usage](tutorials/basic.md)
-    - [R](tutorials/R.py)
-    - [Python](tutorials/python.py)
-- Code documentation
-    - [R](code/R.md)
-    - [Python](code/python.md)
