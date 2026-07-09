@@ -1,5 +1,10 @@
 [
   {
+    "version": "pr19-rename-outcome-columns-values",
+    "title": "pr19-rename-outcome-columns-values",
+    "aliases": []
+  },
+  {
     "version": "pr15-update-readme-docs",
     "title": "pr15-update-readme-docs",
     "aliases": []
