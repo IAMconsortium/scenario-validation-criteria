@@ -95,9 +95,9 @@ Nuclear Capacity:
 
         • Upper, red:  10% more than the highest estimate (461 GW) published
         by the {{cite:IAEA-E50-2024}}.
-Carbon Capture:
+CCS Capacity:
     justification_criterion: >-
-        This scenario assumes a deployment of CCU/S technologies that is
+        This scenario assumes a deployment of CCS technologies that is
         inconsistent with near-term projections (2030) or long-term feasibility
         constraints (2035–2040).
 
@@ -112,15 +112,15 @@ Carbon Capture:
         assumed to be low.
 
 
-        Long-term (2035–2040): CCU/S involves capturing CO₂ from flue gases
-        and storing it geologically or in products. The required technologies
-        for these activities are highly non-modular and application-specific.
+        Long-term (2035–2040): CCS involves capturing CO₂ from flue gases
+        and storing it geologically. The required technologies for these
+        activities are highly non-modular and application-specific.
         Additionally, CCS depends on infrastructure like CO₂ pipeline
         networks, which still have to be built. Therefore it will likely grow
         more slowly than modular technologies with some degree of existing
         infrastructure, such as solar, wind, and batteries.
     justification_threshold: >-
-        Near-term (2030): CCU/S projects are tracked by the IEA and published
+        Near-term (2030): CCS projects are tracked by the IEA and published
         annually in its CCUS Database. Details can be found here:
         https://www.iea.org/data-and-statistics/data-product/ccus-projects-database
 
