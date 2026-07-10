@@ -196,7 +196,8 @@ Solar PV Capacity:
         lowest generation value of scenarios that meet the lower bound 
         of the capacity threshold.
       
-        *Link to the workflow script to be added*
+        Visit https://github.com/IAMconsortium/scenariocompass/tree/main/scripts/sci_v1.0
+        for more information.
 
 Onshore Wind Capacity:
     justification_criterion: >-
