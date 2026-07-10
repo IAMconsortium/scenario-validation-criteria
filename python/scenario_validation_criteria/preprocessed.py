@@ -7,6 +7,28 @@ from nomenclature import countries
 from . import load_criteria
 
 
+def _convert_year(value):
+    """Convert a single ``year`` cell to an int, or keep a cumulative range.
+
+    Plain integer years are returned as Python ints so they still match the
+    (integer) ``year`` column of the reference data during merging.
+    Cumulative ranges of the form ``cumulative[YYYY-YYYY]`` are passed
+    through unchanged: they denote a threshold on the cumulative sum over the
+    year range rather than a single-year value, and never carry reference
+    data. Missing values are returned as ``pd.NA``.
+
+    Note that a single row may hold several comma-separated cumulative
+    ranges; these are split and exploded into one row each upstream (Step 2),
+    so this function only ever sees an individual entry.
+    """
+    if pd.isna(value):
+        return pd.NA
+    value = value.strip()
+    if value.startswith("cumulative["):
+        return value
+    return int(value)
+
+
 def load_criteria_combined() -> pd.DataFrame:
     """Load and combine criteria thresholds with reference data.
 
@@ -34,16 +56,18 @@ def load_criteria_combined() -> pd.DataFrame:
     ).dropna(subset="value")
 
     # Step 2: Explode comma-separated values in variable, region, and year
-    # columns.
+    # columns. Comma-separated cumulative ranges (e.g.
+    # ``cumulative[2020-2100], cumulative[2010-2050]``) are thereby expanded
+    # into one row per range, just like plain years.
     criteria_tmp = criteria_step1.copy()
     for col_name in ["variable", "region", "year"]:
         criteria_tmp[col_name] = criteria_tmp[col_name].str.split(",")
         criteria_tmp = criteria_tmp.explode(col_name)
         criteria_tmp[col_name] = criteria_tmp[col_name].str.strip()
 
-    criteria_step2 = criteria_tmp.reset_index(drop=True).astype(
-        {"year": "Int64"}
-    )
+    # Cast plain years to int while keeping cumulative ranges as strings.
+    criteria_step2 = criteria_tmp.reset_index(drop=True)
+    criteria_step2["year"] = criteria_step2["year"].map(_convert_year)
 
     # Step 3: Replace `All Countries` with country codes and explode.
     all_countries = [country.alpha_3 for country in countries]

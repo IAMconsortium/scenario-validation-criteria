@@ -11,6 +11,8 @@ CITATION_RE = re.compile(r"\{\{cite[p]?:([^}]+)\}\}")
 BIB_KEY_RE = re.compile(r"@(?!comment)\w+\s*\{\s*([^,\s]+)", re.IGNORECASE)
 # Matches: optional_operator(dataset, dataset, ...) or bare dataset names
 REF_DATA_COL_RE = re.compile(r"^(?P<op>[a-z][a-z-]*)?\(?(?P<data>[^)]+)\)?$")
+# Matches a cumulative year range: cumulative[YYYY-YYYY]
+CUMULATIVE_YEAR_RE = re.compile(r"^cumulative\[(?P<start>\d+)-(?P<end>\d+)\]$")
 
 VALID_OPERATORS = {"range", "min", "max", "min-max"}
 EXPECTED_THRESHOLD_COLS = {
@@ -73,6 +75,60 @@ def parse_ref_data_col(col: str) -> tuple[str, list[str]]:
     op = m.group("op") or "range"
     datasets = [d.strip() for d in m.group("data").split(",") if d.strip()]
     return op, datasets
+
+
+def parse_year_col(col: str) -> list:
+    """Parse a threshold ``year`` column value into its entries.
+
+    The value is a comma-separated list of entries, where each entry is
+    either a plain integer year (e.g. ``2030``) or a cumulative range of the
+    form ``cumulative[YYYY-YYYY]``. A cumulative entry denotes that the
+    threshold applies to the cumulative sum over the inclusive year range,
+    rather than to each individual year.
+
+    Returns a list with one item per non-empty comma-separated field, in
+    order: a plain year is returned as an ``int``, a cumulative range as a
+    ``(start, end)`` tuple of ints. An empty value returns an empty list.
+
+    Raises
+    ------
+    ValueError
+        If an entry is neither a plain integer nor a well-formed
+        ``cumulative[YYYY-YYYY]`` range, if a cumulative range is inverted
+        (start > end), or if cumulative and plain-year entries are mixed
+        within the same value. Mixing is forbidden because the two carry
+        incompatible dimensions (``[X]`` vs. ``[X]/[time]``).
+
+    """
+    entries: list = []
+    kinds: set[str] = set()
+    for raw in col.split(","):
+        field = raw.strip()
+        if not field:
+            continue
+        match = CUMULATIVE_YEAR_RE.match(field)
+        if match:
+            start, end = int(match["start"]), int(match["end"])
+            if start > end:
+                raise ValueError(
+                    f"inverted cumulative range '{field}' (start > end)"
+                )
+            entries.append((start, end))
+            kinds.add("cumulative")
+        else:
+            try:
+                entries.append(int(field))
+            except ValueError:
+                raise ValueError(
+                    f"year '{field}' is neither an integer nor a "
+                    f"cumulative[YYYY-YYYY] range"
+                )
+            kinds.add("plain")
+    if len(kinds) > 1:
+        raise ValueError(
+            "cumulative and plain-year entries cannot be mixed in one row"
+        )
+    return entries
 
 
 def read_ref_data_header(path: Path) -> dict:
