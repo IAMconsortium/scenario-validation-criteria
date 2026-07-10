@@ -47,8 +47,8 @@ Exceeding Prudent Limit For Geological Carbon Storage:
     justification_criterion: >-
         Some scenarios rely strongly on the use of carbon capture and 
         sequestration (CCS). We use geological carbon storage volumes that 
-        exceed prudent technical and sustainability limits as upper bounds as 
-        quantified by Gidden et al (2025).
+        exceed prudent technical and sustainability limits as upper bounds 
+        on cumulative CCS as quantified by Gidden et al (2025).
     justification_threshold: >-
         Estimates are provided by {{cite:Gidden-2025}}.
 
