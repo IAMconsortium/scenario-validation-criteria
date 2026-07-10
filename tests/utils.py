@@ -98,6 +98,7 @@ def parse_year_col(col: str) -> list:
         (start > end), or if cumulative and plain-year entries are mixed
         within the same value. Mixing is forbidden because the two carry
         incompatible dimensions (``[X]`` vs. ``[X]/[time]``).
+
     """
     entries: list = []
     kinds: set[str] = set()
