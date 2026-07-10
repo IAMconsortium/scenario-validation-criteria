@@ -118,6 +118,9 @@ for crit_type in criteria_types:
         table_html = to_html_datatable(df, connected=True, style="width:100%")
         print(f"<div>\n{table_html}\n</div>\n")
 
+        if note := meta.get("note"):
+            print(f"!!! note\n\n    {_fmt(note).replace("\n", "\n    ")}\n")
+
 print("---\n\n## Sources\n")
 
 df_srcs = pd.DataFrame.from_dict(sources_formatted, orient="index").reset_index()

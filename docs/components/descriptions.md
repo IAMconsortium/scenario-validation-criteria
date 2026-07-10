@@ -20,6 +20,7 @@ for crit_type in load_criteria("criteria-types"):
     print(
         pd.DataFrame.from_dict(criteria_meta, orient="index")
         .reset_index()
+        .fillna("")
         .assign(
             index=lambda df: "`" + df["index"] + "`",
             justification_threshold=lambda df: df["justification_threshold"].apply(
@@ -30,7 +31,8 @@ for crit_type in load_criteria("criteria-types"):
         .rename(columns={
             "index": "NAME",
             "justification_criterion": "JUSTIFICATION OF THE CRITERION<br>(Why this criterion?)",
-            "justification_threshold": "JUSTIFICATION OF THE THRESHOLD<br>(Why this threshold?)"
+            "justification_threshold": "JUSTIFICATION OF THE THRESHOLD<br>(Why this threshold?)",
+            "note": "NOTE",
         })
         .apply(
             lambda col: col.str.replace("\n", "<br>")
