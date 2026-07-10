@@ -183,6 +183,22 @@ Solar PV Capacity:
 
         • Upper, red: 10% more than existing capacities plus
         200% of market outlook.
+    note: >-
+        Due to reporting inconsistencies in legacy projects, several
+        models reported capacity-values that were far below actual
+        power generation from solar PV, causing an overly restrictive
+        application of this criterion.
+        
+        To remedy this inconsistency, we implemented an exception in
+        the validation workflow for **Release v1.0 and v1.1 of the SCI ensemble**:
+        any *high* concern flag was changed to *medium* if actual power generation
+        from solar PV was above 10.5 EJ/yr in 2030, corresponding to the
+        lowest generation value of scenarios that meet the lower bound 
+        of the capacity threshold.
+      
+        Visit [https://github.com/IAMconsortium/scenariocompass/tree/main/scripts/sci_v1.0](https://github.com/IAMconsortium/scenariocompass/tree/main/scripts/sci_v1.0)
+        for more information.
+
 Onshore Wind Capacity:
     justification_criterion: >-
         This scenario assumes a deployment of on-shore wind that is
