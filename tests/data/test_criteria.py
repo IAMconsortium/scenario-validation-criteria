@@ -7,6 +7,7 @@ from utils import (
     expand_metadata_templates,
     load_csv_rows,
     parse_ref_data_col,
+    parse_year_col,
     extract_citations,
     EXPECTED_THRESHOLD_COLS,
     METADATA_REQUIRED_KEYS,
@@ -150,21 +151,18 @@ def test_threshold_level_of_concern(criteria_dirs):
 
 
 def test_threshold_year_values(criteria_dirs):
-    """Non-empty year values (after comma-split) must be integers."""
+    """Year entries must be integers or cumulative[YYYY-YYYY] ranges.
+
+    Entries are comma-separated; cumulative and plain-year entries may not
+    be mixed within a single row (see ``parse_year_col``).
+    """
     errors = []
     for name, path in criteria_dirs.items():
         for i, row in enumerate(load_csv_rows(path / "thresholds.csv"), 1):
-            for yr in row.get("year", "").split(","):
-                yr = yr.strip()
-                if not yr:
-                    continue
-                try:
-                    int(yr)
-                except ValueError:
-                    errors.append(
-                        f"{name}/thresholds.csv row {i}: "
-                        f"year '{yr}' is not an integer"
-                    )
+            try:
+                parse_year_col(row.get("year", ""))
+            except ValueError as exc:
+                errors.append(f"{name}/thresholds.csv row {i}: {exc}")
     assert not errors, "\n".join(errors)
 
 
