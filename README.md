@@ -1,3 +1,22 @@
+<p align="center">
+  <picture>
+    <source
+        media="(prefers-color-scheme: dark)"
+        srcset="docs/assets/logos/logo-dark.svg"
+    >
+    <source
+        media="(prefers-color-scheme: light)"
+        srcset="docs/assets/logos/logo-light.svg"
+    >
+    <img
+        src="docs/assets/logos/logo-light.svg"
+        alt="SCI Logo"
+        height="100"
+    >
+  </picture>
+</p>
+
+
 # Scenario Validation Criteria
 
 Validation criteria for scenarios produced by Integrated Assessment
