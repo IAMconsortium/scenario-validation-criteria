@@ -32,7 +32,7 @@ theme:
   - navigation.indexes
   - navigation.expand
   - toc.integrate
-  logo: assets/logos/logo-dark.svg
+  logo: assets/logos/logo.svg
   favicon: assets/logos/favicon.ico
   name: material
   palette:

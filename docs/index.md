@@ -4,6 +4,14 @@ hide:
   - toc
 ---
 
+<p align="center">
+  <img src="assets/logos/logo-light.svg" class="only-light" alt="Project Logo" style="max-width: 600px; width: 100%; margin-bottom: 20px;">
+  <img src="assets/logos/logo-dark.svg" class="only-dark" alt="Project Logo" style="max-width: 600px; width: 100%; margin-bottom: 20px;">
+</p>
+
+
+<h1 style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;">Scenario Validation Criteria</h1>
+
 {{ readme_section('## Background') }}
 
 <div class="grid cards" markdown>
