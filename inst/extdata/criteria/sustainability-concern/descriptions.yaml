@@ -1,23 +1,30 @@
 Food Availability:
     justification_criterion: >-
-        This scenario reports levels of food availability that are above or 
-        below human nutritional needs.
+        This criterion flags scenarios that report levels of food availability
+        that are above or below human nutritional needs.
         
         
         This is a concern, because food availability below nutritional needs 
         would mean hunger and because food availability above nutritional 
-        needs would mean overconsumption.
+        needs would mean high resource use due to overconsumption.
     justification_threshold: >-
         According to the {{cite:FRA-2020}}, the Minimum Dietary Energy 
-        Requirement is 2,100 kilo calories per person per day, which is used as 
-        the lower threshold. Meanwhile, the highest historical level of food 
-        availability is 4,000 kilo calories per person per day, so that the 
-        threshold is set at 5,000 kilo calories per person per day.
+        Requirement is 2,100 kcal/cap/day. Meanwhile, the highest historical
+        level of food availability is 4,000 kcal/cap/day.
+
+
+        Based on these values, we assume the following global threshold across
+        all years:
+
+        • Upper threshold, medium concern: 5,000 kcal/cap/day
+
+        • Lower threshold, medium concern: 2,100 kcal/cap/day
 Unsustainable Bioenergy Use:
     justification_criterion: >-
-        This scenario assumes a high usage of bioenergy. Specifically, we
-        here refer to 2nd generation bioenergy crops, crop and forestry
-        residues, municipal solid waste bioenergy and traditional biomass.
+        This criterion flags scenarios that assume a high usage of bioenergy.
+        Specifically, we here refer to 2nd generation bioenergy crops, crop
+        and forestry residues, municipal solid waste bioenergy and traditional
+        biomass.
 
 
         Bioenergy can be a drop-in replacement to currently used fossil fuels.
@@ -40,23 +47,37 @@ Unsustainable Bioenergy Use:
         value of 100 EJ/yr is defined as the threshold for the onset of 
         medium concern and 245 EJ/yr a threshold for the onset of high concern 
         {{citep:IPCC-AR6-WG3-ANX3-2022}}. Another study by {{cite:Deprez-2024}} 
-        suggests that medium sustainablity risks arise at 50 EJ/yr and high 
-        risks at 120 EJ/yr. Based on those studies the threshold for this 
-        sustainablity concern flag is set at 100 EJ/yr.
+        suggests that medium sustainability risks arise at 50 EJ/yr and high
+        risks at 120 EJ/yr.
+
+
+        Based on these studies, we assume the following global thresholds
+        across all years:
+
+        • Upper threshold, medium concern: 100 EJ/yr
+
+        • Upper threshold, high concern: 245 EJ/yr
 Exceeding Prudent Limit For Geological Carbon Storage:
     justification_criterion: >-
-        Some scenarios rely strongly on the use of carbon capture and 
-        sequestration (CCS). We use geological carbon storage volumes that 
-        exceed prudent technical and sustainability limits as upper bounds 
-        on cumulative CCS as quantified by Gidden et al (2025).
+        This criterion flags scenarios that rely on an amount of geological
+        carbon storage that exceeds estimated storage potentials.
+
+
+        This is a concern, because relying on an exceedance of physical
+        storage potentials is unsustainable.
     justification_threshold: >-
-        Estimates are provided by {{cite:Gidden-2025}}.
+        We use geological carbon storage volumes that exceed prudent technical
+        and sustainability limits as upper bounds on cumulative CCS as
+        quantified by {{cite:Gidden-2025}}.
 
 
-        • Upper threshold, major concern: exceeding cumulative CCS of 
-        1,460 Gt CO2 until the end of the century, which was identified as the 
-        median of the range when combining spatial risk layers.
+        Based on this study, we assume the following global thresholds for
+        cumulative geological carbon storage in the period 2020–2100:
 
-        • Upper threshold, medium concern: exceeding cumulative CCS of
-        1,290 Gt CO2 until the end of the century, which was identified as the 
-        lower bound of the range when combining spatial risk layers.
+        • Upper threshold, high concern: 1,460 Gt CO₂, which was identified as
+        the median of the range by {{cite:Gidden-2025}} when combining spatial
+        risk layers.
+
+        • Upper threshold, medium concern: 1,290 Gt CO₂, which was identified
+        as the lower bound of the range by {{cite:Gidden-2025}} when combining
+        spatial risk layers.
