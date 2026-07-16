@@ -1,15 +1,15 @@
-criterion,variable,region,year,reference_data,unit,level_of_concern,lower,upper
+criterion,variable,region,year,reference_data,unit,validation_outcome,lower,upper
 Hydropower Capacity,Capacity|Electricity|Hydro,World,2030,,GW,medium,1175.37,1606.66
-Hydropower Capacity,Capacity|Electricity|Hydro,World,2030,,GW,strong,979.43,2117.58
+Hydropower Capacity,Capacity|Electricity|Hydro,World,2030,,GW,high,979.43,2117.58
 Nuclear Capacity,Capacity|Electricity|Nuclear,World,2030,,GW,medium,320.33,441.92
-Nuclear Capacity,Capacity|Electricity|Nuclear,World,2030,,GW,strong,0,507.1
+Nuclear Capacity,Capacity|Electricity|Nuclear,World,2030,,GW,high,0,507.1
 Carbon Capture and Storage,Carbon Capture|Geological Storage,World,2030,,Mt CO2/yr,medium,44.02,152.47
-Carbon Capture and Storage,Carbon Capture|Geological Storage,World,2030,,Mt CO2/yr,strong,0,457.89
+Carbon Capture and Storage,Carbon Capture|Geological Storage,World,2030,,Mt CO2/yr,high,0,457.89
 Carbon Capture and Storage,Carbon Capture|Geological Storage,World,2035,,Mt CO2/yr,medium,,1300
 Carbon Capture and Storage,Carbon Capture|Geological Storage,World,2040,,Mt CO2/yr,medium,,4300
 Solar PV Capacity,Capacity|Electricity|Solar,World,2030,,GW,medium,4350.2,8163.7
-Solar PV Capacity,Capacity|Electricity|Solar,World,2030,,GW,strong,2683.2,10896
+Solar PV Capacity,Capacity|Electricity|Solar,World,2030,,GW,high,2683.2,10896
 Onshore Wind Capacity,Capacity|Electricity|Wind|Onshore,World,2030,,GW,medium,1719,2853
-Onshore Wind Capacity,Capacity|Electricity|Wind|Onshore,World,2030,,GW,strong,1220,3655
+Onshore Wind Capacity,Capacity|Electricity|Wind|Onshore,World,2030,,GW,high,1220,3655
 Wind Capacity,Capacity|Electricity|Wind,World,2030,,GW,medium,1719,
-Wind Capacity,Capacity|Electricity|Wind,World,2030,,GW,strong,1220,
+Wind Capacity,Capacity|Electricity|Wind,World,2030,,GW,high,1220,

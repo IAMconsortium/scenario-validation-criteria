@@ -40,7 +40,7 @@ def load_criteria_combined() -> pd.DataFrame:
     Returns
     -------
     pd.DataFrame
-        One row per (criterion, variable, region, year, level_of_concern,
+        One row per (criterion, variable, region, year, validation_outcome,
         threshold_type) combination with columns ``value`` and ``unit``.
 
     """
@@ -184,7 +184,7 @@ def load_criteria_combined() -> pd.DataFrame:
                 "region",
                 "year",
                 "variable",
-                "level_of_concern",
+                "validation_outcome",
                 "threshold_type",
             ],
             dropna=False,
@@ -215,15 +215,22 @@ def load_criteria_for_validator() -> list[dict]:
     """
     criteria_combined = load_criteria_combined()
 
+    def _build_entry(row):
+        # Pass the validation outcome to the validator as `warning_level`
+        # for the concern outcomes (`medium`/`high`), but drop it for the
+        # vetting outcome (`failed`).
+        entry = {
+            "upper_bound": row["upper_bound"],
+            "lower_bound": row["lower_bound"],
+        }
+        if row["validation_outcome"] != "failed":
+            entry = {"warning_level": row["validation_outcome"], **entry}
+        return entry
+
     # Convert dataframe to list of nested dictionaries and return.
     return (
         criteria_combined.query("region=='World'")
-        .rename(
-            columns={
-                "criterion": "name",
-                "level_of_concern": "warning_level",
-            }
-        )
+        .rename(columns={"criterion": "name"})
         .assign(
             name=lambda df: df["name"]
             + ("|" + df["region"].astype(str)).where(
@@ -233,24 +240,20 @@ def load_criteria_for_validator() -> list[dict]:
                 df["year"].notna(), other=""
             ),
             threshold_type=lambda df: df["threshold_type"] + "_bound",
-            warning_level=lambda df: df["warning_level"].map(
-                {
-                    "strong": "high",
-                    "medium": "medium",
-                }
-            ),
         )
         .drop(columns="unit")
+        # Keep the validation outcome in the pivot index so that medium and
+        # high thresholds remain separate entries.
         .pivot(
-            index=["name", "region", "year", "variable", "warning_level"],
+            index=["name", "region", "year", "variable", "validation_outcome"],
             columns="threshold_type",
             values="value",
         )
         .reset_index()
         .groupby(["name", "region", "year", "variable"], dropna=False)[
-            ["warning_level", "upper_bound", "lower_bound"]
+            ["validation_outcome", "upper_bound", "lower_bound"]
         ]
-        .apply(lambda df: list(df.apply(lambda row: row.to_dict(), axis=1)))
+        .apply(lambda df: list(df.apply(_build_entry, axis=1)))
         .to_frame("validation")
         .reset_index()
         .apply(lambda row: row.dropna().to_dict(), axis=1)

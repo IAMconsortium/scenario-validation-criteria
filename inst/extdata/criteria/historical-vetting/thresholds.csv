@@ -1,19 +1,19 @@
-criterion,variable,region,year,reference_data,unit,level_of_concern,lower,upper
-Emissions|CO2|Energy and Industrial Processes,Emissions|CO2|Energy and Industrial Processes,World,"2010, 2015",CEDS-2025,dimensionless,strong,0.8,1.2
-Emissions|CO2|Energy and Industrial Processes,Emissions|CO2|Energy and Industrial Processes,World,2020,"range(CEDS-2025,CEDS-2025-COVIDaveraged)",dimensionless,strong,0.8,1.2
-Emissions|CO2|Energy and Industrial Processes,Emissions|CO2|Energy and Industrial Processes,World,2025,CEDS-2025-extrapol25,dimensionless,strong,0.8,1.2
-Primary Energy|Coal,Primary Energy|Coal,World,"2010, 2015",IEA-ESDB-20250610,dimensionless,strong,0.8,1.2
-Primary Energy|Coal,Primary Energy|Coal,World,2020,"range(IEA-ESDB-20250610,IEA-ESDB-20250610-COVIDaveraged)",dimensionless,strong,0.8,1.2
-Primary Energy|Coal,Primary Energy|Coal,World,2025,IEA-ESDB-20250610-extrapol25,dimensionless,strong,0.8,1.2
-Primary Energy|Gas,Primary Energy|Gas,World,"2010, 2015",IEA-ESDB-20250610,dimensionless,strong,0.8,1.2
-Primary Energy|Gas,Primary Energy|Gas,World,2020,"range(IEA-ESDB-20250610,IEA-ESDB-20250610-COVIDaveraged)",dimensionless,strong,0.8,1.2
-Primary Energy|Gas,Primary Energy|Gas,World,2025,IEA-ESDB-20250610-extrapol25,dimensionless,strong,0.8,1.2
-Primary Energy|Oil,Primary Energy|Oil,World,"2010, 2015",IEA-ESDB-20250610,dimensionless,strong,0.8,1.2
-Primary Energy|Oil,Primary Energy|Oil,World,2020,"range(IEA-ESDB-20250610,IEA-ESDB-20250610-COVIDaveraged)",dimensionless,strong,0.8,1.2
-Primary Energy|Oil,Primary Energy|Oil,World,2025,IEA-ESDB-20250610-extrapol25,dimensionless,strong,0.8,1.2
-Primary Energy|Nuclear,Primary Energy|Nuclear,World,"2010, 2015",IEA-ESDB-20250610,dimensionless,strong,0.8,1.2
-Primary Energy|Nuclear,Primary Energy|Nuclear,World,2020,"range(IEA-ESDB-20250610,IEA-ESDB-20250610-COVIDaveraged)",dimensionless,strong,0.8,1.2
-Primary Energy|Nuclear,Primary Energy|Nuclear,World,2025,IEA-ESDB-20250610-extrapol25,dimensionless,strong,0.8,1.2
-Final Energy,Final Energy,World,"2010, 2015",IEA-ESDB-20250610,dimensionless,strong,0.8,1.2
-Final Energy,Final Energy,World,2020,"range(IEA-ESDB-20250610,IEA-ESDB-20250610-COVIDaveraged)",dimensionless,strong,0.8,1.2
-Final Energy,Final Energy,World,2025,IEA-ESDB-20250610-extrapol25,dimensionless,strong,0.8,1.2
+criterion,variable,region,year,reference_data,unit,validation_outcome,lower,upper
+Emissions|CO2|Energy and Industrial Processes,Emissions|CO2|Energy and Industrial Processes,World,"2010, 2015",CEDS-2025,dimensionless,failed,0.8,1.2
+Emissions|CO2|Energy and Industrial Processes,Emissions|CO2|Energy and Industrial Processes,World,2020,"range(CEDS-2025,CEDS-2025-COVIDaveraged)",dimensionless,failed,0.8,1.2
+Emissions|CO2|Energy and Industrial Processes,Emissions|CO2|Energy and Industrial Processes,World,2025,CEDS-2025-extrapol25,dimensionless,failed,0.8,1.2
+Primary Energy|Coal,Primary Energy|Coal,World,"2010, 2015",IEA-ESDB-20250610,dimensionless,failed,0.8,1.2
+Primary Energy|Coal,Primary Energy|Coal,World,2020,"range(IEA-ESDB-20250610,IEA-ESDB-20250610-COVIDaveraged)",dimensionless,failed,0.8,1.2
+Primary Energy|Coal,Primary Energy|Coal,World,2025,IEA-ESDB-20250610-extrapol25,dimensionless,failed,0.8,1.2
+Primary Energy|Gas,Primary Energy|Gas,World,"2010, 2015",IEA-ESDB-20250610,dimensionless,failed,0.8,1.2
+Primary Energy|Gas,Primary Energy|Gas,World,2020,"range(IEA-ESDB-20250610,IEA-ESDB-20250610-COVIDaveraged)",dimensionless,failed,0.8,1.2
+Primary Energy|Gas,Primary Energy|Gas,World,2025,IEA-ESDB-20250610-extrapol25,dimensionless,failed,0.8,1.2
+Primary Energy|Oil,Primary Energy|Oil,World,"2010, 2015",IEA-ESDB-20250610,dimensionless,failed,0.8,1.2
+Primary Energy|Oil,Primary Energy|Oil,World,2020,"range(IEA-ESDB-20250610,IEA-ESDB-20250610-COVIDaveraged)",dimensionless,failed,0.8,1.2
+Primary Energy|Oil,Primary Energy|Oil,World,2025,IEA-ESDB-20250610-extrapol25,dimensionless,failed,0.8,1.2
+Primary Energy|Nuclear,Primary Energy|Nuclear,World,"2010, 2015",IEA-ESDB-20250610,dimensionless,failed,0.8,1.2
+Primary Energy|Nuclear,Primary Energy|Nuclear,World,2020,"range(IEA-ESDB-20250610,IEA-ESDB-20250610-COVIDaveraged)",dimensionless,failed,0.8,1.2
+Primary Energy|Nuclear,Primary Energy|Nuclear,World,2025,IEA-ESDB-20250610-extrapol25,dimensionless,failed,0.8,1.2
+Final Energy,Final Energy,World,"2010, 2015",IEA-ESDB-20250610,dimensionless,failed,0.8,1.2
+Final Energy,Final Energy,World,2020,"range(IEA-ESDB-20250610,IEA-ESDB-20250610-COVIDaveraged)",dimensionless,failed,0.8,1.2
+Final Energy,Final Energy,World,2025,IEA-ESDB-20250610-extrapol25,dimensionless,failed,0.8,1.2

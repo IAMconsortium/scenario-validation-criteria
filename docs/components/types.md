@@ -6,13 +6,22 @@ from scenario_validation_criteria import load_criteria
 
 criteria_types = load_criteria("criteria-types")
 
+
+def _format_outcomes(outcomes):
+    return "<br>".join(f"`{key}`: {desc}" for key, desc in outcomes.items())
+
+
+rows = [
+    {
+        "type": f"`{name}`",
+        "description": spec["description"],
+        "validation outcomes": _format_outcomes(spec["validation_outcomes"]),
+    }
+    for name, spec in criteria_types.items()
+]
+
 print(
-    pd.DataFrame.from_dict(criteria_types, orient="index")
-    .reset_index()
-    .rename(columns={"index": "type", 0: "description"})
-    .assign(
-        type=lambda df: "`" + df["type"] + "`",
-    )
+    pd.DataFrame(rows)
     .rename(columns=lambda x: x.upper())
     .to_markdown(index=False)
 )

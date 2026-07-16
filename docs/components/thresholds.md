@@ -1,9 +1,15 @@
-Each criterion comes with a set of threshold values that scenarios have to
-surpass in order to be assigned a specific level of concern in regards to this
-criterion.
+Each criterion is defined with one or more upper and/or lower threshold 
+values. Scenarios with reported values outside the range are marker with the 
+respective validation outcome.
 
-The thresholds values come in two levels of concern: medium concern and strong
-concern.
+The possible validation outcomes depend on the [criterion type](types.md). 
+Feasibility and sustainability concerns mark scenarios as either `ok`, `medium` 
+or  `high`, whereas historical vetting mark scenarios as `ok` or `failed`.
+
+Scenarios that do not report all variables that are part of the vetting are 
+marked as `insufficient reporting`. Feasibility and sustainability concerns 
+where the relevant variable is not reported by the scenario are marked as 
+`not assigned`.
 
 Some thresholds are defined in relation to some reference, as set by the
 reference data column. The [reference data](reference_data.md) is defined

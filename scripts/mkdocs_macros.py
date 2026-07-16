@@ -1,4 +1,5 @@
 """Custom macros for mkdocs-macros-plugin."""
+
 from pathlib import Path
 
 

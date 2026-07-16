@@ -1,6 +1,6 @@
-criterion,variable,region,year,reference_data,unit,level_of_concern,lower,upper
+criterion,variable,region,year,reference_data,unit,validation_outcome,lower,upper
 Food Availability,Food Availability [per capita],World,,,kcal/cap/day,medium,2100,5000
 Unsustainable Bioenergy Use,Primary Energy|Biomass,World,,,EJ/yr,medium,,100
-Unsustainable Bioenergy Use,Primary Energy|Biomass,World,,,EJ/yr,strong,,245
-Exceeding Prudent Limit For Geological Carbon Storage,Carbon Capture|Geological Storage,World,cumulative[2020-2100],,Gt CO2,strong,,1460
+Unsustainable Bioenergy Use,Primary Energy|Biomass,World,,,EJ/yr,high,,245
+Exceeding Prudent Limit For Geological Carbon Storage,Carbon Capture|Geological Storage,World,cumulative[2020-2100],,Gt CO2,high,,1460
 Exceeding Prudent Limit For Geological Carbon Storage,Carbon Capture|Geological Storage,World,cumulative[2020-2100],,Gt CO2,medium,,1290
