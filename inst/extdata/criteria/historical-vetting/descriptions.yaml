@@ -1,33 +1,36 @@
 Emissions|CO2|Energy and Industrial Processes:
     justification_criterion: >-
-        This scenario reports CO2 emissions in the energy supply, energy demand,
-        and industry sectors that are inconsistent with historical values. This 
-        is a concern because the underlying modelling likely makes false 
-        assumptions on the remaining GHG emissions budget and the mitigation 
+        This criterion flags scenarios that report CO₂ emissions in the energy
+        supply, energy demand, and industry sectors that are inconsistent with
+        historical values.
+
+
+        This is a concern because the underlying modelling likely makes false
+        assumptions on the remaining GHG emissions budget and the mitigation
         effort required to reach net-zero emissions.
     justification_threshold: >-
         Historical values are provided by the Community Emissions Data System 
         {{citep:CEDS-2025}}.
 
 
-        The thresholds are derived from these sources for years 2010, 2015,
-        2020, and 2025 as follows:
+        Based on this historical data, we assume the following global
+        threshold for years 2010, 2015, 2020 and 2025:
 
         • Whole world: ±20% deviation.
 
 
         Note that these ranges not only give models some leeway to deviate, but 
-        also account for uncertainty in the underlying data sources. To further 
-        account for uncertainty in the historical values, the most permissible 
-        source of all sources for each variable, region, and period is used to 
-        set the threshold.
+        also account for uncertainty in the underlying data sources.
 
 
-        The threshold for 2025 is derived from data in 2022 and 2023 through
-        linear extrapolation. To account for the COVID-19 shock, the threshold
-        for 2020 is derived using both the reported value in 2020 and the value
-        averaged over the period Jan 2018 until Dec 2022, taking whichever is
-        more permissive for the scenario in question.
+        The threshold for 2025 is derived using the 2023 value and the
+        2021–2023 growth rate.
+
+
+        To account for the COVID-19 shock, the threshold for 2020 is derived
+        using both the reported value in 2020 and the value averaged over the
+        period Jan 2018 until Dec 2022, taking whichever is more permissive
+        for the scenario in question.
 "Primary Energy|{Primary Fossil Fuel}":
     replacements:
         Primary Fossil Fuel:
@@ -40,63 +43,70 @@ Emissions|CO2|Energy and Industrial Processes:
             Nuclear:
                 fuel_name: nuclear
     justification_criterion: >-
-        This scenario reports {fuel_name} primary energy production that is
-        inconsistent with historical values. This is a concern because the
-        underlying modelling likely makes false assumptions on the mitigation
-        effort required to reach net-zero emissions.
+        This criterion flags scenarios that report {fuel_name} primary energy
+        production that is inconsistent with historical values.
+
+
+        This is a concern because the underlying modelling likely makes false
+        assumptions on the mitigation effort required to reach net-zero
+        emissions.
     justification_threshold: >-
         Historical values are provided by the International Energy Agency
         {{citep:IEA-ESDB-20250610}}, where we assume that Primary Energy
         variables are given by the "total energy supply" reported by the IEA.
 
 
-        The thresholds are derived from these sources for years 2010, 2015,
-        2020, and 2025 as follows:
+        Based on this historical data, we assume the following global
+        threshold for years 2010, 2015, 2020 and 2025:
 
         • Whole world: ±20% deviation.
 
 
         Note that these ranges not only give models some leeway to deviate, but
-        also account for uncertainty in the underlying data sources. To further
-        account for uncertainty in the historical values, the most permissible
-        source of all sources for each variable, region, and period is used to
-        set the threshold.
+        also account for uncertainty in the underlying data sources.
 
 
-        The threshold for 2025 is derived from data in 2022 and 2023 through
-        linear extrapolation. To account for the COVID-19 shock, the threshold
-        for 2020 is derived using both the reported value in 2020 and the value
-        averaged over the period Jan 2018 until Dec 2022, taking whichever is
-        more permissive for the scenario in question.
+        The threshold for 2025 is derived using the 2023 value and the
+        2021–2023 growth rate.
+
+
+        To account for the COVID-19 shock, the threshold for 2020 is derived
+        using both the reported value in 2020 and the value averaged over the
+        period Jan 2018 until Dec 2022, taking whichever is more permissive
+        for the scenario in question.
 Final Energy:
     justification_criterion: >-
-        This scenario reports final energy demand that is inconsistent with
-        historical values. This is a concern because the underlying modelling
-        likely makes false assumptions on the mitigation effort required to
-        reach net-zero emissions.
+        This criterion flags scenarios that report final energy demand that is
+        inconsistent with historical values.
 
-        Note that final energy includes non-energy use.
+
+        This is a concern because the underlying modelling likely makes false
+        assumptions on the mitigation effort required to reach net-zero
+        emissions.
     justification_threshold: >-
         Historical values are provided by the International Energy Agency
-        {{citep:IEA-ESDB-20250610}}, where we assume that Primary Energy
-        variables are given by the "total energy supply" reported by the IEA.
+        {{citep:IEA-ESDB-20250610}}, where we assume that the Final Energy
+        variable is given by the "total final consumption" reported by the IEA.
 
 
-        The thresholds are derived from these sources for years 2010, 2015,
-        2020, and 2025 as follows:
+        Note that final energy includes non-energy use.
+
+
+        Based on this historical data, we assume the following global
+        threshold for years 2010, 2015, 2020 and 2025:
 
         • Whole world: ±20% deviation.
 
 
         Note that these ranges not only give models some leeway to deviate, but
-        also account for uncertainty in the underlying data sources. To further
-        account for uncertainty in the historical values, the most permissible
-        source of all sources for each variable, region, and period is used to
-        set the threshold.
+        also account for uncertainty in the underlying data sources.
 
 
-        The threshold for 2025 is derived from data in 2022 and 2023 through
-        linear extrapolation. To account for the COVID-19 shock, the threshold
-        for 2020 is derived using both the reported value in 2020 and the value
-        averaged over the period Jan 2018 until Dec 2022, taking whichever is
-        more permissive for the scenario in question.
+        The threshold for 2025 is derived using the 2023 value and the
+        2021–2023 growth rate.
+
+
+        To account for the COVID-19 shock, the threshold for 2020 is derived
+        using both the reported value in 2020 and the value averaged over the
+        period Jan 2018 until Dec 2022, taking whichever is more permissive
+        for the scenario in question.
