@@ -1088,11 +1088,16 @@
 
   <h1>Thresholds</h1>
 
-<p>Each criterion comes with a set of threshold values that scenarios have to
-surpass in order to be assigned a specific level of concern in regards to this
-criterion.</p>
-<p>The thresholds values come in two levels of concern: medium concern and strong
-concern.</p>
+<p>Each criterion is defined with one or more upper and/or lower threshold 
+values. Scenarios with reported values outside the range are marker with the 
+respective validation outcome.</p>
+<p>The possible validation outcomes depend on the <a href="../types/">criterion type</a>. 
+Feasibility and sustainability concerns mark scenarios as either <code>ok</code>, <code>medium</code> 
+or  <code>high</code>, whereas historical vetting mark scenarios as <code>ok</code> or <code>failed</code>.</p>
+<p>Scenarios that do not report all variables that are part of the vetting are 
+marked as <code>insufficient reporting</code>. Feasibility and sustainability concerns 
+where the relevant variable is not reported by the scenario are marked as 
+<code>not assigned</code>.</p>
 <p>Some thresholds are defined in relation to some reference, as set by the
 reference data column. The <a href="../reference_data/">reference data</a> is defined
 separately. The values defined as thresholds therefore have to be multiplied
@@ -1108,7 +1113,7 @@ data.</p>
 <th style="text-align: left;">YEAR</th>
 <th style="text-align: left;">REFERENCE DATA</th>
 <th style="text-align: left;">UNIT</th>
-<th style="text-align: left;">LEVEL OF CONCERN</th>
+<th style="text-align: left;">VALIDATION OUTCOME</th>
 <th style="text-align: right;">LOWER</th>
 <th style="text-align: right;">UPPER</th>
 </tr>
@@ -1121,7 +1126,7 @@ data.</p>
 <td style="text-align: left;">2010, 2015</td>
 <td style="text-align: left;">CEDS-2025</td>
 <td style="text-align: left;">dimensionless</td>
-<td style="text-align: left;">strong</td>
+<td style="text-align: left;">failed</td>
 <td style="text-align: right;">0.8</td>
 <td style="text-align: right;">1.2</td>
 </tr>
@@ -1132,7 +1137,7 @@ data.</p>
 <td style="text-align: left;">2020</td>
 <td style="text-align: left;">range(CEDS-2025,CEDS-2025-COVIDaveraged)</td>
 <td style="text-align: left;">dimensionless</td>
-<td style="text-align: left;">strong</td>
+<td style="text-align: left;">failed</td>
 <td style="text-align: right;">0.8</td>
 <td style="text-align: right;">1.2</td>
 </tr>
@@ -1143,7 +1148,7 @@ data.</p>
 <td style="text-align: left;">2025</td>
 <td style="text-align: left;">CEDS-2025-extrapol25</td>
 <td style="text-align: left;">dimensionless</td>
-<td style="text-align: left;">strong</td>
+<td style="text-align: left;">failed</td>
 <td style="text-align: right;">0.8</td>
 <td style="text-align: right;">1.2</td>
 </tr>
@@ -1154,7 +1159,7 @@ data.</p>
 <td style="text-align: left;">2010, 2015</td>
 <td style="text-align: left;">IEA-ESDB-20250610</td>
 <td style="text-align: left;">dimensionless</td>
-<td style="text-align: left;">strong</td>
+<td style="text-align: left;">failed</td>
 <td style="text-align: right;">0.8</td>
 <td style="text-align: right;">1.2</td>
 </tr>
@@ -1165,7 +1170,7 @@ data.</p>
 <td style="text-align: left;">2020</td>
 <td style="text-align: left;">range(IEA-ESDB-20250610,IEA-ESDB-20250610-COVIDaveraged)</td>
 <td style="text-align: left;">dimensionless</td>
-<td style="text-align: left;">strong</td>
+<td style="text-align: left;">failed</td>
 <td style="text-align: right;">0.8</td>
 <td style="text-align: right;">1.2</td>
 </tr>
@@ -1176,7 +1181,7 @@ data.</p>
 <td style="text-align: left;">2025</td>
 <td style="text-align: left;">IEA-ESDB-20250610-extrapol25</td>
 <td style="text-align: left;">dimensionless</td>
-<td style="text-align: left;">strong</td>
+<td style="text-align: left;">failed</td>
 <td style="text-align: right;">0.8</td>
 <td style="text-align: right;">1.2</td>
 </tr>
@@ -1187,7 +1192,7 @@ data.</p>
 <td style="text-align: left;">2010, 2015</td>
 <td style="text-align: left;">IEA-ESDB-20250610</td>
 <td style="text-align: left;">dimensionless</td>
-<td style="text-align: left;">strong</td>
+<td style="text-align: left;">failed</td>
 <td style="text-align: right;">0.8</td>
 <td style="text-align: right;">1.2</td>
 </tr>
@@ -1198,7 +1203,7 @@ data.</p>
 <td style="text-align: left;">2020</td>
 <td style="text-align: left;">range(IEA-ESDB-20250610,IEA-ESDB-20250610-COVIDaveraged)</td>
 <td style="text-align: left;">dimensionless</td>
-<td style="text-align: left;">strong</td>
+<td style="text-align: left;">failed</td>
 <td style="text-align: right;">0.8</td>
 <td style="text-align: right;">1.2</td>
 </tr>
@@ -1209,7 +1214,7 @@ data.</p>
 <td style="text-align: left;">2025</td>
 <td style="text-align: left;">IEA-ESDB-20250610-extrapol25</td>
 <td style="text-align: left;">dimensionless</td>
-<td style="text-align: left;">strong</td>
+<td style="text-align: left;">failed</td>
 <td style="text-align: right;">0.8</td>
 <td style="text-align: right;">1.2</td>
 </tr>
@@ -1220,7 +1225,7 @@ data.</p>
 <td style="text-align: left;">2010, 2015</td>
 <td style="text-align: left;">IEA-ESDB-20250610</td>
 <td style="text-align: left;">dimensionless</td>
-<td style="text-align: left;">strong</td>
+<td style="text-align: left;">failed</td>
 <td style="text-align: right;">0.8</td>
 <td style="text-align: right;">1.2</td>
 </tr>
@@ -1231,7 +1236,7 @@ data.</p>
 <td style="text-align: left;">2020</td>
 <td style="text-align: left;">range(IEA-ESDB-20250610,IEA-ESDB-20250610-COVIDaveraged)</td>
 <td style="text-align: left;">dimensionless</td>
-<td style="text-align: left;">strong</td>
+<td style="text-align: left;">failed</td>
 <td style="text-align: right;">0.8</td>
 <td style="text-align: right;">1.2</td>
 </tr>
@@ -1242,7 +1247,7 @@ data.</p>
 <td style="text-align: left;">2025</td>
 <td style="text-align: left;">IEA-ESDB-20250610-extrapol25</td>
 <td style="text-align: left;">dimensionless</td>
-<td style="text-align: left;">strong</td>
+<td style="text-align: left;">failed</td>
 <td style="text-align: right;">0.8</td>
 <td style="text-align: right;">1.2</td>
 </tr>
@@ -1253,7 +1258,7 @@ data.</p>
 <td style="text-align: left;">2010, 2015</td>
 <td style="text-align: left;">IEA-ESDB-20250610</td>
 <td style="text-align: left;">dimensionless</td>
-<td style="text-align: left;">strong</td>
+<td style="text-align: left;">failed</td>
 <td style="text-align: right;">0.8</td>
 <td style="text-align: right;">1.2</td>
 </tr>
@@ -1264,7 +1269,7 @@ data.</p>
 <td style="text-align: left;">2020</td>
 <td style="text-align: left;">range(IEA-ESDB-20250610,IEA-ESDB-20250610-COVIDaveraged)</td>
 <td style="text-align: left;">dimensionless</td>
-<td style="text-align: left;">strong</td>
+<td style="text-align: left;">failed</td>
 <td style="text-align: right;">0.8</td>
 <td style="text-align: right;">1.2</td>
 </tr>
@@ -1275,7 +1280,7 @@ data.</p>
 <td style="text-align: left;">2025</td>
 <td style="text-align: left;">IEA-ESDB-20250610-extrapol25</td>
 <td style="text-align: left;">dimensionless</td>
-<td style="text-align: left;">strong</td>
+<td style="text-align: left;">failed</td>
 <td style="text-align: right;">0.8</td>
 <td style="text-align: right;">1.2</td>
 </tr>
@@ -1286,7 +1291,7 @@ data.</p>
 <td style="text-align: left;">2010, 2015</td>
 <td style="text-align: left;">IEA-ESDB-20250610</td>
 <td style="text-align: left;">dimensionless</td>
-<td style="text-align: left;">strong</td>
+<td style="text-align: left;">failed</td>
 <td style="text-align: right;">0.8</td>
 <td style="text-align: right;">1.2</td>
 </tr>
@@ -1297,7 +1302,7 @@ data.</p>
 <td style="text-align: left;">2020</td>
 <td style="text-align: left;">range(IEA-ESDB-20250610,IEA-ESDB-20250610-COVIDaveraged)</td>
 <td style="text-align: left;">dimensionless</td>
-<td style="text-align: left;">strong</td>
+<td style="text-align: left;">failed</td>
 <td style="text-align: right;">0.8</td>
 <td style="text-align: right;">1.2</td>
 </tr>
@@ -1308,7 +1313,7 @@ data.</p>
 <td style="text-align: left;">2025</td>
 <td style="text-align: left;">IEA-ESDB-20250610-extrapol25</td>
 <td style="text-align: left;">dimensionless</td>
-<td style="text-align: left;">strong</td>
+<td style="text-align: left;">failed</td>
 <td style="text-align: right;">0.8</td>
 <td style="text-align: right;">1.2</td>
 </tr>
@@ -1324,7 +1329,7 @@ data.</p>
 <th style="text-align: right;">YEAR</th>
 <th style="text-align: left;">REFERENCE DATA</th>
 <th style="text-align: left;">UNIT</th>
-<th style="text-align: left;">LEVEL OF CONCERN</th>
+<th style="text-align: left;">VALIDATION OUTCOME</th>
 <th style="text-align: right;">LOWER</th>
 <th style="text-align: right;">UPPER</th>
 </tr>
@@ -1348,7 +1353,7 @@ data.</p>
 <td style="text-align: right;">2030</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">GW</td>
-<td style="text-align: left;">strong</td>
+<td style="text-align: left;">high</td>
 <td style="text-align: right;">979.43</td>
 <td style="text-align: right;">2117.58</td>
 </tr>
@@ -1370,7 +1375,7 @@ data.</p>
 <td style="text-align: right;">2030</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">GW</td>
-<td style="text-align: left;">strong</td>
+<td style="text-align: left;">high</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">507.1</td>
 </tr>
@@ -1392,7 +1397,7 @@ data.</p>
 <td style="text-align: right;">2030</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">Mt CO2/yr</td>
-<td style="text-align: left;">strong</td>
+<td style="text-align: left;">high</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">457.89</td>
 </tr>
@@ -1436,7 +1441,7 @@ data.</p>
 <td style="text-align: right;">2030</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">GW</td>
-<td style="text-align: left;">strong</td>
+<td style="text-align: left;">high</td>
 <td style="text-align: right;">2683.2</td>
 <td style="text-align: right;">10896</td>
 </tr>
@@ -1458,7 +1463,7 @@ data.</p>
 <td style="text-align: right;">2030</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">GW</td>
-<td style="text-align: left;">strong</td>
+<td style="text-align: left;">high</td>
 <td style="text-align: right;">1220</td>
 <td style="text-align: right;">3655</td>
 </tr>
@@ -1480,7 +1485,7 @@ data.</p>
 <td style="text-align: right;">2030</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">GW</td>
-<td style="text-align: left;">strong</td>
+<td style="text-align: left;">high</td>
 <td style="text-align: right;">1220</td>
 <td style="text-align: right;"></td>
 </tr>
@@ -1496,7 +1501,7 @@ data.</p>
 <th style="text-align: left;">YEAR</th>
 <th style="text-align: left;">REFERENCE DATA</th>
 <th style="text-align: left;">UNIT</th>
-<th style="text-align: left;">LEVEL OF CONCERN</th>
+<th style="text-align: left;">VALIDATION OUTCOME</th>
 <th style="text-align: right;">LOWER</th>
 <th style="text-align: right;">UPPER</th>
 </tr>
@@ -1531,7 +1536,7 @@ data.</p>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">EJ/yr</td>
-<td style="text-align: left;">strong</td>
+<td style="text-align: left;">high</td>
 <td style="text-align: right;"></td>
 <td style="text-align: right;">245</td>
 </tr>
@@ -1542,7 +1547,7 @@ data.</p>
 <td style="text-align: left;">cumulative[2020-2100]</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">Gt CO2</td>
-<td style="text-align: left;">strong</td>
+<td style="text-align: left;">high</td>
 <td style="text-align: right;"></td>
 <td style="text-align: right;">1460</td>
 </tr>

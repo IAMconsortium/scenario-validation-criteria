@@ -1242,12 +1242,19 @@
 <p>This page gives a criterion-by-criterion overview of all validation criteria,
 combining the scientific justifications with the computed threshold values.</p>
 <p><h2 id="exec-2--historical-vetting">Historical Vetting</h2>
+<p>Historical vetting criteria check for the alignment of scenarios with historical data. Scenarios are marked as inconsistent if they do not match reported historical real-world estimates for time periods in the past. Misalignment of a scenario means that the scenario is or has become impossible, which can often be the outcome of outdatedness of older scenarios.</p>
+<p><strong>Possible validation outcomes:</strong></p>
+<ul>
+<li><code>ok</code> — Consistent with historical data</li>
+<li><code>failed</code> — Inconsistent with historical data</li>
+<li><code>insufficient reporting</code> — Variable not reported</li>
+</ul>
 <h3 id="exec-2--emissionsco2energy-and-industrial-processes">Emissions|CO2|Energy and Industrial Processes</h3>
 <p><strong>Why this criterion?</strong> This scenario reports CO2 emissions in the energy supply, energy demand, and industry sectors that are inconsistent with historical values. This  is a concern because the underlying modelling likely makes false  assumptions on the remaining GHG emissions budget and the mitigation  effort required to reach net-zero emissions.</p>
 <p><strong>Why this threshold?</strong> Historical values are provided by the Community Emissions Data System  <a href="#CEDS-2025">(Hoesly, 2025)</a>.<br><br>The thresholds are derived from these sources for years 2010, 2015, 2020, and 2025 as follows:<br>• Whole world: ±20% deviation.<br><br>Note that these ranges not only give models some leeway to deviate, but  also account for uncertainty in the underlying data sources. To further  account for uncertainty in the historical values, the most permissible  source of all sources for each variable, region, and period is used to  set the threshold.<br><br>The threshold for 2025 is derived from data in 2022 and 2023 through linear extrapolation. To account for the COVID-19 shock, the threshold for 2020 is derived using both the reported value in 2020 and the value averaged over the period Jan 2018 until Dec 2022, taking whichever is more permissive for the scenario in question.</p>
 <div>
 <!--| quarto-html-table-processing: none -->
-<table id="itables_ce0888a7_602c_4424_8596_6dafd1cbf4bf">
+<table id="itables_e73b531c_91a2_45c1_a694_4747dd33b901">
   <tbody>
     <tr>
       <td style="vertical-align:middle; text-align:left"><a href=https://mwouts.github.io/itables/><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -1350,19 +1357,19 @@ width="64" viewBox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
 <script type="module">
     import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.5.5/dt_bundle.js';
 
-    document.querySelectorAll("#itables_ce0888a7_602c_4424_8596_6dafd1cbf4bf:not(.dataTable)").forEach(table => {
+    document.querySelectorAll("#itables_e73b531c_91a2_45c1_a694_4747dd33b901:not(.dataTable)").forEach(table => {
         if (!(table instanceof HTMLTableElement))
             return;
 
         let dt_args = {
           "classes": ["display", "nowrap", "compact"],
           "columnDefs": [{"render": "function (data, type, row, meta) { return type === 'sort' || type === 'type' ? data[1] : data[0]; }", "targets": [8, 10, 5, 7]}],
-          "data_json": "[[\"Emissions|CO2|Energy and Industrial Processes\", \"World\", 2010, \"Mt CO2/yr\", \"strong\", [\"26768.0\", 26768.0], \"-20%\", [\"33460.0\", 33460.0], [\"40152.0\", 40152.0], \"+20%\", [\"33460.0\", 33460.0], \"CEDS-2025\"], [\"Emissions|CO2|Energy and Industrial Processes\", \"World\", 2015, \"Mt CO2/yr\", \"strong\", [\"28502.0\", 28502.0], \"-20%\", [\"35627.0\", 35627.0], [\"42753.0\", 42753.0], \"+20%\", [\"35627.0\", 35627.0], \"CEDS-2025\"], [\"Emissions|CO2|Energy and Industrial Processes\", \"World\", 2020, \"Mt CO2/yr\", \"strong\", [\"28310.0\", 28310.0], \"-20%\", [\"35387.0\", 35387.0], [\"44249.0\", 44249.0], \"+20%\", [\"36874.0\", 36874.0], \"Most permissive value of: CEDS-2025,CEDS-2025-COVIDaveraged\"], [\"Emissions|CO2|Energy and Industrial Processes\", \"World\", 2025, \"Mt CO2/yr\", \"strong\", [\"31507.0\", 31507.0], \"-20%\", [\"39383.0\", 39383.0], [\"47260.0\", 47260.0], \"+20%\", [\"39383.0\", 39383.0], \"CEDS-2025-extrapol25\"]]",
+          "data_json": "[[\"Emissions|CO2|Energy and Industrial Processes\", \"World\", 2010, \"Mt CO2/yr\", \"failed\", [\"26768.0\", 26768.0], \"-20%\", [\"33460.0\", 33460.0], [\"40152.0\", 40152.0], \"+20%\", [\"33460.0\", 33460.0], \"CEDS-2025\"], [\"Emissions|CO2|Energy and Industrial Processes\", \"World\", 2015, \"Mt CO2/yr\", \"failed\", [\"28502.0\", 28502.0], \"-20%\", [\"35627.0\", 35627.0], [\"42753.0\", 42753.0], \"+20%\", [\"35627.0\", 35627.0], \"CEDS-2025\"], [\"Emissions|CO2|Energy and Industrial Processes\", \"World\", 2020, \"Mt CO2/yr\", \"failed\", [\"28310.0\", 28310.0], \"-20%\", [\"35387.0\", 35387.0], [\"44249.0\", 44249.0], \"+20%\", [\"36874.0\", 36874.0], \"Most permissive value of: CEDS-2025,CEDS-2025-COVIDaveraged\"], [\"Emissions|CO2|Energy and Industrial Processes\", \"World\", 2025, \"Mt CO2/yr\", \"failed\", [\"31507.0\", 31507.0], \"-20%\", [\"39383.0\", 39383.0], [\"47260.0\", 47260.0], \"+20%\", [\"39383.0\", 39383.0], \"CEDS-2025-extrapol25\"]]",
           "keys_to_be_evaluated": [["columnDefs", 0, "render"]],
           "layout": {"bottomEnd": null, "bottomStart": null, "topEnd": null, "topStart": null},
           "order": [],
           "style": {"width": "100%"},
-          "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Variable</th>\n      <th>Region</th>\n      <th>Year</th>\n      <th>Unit</th>\n      <th>Level of concern</th>\n      <th>Lower (abs)</th>\n      <th>Lower (rel)</th>\n      <th>Lower (ref)</th>\n      <th>Upper (abs)</th>\n      <th>Upper (rel)</th>\n      <th>Upper (ref)</th>\n      <th>Reference data</th>\n    </tr>\n  </thead></table>",
+          "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Variable</th>\n      <th>Region</th>\n      <th>Year</th>\n      <th>Unit</th>\n      <th>Validation outcome</th>\n      <th>Lower (abs)</th>\n      <th>Lower (rel)</th>\n      <th>Lower (ref)</th>\n      <th>Upper (abs)</th>\n      <th>Upper (rel)</th>\n      <th>Upper (ref)</th>\n      <th>Reference data</th>\n    </tr>\n  </thead></table>",
           "text_in_header_can_be_selected": true
         };
         new ITable(table, dt_args);
@@ -1376,7 +1383,7 @@ width="64" viewBox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
 <p><strong>Why this threshold?</strong> Historical values are provided by the International Energy Agency <a href="#IEA-ESDB-20250610">(IEA, 2025)</a>, where we assume that Primary Energy variables are given by the "total energy supply" reported by the IEA.<br><br>The thresholds are derived from these sources for years 2010, 2015, 2020, and 2025 as follows:<br>• Whole world: ±20% deviation.<br><br>Note that these ranges not only give models some leeway to deviate, but also account for uncertainty in the underlying data sources. To further account for uncertainty in the historical values, the most permissible source of all sources for each variable, region, and period is used to set the threshold.<br><br>The threshold for 2025 is derived from data in 2022 and 2023 through linear extrapolation. To account for the COVID-19 shock, the threshold for 2020 is derived using both the reported value in 2020 and the value averaged over the period Jan 2018 until Dec 2022, taking whichever is more permissive for the scenario in question.</p>
 <div>
 <!--| quarto-html-table-processing: none -->
-<table id="itables_48516547_d211_447a_9c7c_f03824c58a1b">
+<table id="itables_75976132_8427_4aef_9ab8_2875a6cc3bb1">
   <tbody>
     <tr>
       <td style="vertical-align:middle; text-align:left"><a href=https://mwouts.github.io/itables/><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -1479,19 +1486,19 @@ width="64" viewBox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
 <script type="module">
     import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.5.5/dt_bundle.js';
 
-    document.querySelectorAll("#itables_48516547_d211_447a_9c7c_f03824c58a1b:not(.dataTable)").forEach(table => {
+    document.querySelectorAll("#itables_75976132_8427_4aef_9ab8_2875a6cc3bb1:not(.dataTable)").forEach(table => {
         if (!(table instanceof HTMLTableElement))
             return;
 
         let dt_args = {
           "classes": ["display", "nowrap", "compact"],
           "columnDefs": [{"render": "function (data, type, row, meta) { return type === 'sort' || type === 'type' ? data[1] : data[0]; }", "targets": [8, 10, 5, 7]}],
-          "data_json": "[[\"Final Energy\", \"World\", 2010, \"EJ/yr\", \"strong\", [\"292.0\", 292.0], \"-20%\", [\"365.0\", 365.0], [\"438.0\", 438.0], \"+20%\", [\"365.0\", 365.0], \"IEA-ESDB-20250610\"], [\"Final Energy\", \"World\", 2015, \"EJ/yr\", \"strong\", [\"312.0\", 312.0], \"-20%\", [\"390.0\", 390.0], [\"467.0\", 467.0], \"+20%\", [\"390.0\", 390.0], \"IEA-ESDB-20250610\"], [\"Final Energy\", \"World\", 2020, \"EJ/yr\", \"strong\", [\"317.0\", 317.0], \"-20%\", [\"396.0\", 396.0], [\"494.0\", 494.0], \"+20%\", [\"412.0\", 412.0], \"Most permissive value of: IEA-ESDB-20250610,IEA-ESDB-20250610-COVIDaveraged\"], [\"Final Energy\", \"World\", 2025, \"EJ/yr\", \"strong\", [\"354.0\", 354.0], \"-20%\", [\"443.0\", 443.0], [\"531.0\", 531.0], \"+20%\", [\"443.0\", 443.0], \"IEA-ESDB-20250610-extrapol25\"]]",
+          "data_json": "[[\"Final Energy\", \"World\", 2010, \"EJ/yr\", \"failed\", [\"292.0\", 292.0], \"-20%\", [\"365.0\", 365.0], [\"438.0\", 438.0], \"+20%\", [\"365.0\", 365.0], \"IEA-ESDB-20250610\"], [\"Final Energy\", \"World\", 2015, \"EJ/yr\", \"failed\", [\"312.0\", 312.0], \"-20%\", [\"390.0\", 390.0], [\"467.0\", 467.0], \"+20%\", [\"390.0\", 390.0], \"IEA-ESDB-20250610\"], [\"Final Energy\", \"World\", 2020, \"EJ/yr\", \"failed\", [\"317.0\", 317.0], \"-20%\", [\"396.0\", 396.0], [\"494.0\", 494.0], \"+20%\", [\"412.0\", 412.0], \"Most permissive value of: IEA-ESDB-20250610,IEA-ESDB-20250610-COVIDaveraged\"], [\"Final Energy\", \"World\", 2025, \"EJ/yr\", \"failed\", [\"354.0\", 354.0], \"-20%\", [\"443.0\", 443.0], [\"531.0\", 531.0], \"+20%\", [\"443.0\", 443.0], \"IEA-ESDB-20250610-extrapol25\"]]",
           "keys_to_be_evaluated": [["columnDefs", 0, "render"]],
           "layout": {"bottomEnd": null, "bottomStart": null, "topEnd": null, "topStart": null},
           "order": [],
           "style": {"width": "100%"},
-          "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Variable</th>\n      <th>Region</th>\n      <th>Year</th>\n      <th>Unit</th>\n      <th>Level of concern</th>\n      <th>Lower (abs)</th>\n      <th>Lower (rel)</th>\n      <th>Lower (ref)</th>\n      <th>Upper (abs)</th>\n      <th>Upper (rel)</th>\n      <th>Upper (ref)</th>\n      <th>Reference data</th>\n    </tr>\n  </thead></table>",
+          "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Variable</th>\n      <th>Region</th>\n      <th>Year</th>\n      <th>Unit</th>\n      <th>Validation outcome</th>\n      <th>Lower (abs)</th>\n      <th>Lower (rel)</th>\n      <th>Lower (ref)</th>\n      <th>Upper (abs)</th>\n      <th>Upper (rel)</th>\n      <th>Upper (ref)</th>\n      <th>Reference data</th>\n    </tr>\n  </thead></table>",
           "text_in_header_can_be_selected": true
         };
         new ITable(table, dt_args);
@@ -1505,7 +1512,7 @@ width="64" viewBox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
 <p><strong>Why this threshold?</strong> Historical values are provided by the International Energy Agency <a href="#IEA-ESDB-20250610">(IEA, 2025)</a>, where we assume that Primary Energy variables are given by the "total energy supply" reported by the IEA.<br><br>The thresholds are derived from these sources for years 2010, 2015, 2020, and 2025 as follows:<br>• Whole world: ±20% deviation.<br><br>Note that these ranges not only give models some leeway to deviate, but also account for uncertainty in the underlying data sources. To further account for uncertainty in the historical values, the most permissible source of all sources for each variable, region, and period is used to set the threshold.<br><br>The threshold for 2025 is derived from data in 2022 and 2023 through linear extrapolation. To account for the COVID-19 shock, the threshold for 2020 is derived using both the reported value in 2020 and the value averaged over the period Jan 2018 until Dec 2022, taking whichever is more permissive for the scenario in question.</p>
 <div>
 <!--| quarto-html-table-processing: none -->
-<table id="itables_1600c6f5_9dfe_4d61_a28b_45a7c62f17c3">
+<table id="itables_a891e96b_013e_4a29_bcd5_0459a55346cb">
   <tbody>
     <tr>
       <td style="vertical-align:middle; text-align:left"><a href=https://mwouts.github.io/itables/><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -1608,19 +1615,19 @@ width="64" viewBox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
 <script type="module">
     import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.5.5/dt_bundle.js';
 
-    document.querySelectorAll("#itables_1600c6f5_9dfe_4d61_a28b_45a7c62f17c3:not(.dataTable)").forEach(table => {
+    document.querySelectorAll("#itables_a891e96b_013e_4a29_bcd5_0459a55346cb:not(.dataTable)").forEach(table => {
         if (!(table instanceof HTMLTableElement))
             return;
 
         let dt_args = {
           "classes": ["display", "nowrap", "compact"],
           "columnDefs": [{"render": "function (data, type, row, meta) { return type === 'sort' || type === 'type' ? data[1] : data[0]; }", "targets": [8, 10, 5, 7]}],
-          "data_json": "[[\"Primary Energy|Coal\", \"World\", 2010, \"EJ/yr\", \"strong\", [\"122.0\", 122.0], \"-20%\", [\"153.0\", 153.0], [\"183.0\", 183.0], \"+20%\", [\"153.0\", 153.0], \"IEA-ESDB-20250610\"], [\"Primary Energy|Coal\", \"World\", 2015, \"EJ/yr\", \"strong\", [\"129.0\", 129.0], \"-20%\", [\"161.0\", 161.0], [\"193.0\", 193.0], \"+20%\", [\"161.0\", 161.0], \"IEA-ESDB-20250610\"], [\"Primary Energy|Coal\", \"World\", 2020, \"EJ/yr\", \"strong\", [\"126.0\", 126.0], \"-20%\", [\"158.0\", 158.0], [\"197.0\", 197.0], \"+20%\", [\"165.0\", 165.0], \"Most permissive value of: IEA-ESDB-20250610,IEA-ESDB-20250610-COVIDaveraged\"], [\"Primary Energy|Coal\", \"World\", 2025, \"EJ/yr\", \"strong\", [\"146.0\", 146.0], \"-20%\", [\"183.0\", 183.0], [\"219.0\", 219.0], \"+20%\", [\"183.0\", 183.0], \"IEA-ESDB-20250610-extrapol25\"]]",
+          "data_json": "[[\"Primary Energy|Coal\", \"World\", 2010, \"EJ/yr\", \"failed\", [\"122.0\", 122.0], \"-20%\", [\"153.0\", 153.0], [\"183.0\", 183.0], \"+20%\", [\"153.0\", 153.0], \"IEA-ESDB-20250610\"], [\"Primary Energy|Coal\", \"World\", 2015, \"EJ/yr\", \"failed\", [\"129.0\", 129.0], \"-20%\", [\"161.0\", 161.0], [\"193.0\", 193.0], \"+20%\", [\"161.0\", 161.0], \"IEA-ESDB-20250610\"], [\"Primary Energy|Coal\", \"World\", 2020, \"EJ/yr\", \"failed\", [\"126.0\", 126.0], \"-20%\", [\"158.0\", 158.0], [\"197.0\", 197.0], \"+20%\", [\"165.0\", 165.0], \"Most permissive value of: IEA-ESDB-20250610,IEA-ESDB-20250610-COVIDaveraged\"], [\"Primary Energy|Coal\", \"World\", 2025, \"EJ/yr\", \"failed\", [\"146.0\", 146.0], \"-20%\", [\"183.0\", 183.0], [\"219.0\", 219.0], \"+20%\", [\"183.0\", 183.0], \"IEA-ESDB-20250610-extrapol25\"]]",
           "keys_to_be_evaluated": [["columnDefs", 0, "render"]],
           "layout": {"bottomEnd": null, "bottomStart": null, "topEnd": null, "topStart": null},
           "order": [],
           "style": {"width": "100%"},
-          "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Variable</th>\n      <th>Region</th>\n      <th>Year</th>\n      <th>Unit</th>\n      <th>Level of concern</th>\n      <th>Lower (abs)</th>\n      <th>Lower (rel)</th>\n      <th>Lower (ref)</th>\n      <th>Upper (abs)</th>\n      <th>Upper (rel)</th>\n      <th>Upper (ref)</th>\n      <th>Reference data</th>\n    </tr>\n  </thead></table>",
+          "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Variable</th>\n      <th>Region</th>\n      <th>Year</th>\n      <th>Unit</th>\n      <th>Validation outcome</th>\n      <th>Lower (abs)</th>\n      <th>Lower (rel)</th>\n      <th>Lower (ref)</th>\n      <th>Upper (abs)</th>\n      <th>Upper (rel)</th>\n      <th>Upper (ref)</th>\n      <th>Reference data</th>\n    </tr>\n  </thead></table>",
           "text_in_header_can_be_selected": true
         };
         new ITable(table, dt_args);
@@ -1634,7 +1641,7 @@ width="64" viewBox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
 <p><strong>Why this threshold?</strong> Historical values are provided by the International Energy Agency <a href="#IEA-ESDB-20250610">(IEA, 2025)</a>, where we assume that Primary Energy variables are given by the "total energy supply" reported by the IEA.<br><br>The thresholds are derived from these sources for years 2010, 2015, 2020, and 2025 as follows:<br>• Whole world: ±20% deviation.<br><br>Note that these ranges not only give models some leeway to deviate, but also account for uncertainty in the underlying data sources. To further account for uncertainty in the historical values, the most permissible source of all sources for each variable, region, and period is used to set the threshold.<br><br>The threshold for 2025 is derived from data in 2022 and 2023 through linear extrapolation. To account for the COVID-19 shock, the threshold for 2020 is derived using both the reported value in 2020 and the value averaged over the period Jan 2018 until Dec 2022, taking whichever is more permissive for the scenario in question.</p>
 <div>
 <!--| quarto-html-table-processing: none -->
-<table id="itables_258da85c_0ae3_4b91_b422_8347060c3cb0">
+<table id="itables_9d3b83f6_2ac5_43e4_aa5f_abd049b63b7d">
   <tbody>
     <tr>
       <td style="vertical-align:middle; text-align:left"><a href=https://mwouts.github.io/itables/><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -1737,19 +1744,19 @@ width="64" viewBox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
 <script type="module">
     import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.5.5/dt_bundle.js';
 
-    document.querySelectorAll("#itables_258da85c_0ae3_4b91_b422_8347060c3cb0:not(.dataTable)").forEach(table => {
+    document.querySelectorAll("#itables_9d3b83f6_2ac5_43e4_aa5f_abd049b63b7d:not(.dataTable)").forEach(table => {
         if (!(table instanceof HTMLTableElement))
             return;
 
         let dt_args = {
           "classes": ["display", "nowrap", "compact"],
           "columnDefs": [{"render": "function (data, type, row, meta) { return type === 'sort' || type === 'type' ? data[1] : data[0]; }", "targets": [8, 10, 5, 7]}],
-          "data_json": "[[\"Primary Energy|Gas\", \"World\", 2010, \"EJ/yr\", \"strong\", [\"91.7\", 91.7], \"-20%\", [\"115.0\", 115.0], [\"137.0\", 137.0], \"+20%\", [\"115.0\", 115.0], \"IEA-ESDB-20250610\"], [\"Primary Energy|Gas\", \"World\", 2015, \"EJ/yr\", \"strong\", [\"97.9\", 97.9], \"-20%\", [\"122.0\", 122.0], [\"147.0\", 147.0], \"+20%\", [\"122.0\", 122.0], \"IEA-ESDB-20250610\"], [\"Primary Energy|Gas\", \"World\", 2020, \"EJ/yr\", \"strong\", [\"110.0\", 110.0], \"-20%\", [\"138.0\", 138.0], [\"169.0\", 169.0], \"+20%\", [\"141.0\", 141.0], \"Most permissive value of: IEA-ESDB-20250610,IEA-ESDB-20250610-COVIDaveraged\"], [\"Primary Energy|Gas\", \"World\", 2025, \"EJ/yr\", \"strong\", [\"114.0\", 114.0], \"-20%\", [\"142.0\", 142.0], [\"171.0\", 171.0], \"+20%\", [\"142.0\", 142.0], \"IEA-ESDB-20250610-extrapol25\"]]",
+          "data_json": "[[\"Primary Energy|Gas\", \"World\", 2010, \"EJ/yr\", \"failed\", [\"91.7\", 91.7], \"-20%\", [\"115.0\", 115.0], [\"137.0\", 137.0], \"+20%\", [\"115.0\", 115.0], \"IEA-ESDB-20250610\"], [\"Primary Energy|Gas\", \"World\", 2015, \"EJ/yr\", \"failed\", [\"97.9\", 97.9], \"-20%\", [\"122.0\", 122.0], [\"147.0\", 147.0], \"+20%\", [\"122.0\", 122.0], \"IEA-ESDB-20250610\"], [\"Primary Energy|Gas\", \"World\", 2020, \"EJ/yr\", \"failed\", [\"110.0\", 110.0], \"-20%\", [\"138.0\", 138.0], [\"169.0\", 169.0], \"+20%\", [\"141.0\", 141.0], \"Most permissive value of: IEA-ESDB-20250610,IEA-ESDB-20250610-COVIDaveraged\"], [\"Primary Energy|Gas\", \"World\", 2025, \"EJ/yr\", \"failed\", [\"114.0\", 114.0], \"-20%\", [\"142.0\", 142.0], [\"171.0\", 171.0], \"+20%\", [\"142.0\", 142.0], \"IEA-ESDB-20250610-extrapol25\"]]",
           "keys_to_be_evaluated": [["columnDefs", 0, "render"]],
           "layout": {"bottomEnd": null, "bottomStart": null, "topEnd": null, "topStart": null},
           "order": [],
           "style": {"width": "100%"},
-          "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Variable</th>\n      <th>Region</th>\n      <th>Year</th>\n      <th>Unit</th>\n      <th>Level of concern</th>\n      <th>Lower (abs)</th>\n      <th>Lower (rel)</th>\n      <th>Lower (ref)</th>\n      <th>Upper (abs)</th>\n      <th>Upper (rel)</th>\n      <th>Upper (ref)</th>\n      <th>Reference data</th>\n    </tr>\n  </thead></table>",
+          "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Variable</th>\n      <th>Region</th>\n      <th>Year</th>\n      <th>Unit</th>\n      <th>Validation outcome</th>\n      <th>Lower (abs)</th>\n      <th>Lower (rel)</th>\n      <th>Lower (ref)</th>\n      <th>Upper (abs)</th>\n      <th>Upper (rel)</th>\n      <th>Upper (ref)</th>\n      <th>Reference data</th>\n    </tr>\n  </thead></table>",
           "text_in_header_can_be_selected": true
         };
         new ITable(table, dt_args);
@@ -1763,7 +1770,7 @@ width="64" viewBox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
 <p><strong>Why this threshold?</strong> Historical values are provided by the International Energy Agency <a href="#IEA-ESDB-20250610">(IEA, 2025)</a>, where we assume that Primary Energy variables are given by the "total energy supply" reported by the IEA.<br><br>The thresholds are derived from these sources for years 2010, 2015, 2020, and 2025 as follows:<br>• Whole world: ±20% deviation.<br><br>Note that these ranges not only give models some leeway to deviate, but also account for uncertainty in the underlying data sources. To further account for uncertainty in the historical values, the most permissible source of all sources for each variable, region, and period is used to set the threshold.<br><br>The threshold for 2025 is derived from data in 2022 and 2023 through linear extrapolation. To account for the COVID-19 shock, the threshold for 2020 is derived using both the reported value in 2020 and the value averaged over the period Jan 2018 until Dec 2022, taking whichever is more permissive for the scenario in question.</p>
 <div>
 <!--| quarto-html-table-processing: none -->
-<table id="itables_a1b22717_415a_4ac1_a238_0c9f60ce47e5">
+<table id="itables_b986b3e5_2011_43ff_9c16_fdfffc366f10">
   <tbody>
     <tr>
       <td style="vertical-align:middle; text-align:left"><a href=https://mwouts.github.io/itables/><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -1866,19 +1873,19 @@ width="64" viewBox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
 <script type="module">
     import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.5.5/dt_bundle.js';
 
-    document.querySelectorAll("#itables_a1b22717_415a_4ac1_a238_0c9f60ce47e5:not(.dataTable)").forEach(table => {
+    document.querySelectorAll("#itables_b986b3e5_2011_43ff_9c16_fdfffc366f10:not(.dataTable)").forEach(table => {
         if (!(table instanceof HTMLTableElement))
             return;
 
         let dt_args = {
           "classes": ["display", "nowrap", "compact"],
           "columnDefs": [{"render": "function (data, type, row, meta) { return type === 'sort' || type === 'type' ? data[1] : data[0]; }", "targets": [8, 10, 5, 7]}],
-          "data_json": "[[\"Primary Energy|Nuclear\", \"World\", 2010, \"EJ/yr\", \"strong\", [\"7.94\", 7.94], \"-20%\", [\"9.92\", 9.92], [\"11.9\", 11.9], \"+20%\", [\"9.92\", 9.92], \"IEA-ESDB-20250610\"], [\"Primary Energy|Nuclear\", \"World\", 2015, \"EJ/yr\", \"strong\", [\"7.40\", 7.4], \"-20%\", [\"9.25\", 9.25], [\"11.1\", 11.1], \"+20%\", [\"9.25\", 9.25], \"IEA-ESDB-20250610\"], [\"Primary Energy|Nuclear\", \"World\", 2020, \"EJ/yr\", \"strong\", [\"7.71\", 7.71], \"-20%\", [\"9.64\", 9.64], [\"11.8\", 11.8], \"+20%\", [\"9.84\", 9.84], \"Most permissive value of: IEA-ESDB-20250610,IEA-ESDB-20250610-COVIDaveraged\"], [\"Primary Energy|Nuclear\", \"World\", 2025, \"EJ/yr\", \"strong\", [\"7.68\", 7.68], \"-20%\", [\"9.60\", 9.6], [\"11.5\", 11.5], \"+20%\", [\"9.60\", 9.6], \"IEA-ESDB-20250610-extrapol25\"]]",
+          "data_json": "[[\"Primary Energy|Nuclear\", \"World\", 2010, \"EJ/yr\", \"failed\", [\"7.94\", 7.94], \"-20%\", [\"9.92\", 9.92], [\"11.9\", 11.9], \"+20%\", [\"9.92\", 9.92], \"IEA-ESDB-20250610\"], [\"Primary Energy|Nuclear\", \"World\", 2015, \"EJ/yr\", \"failed\", [\"7.40\", 7.4], \"-20%\", [\"9.25\", 9.25], [\"11.1\", 11.1], \"+20%\", [\"9.25\", 9.25], \"IEA-ESDB-20250610\"], [\"Primary Energy|Nuclear\", \"World\", 2020, \"EJ/yr\", \"failed\", [\"7.71\", 7.71], \"-20%\", [\"9.64\", 9.64], [\"11.8\", 11.8], \"+20%\", [\"9.84\", 9.84], \"Most permissive value of: IEA-ESDB-20250610,IEA-ESDB-20250610-COVIDaveraged\"], [\"Primary Energy|Nuclear\", \"World\", 2025, \"EJ/yr\", \"failed\", [\"7.68\", 7.68], \"-20%\", [\"9.60\", 9.6], [\"11.5\", 11.5], \"+20%\", [\"9.60\", 9.6], \"IEA-ESDB-20250610-extrapol25\"]]",
           "keys_to_be_evaluated": [["columnDefs", 0, "render"]],
           "layout": {"bottomEnd": null, "bottomStart": null, "topEnd": null, "topStart": null},
           "order": [],
           "style": {"width": "100%"},
-          "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Variable</th>\n      <th>Region</th>\n      <th>Year</th>\n      <th>Unit</th>\n      <th>Level of concern</th>\n      <th>Lower (abs)</th>\n      <th>Lower (rel)</th>\n      <th>Lower (ref)</th>\n      <th>Upper (abs)</th>\n      <th>Upper (rel)</th>\n      <th>Upper (ref)</th>\n      <th>Reference data</th>\n    </tr>\n  </thead></table>",
+          "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Variable</th>\n      <th>Region</th>\n      <th>Year</th>\n      <th>Unit</th>\n      <th>Validation outcome</th>\n      <th>Lower (abs)</th>\n      <th>Lower (rel)</th>\n      <th>Lower (ref)</th>\n      <th>Upper (abs)</th>\n      <th>Upper (rel)</th>\n      <th>Upper (ref)</th>\n      <th>Reference data</th>\n    </tr>\n  </thead></table>",
           "text_in_header_can_be_selected": true
         };
         new ITable(table, dt_args);
@@ -1892,7 +1899,7 @@ width="64" viewBox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
 <p><strong>Why this threshold?</strong> Historical values are provided by the International Energy Agency <a href="#IEA-ESDB-20250610">(IEA, 2025)</a>, where we assume that Primary Energy variables are given by the "total energy supply" reported by the IEA.<br><br>The thresholds are derived from these sources for years 2010, 2015, 2020, and 2025 as follows:<br>• Whole world: ±20% deviation.<br><br>Note that these ranges not only give models some leeway to deviate, but also account for uncertainty in the underlying data sources. To further account for uncertainty in the historical values, the most permissible source of all sources for each variable, region, and period is used to set the threshold.<br><br>The threshold for 2025 is derived from data in 2022 and 2023 through linear extrapolation. To account for the COVID-19 shock, the threshold for 2020 is derived using both the reported value in 2020 and the value averaged over the period Jan 2018 until Dec 2022, taking whichever is more permissive for the scenario in question.</p>
 <div>
 <!--| quarto-html-table-processing: none -->
-<table id="itables_38e4311a_e025_498c_8c3d_cb324ebf458c">
+<table id="itables_58e7257a_576e_4ceb_a674_7943d64b8fad">
   <tbody>
     <tr>
       <td style="vertical-align:middle; text-align:left"><a href=https://mwouts.github.io/itables/><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -1995,19 +2002,19 @@ width="64" viewBox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
 <script type="module">
     import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.5.5/dt_bundle.js';
 
-    document.querySelectorAll("#itables_38e4311a_e025_498c_8c3d_cb324ebf458c:not(.dataTable)").forEach(table => {
+    document.querySelectorAll("#itables_58e7257a_576e_4ceb_a674_7943d64b8fad:not(.dataTable)").forEach(table => {
         if (!(table instanceof HTMLTableElement))
             return;
 
         let dt_args = {
           "classes": ["display", "nowrap", "compact"],
           "columnDefs": [{"render": "function (data, type, row, meta) { return type === 'sort' || type === 'type' ? data[1] : data[0]; }", "targets": [8, 10, 5, 7]}],
-          "data_json": "[[\"Primary Energy|Oil\", \"World\", 2010, \"EJ/yr\", \"strong\", [\"140.0\", 140.0], \"-20%\", [\"175.0\", 175.0], [\"210.0\", 210.0], \"+20%\", [\"175.0\", 175.0], \"IEA-ESDB-20250610\"], [\"Primary Energy|Oil\", \"World\", 2015, \"EJ/yr\", \"strong\", [\"149.0\", 149.0], \"-20%\", [\"187.0\", 187.0], [\"224.0\", 224.0], \"+20%\", [\"187.0\", 187.0], \"IEA-ESDB-20250610\"], [\"Primary Energy|Oil\", \"World\", 2020, \"EJ/yr\", \"strong\", [\"142.0\", 142.0], \"-20%\", [\"178.0\", 178.0], [\"226.0\", 226.0], \"+20%\", [\"188.0\", 188.0], \"Most permissive value of: IEA-ESDB-20250610,IEA-ESDB-20250610-COVIDaveraged\"], [\"Primary Energy|Oil\", \"World\", 2025, \"EJ/yr\", \"strong\", [\"160.0\", 160.0], \"-20%\", [\"200.0\", 200.0], [\"240.0\", 240.0], \"+20%\", [\"200.0\", 200.0], \"IEA-ESDB-20250610-extrapol25\"]]",
+          "data_json": "[[\"Primary Energy|Oil\", \"World\", 2010, \"EJ/yr\", \"failed\", [\"140.0\", 140.0], \"-20%\", [\"175.0\", 175.0], [\"210.0\", 210.0], \"+20%\", [\"175.0\", 175.0], \"IEA-ESDB-20250610\"], [\"Primary Energy|Oil\", \"World\", 2015, \"EJ/yr\", \"failed\", [\"149.0\", 149.0], \"-20%\", [\"187.0\", 187.0], [\"224.0\", 224.0], \"+20%\", [\"187.0\", 187.0], \"IEA-ESDB-20250610\"], [\"Primary Energy|Oil\", \"World\", 2020, \"EJ/yr\", \"failed\", [\"142.0\", 142.0], \"-20%\", [\"178.0\", 178.0], [\"226.0\", 226.0], \"+20%\", [\"188.0\", 188.0], \"Most permissive value of: IEA-ESDB-20250610,IEA-ESDB-20250610-COVIDaveraged\"], [\"Primary Energy|Oil\", \"World\", 2025, \"EJ/yr\", \"failed\", [\"160.0\", 160.0], \"-20%\", [\"200.0\", 200.0], [\"240.0\", 240.0], \"+20%\", [\"200.0\", 200.0], \"IEA-ESDB-20250610-extrapol25\"]]",
           "keys_to_be_evaluated": [["columnDefs", 0, "render"]],
           "layout": {"bottomEnd": null, "bottomStart": null, "topEnd": null, "topStart": null},
           "order": [],
           "style": {"width": "100%"},
-          "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Variable</th>\n      <th>Region</th>\n      <th>Year</th>\n      <th>Unit</th>\n      <th>Level of concern</th>\n      <th>Lower (abs)</th>\n      <th>Lower (rel)</th>\n      <th>Lower (ref)</th>\n      <th>Upper (abs)</th>\n      <th>Upper (rel)</th>\n      <th>Upper (ref)</th>\n      <th>Reference data</th>\n    </tr>\n  </thead></table>",
+          "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Variable</th>\n      <th>Region</th>\n      <th>Year</th>\n      <th>Unit</th>\n      <th>Validation outcome</th>\n      <th>Lower (abs)</th>\n      <th>Lower (rel)</th>\n      <th>Lower (ref)</th>\n      <th>Upper (abs)</th>\n      <th>Upper (rel)</th>\n      <th>Upper (ref)</th>\n      <th>Reference data</th>\n    </tr>\n  </thead></table>",
           "text_in_header_can_be_selected": true
         };
         new ITable(table, dt_args);
@@ -2017,12 +2024,20 @@ width="64" viewBox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
 </div>
 
 <h2 id="exec-2--feasibility-concern">Feasibility Concern</h2>
+<p>Feasibility criteria check for the alignment of scenarios with near-term trends and long-term developments across sectors. In the near future (i.e. next 5 years), scenarios are flagged if they substantially deviate from project announcements and market outlooks. In particular, installment rates are unlikely to exceed announced projects for technologies with long lead times (e.g. hydropower, nuclear power or carbon capture and storage). Moreover, near-term market forecasts for technologies with established markets (e.g. solar PV or wind) provide corridors of installment rates that are unlikely to be subceeded or exceeded. In the longer future (i.e. 2035 and beyond), scenarios are flagged if they report technology growth rates that are inconsistent with general growth expectations. While going above or below these near-term and long-term thresholds is not strictly impossible, those developments would require unconventional implementation and growth rates.</p>
+<p><strong>Possible validation outcomes:</strong></p>
+<ul>
+<li><code>ok</code> — No feasibility concerns</li>
+<li><code>medium</code> — Moderate feasibility concerns</li>
+<li><code>high</code> — Strong feasibility concerns</li>
+<li><code>not assigned</code> — Variable not reported</li>
+</ul>
 <h3 id="exec-2--carbon-capture-and-storage">Carbon Capture and Storage</h3>
 <p><strong>Why this criterion?</strong> This scenario assumes a deployment of CCS technologies that is inconsistent with near-term projections (2030) or long-term feasibility constraints (2035–2040).<br><br>Near-term (2030): near-term upper and lower capacity projections can be derived from existing capacities and from current project announcements and known project lead times. Robust upper projections can be made because projects take at least 5 years to plan and construct and therefore will not be operational by 2030 if not yet announced by today. Robust lower projections can be made based on existing capacities and because retirement rates can reasonably be assumed to be low.<br><br>Long-term (2035–2040): CCS involves capturing CO₂ from flue gases and storing it geologically. The required technologies for these activities are highly non-modular and application-specific. Additionally, CCS depends on infrastructure like CO₂ pipeline networks, which still have to be built. Therefore it will likely grow more slowly than modular technologies with some degree of existing infrastructure, such as solar, wind, and batteries.</p>
 <p><strong>Why this threshold?</strong> Near-term (2030): CCS projects are tracked by the IEA and published annually in its CCUS Database. Details can be found here: https://www.iea.org/data-and-statistics/data-product/ccus-projects-database<br><br>Projects in the CCUS database have one of the following statuses:<br>• Operational: in operation in 2024<br>• Construction: currently under construction<br>• Planned: announced but without final investment decision in 2024. Projects that were decommissioned or suspended are not counted.<br><br>We assume the following thresholds for 2030 based on data provided by the IEA CCUS database:<br>• Lower, red:  10% less than currently operational capacities.<br>• Lower, yellow:  5% less than currently operational capacities and 50% of projects under construction.<br>• Upper, yellow:  5% more than plants operational today plus all projects under construction plus 20% of projects planned without FID.<br>• Upper, red:  10% more than all projects operational, under construction, and announced.<br><br>Long-term (2035–2040): this scenario assumes capacity deployment of CCS in 2035 and 2040 that would require unlikely growth rates (compare <a href="#Kazlou-2024">Kazlou (2024)</a>).</p>
 <div>
 <!--| quarto-html-table-processing: none -->
-<table id="itables_7bd296c8_17b0_4132_aee4_f195360ec08a">
+<table id="itables_94e6ec92_a318_4748_b04d_e88c2f3132e8">
   <tbody>
     <tr>
       <td style="vertical-align:middle; text-align:left"><a href=https://mwouts.github.io/itables/><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -2125,19 +2140,19 @@ width="64" viewBox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
 <script type="module">
     import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.5.5/dt_bundle.js';
 
-    document.querySelectorAll("#itables_7bd296c8_17b0_4132_aee4_f195360ec08a:not(.dataTable)").forEach(table => {
+    document.querySelectorAll("#itables_94e6ec92_a318_4748_b04d_e88c2f3132e8:not(.dataTable)").forEach(table => {
         if (!(table instanceof HTMLTableElement))
             return;
 
         let dt_args = {
           "classes": ["display", "nowrap", "compact"],
           "columnDefs": [{"render": "function (data, type, row, meta) { return type === 'sort' || type === 'type' ? data[1] : data[0]; }", "targets": [5, 6]}],
-          "data_json": "[[\"Carbon Capture|Geological Storage\", \"World\", 2030, \"Mt CO2/yr\", \"medium\", [\"44.0\", 44.0], [\"152.0\", 152.0]], [\"Carbon Capture|Geological Storage\", \"World\", 2030, \"Mt CO2/yr\", \"strong\", [\"0.0\", 0.0], [\"458.0\", 458.0]], [\"Carbon Capture|Geological Storage\", \"World\", 2035, \"Mt CO2/yr\", \"medium\", [\"NaN\", \"___NaN___\"], [\"1300.0\", 1300.0]], [\"Carbon Capture|Geological Storage\", \"World\", 2040, \"Mt CO2/yr\", \"medium\", [\"NaN\", \"___NaN___\"], [\"4300.0\", 4300.0]]]",
+          "data_json": "[[\"Carbon Capture|Geological Storage\", \"World\", 2030, \"Mt CO2/yr\", \"high\", [\"0.0\", 0.0], [\"458.0\", 458.0]], [\"Carbon Capture|Geological Storage\", \"World\", 2030, \"Mt CO2/yr\", \"medium\", [\"44.0\", 44.0], [\"152.0\", 152.0]], [\"Carbon Capture|Geological Storage\", \"World\", 2035, \"Mt CO2/yr\", \"medium\", [\"NaN\", \"___NaN___\"], [\"1300.0\", 1300.0]], [\"Carbon Capture|Geological Storage\", \"World\", 2040, \"Mt CO2/yr\", \"medium\", [\"NaN\", \"___NaN___\"], [\"4300.0\", 4300.0]]]",
           "keys_to_be_evaluated": [["columnDefs", 0, "render"]],
           "layout": {"bottomEnd": null, "bottomStart": null, "topEnd": null, "topStart": null},
           "order": [],
           "style": {"width": "100%"},
-          "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Variable</th>\n      <th>Region</th>\n      <th>Year</th>\n      <th>Unit</th>\n      <th>Level of concern</th>\n      <th>Lower (abs)</th>\n      <th>Upper (abs)</th>\n    </tr>\n  </thead></table>",
+          "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Variable</th>\n      <th>Region</th>\n      <th>Year</th>\n      <th>Unit</th>\n      <th>Validation outcome</th>\n      <th>Lower (abs)</th>\n      <th>Upper (abs)</th>\n    </tr>\n  </thead></table>",
           "text_in_header_can_be_selected": true
         };
         new ITable(table, dt_args);
@@ -2151,7 +2166,7 @@ width="64" viewBox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
 <p><strong>Why this threshold?</strong> Data on hydro power plant projects was published by the IEA in 2021.  Details can be found here: https://www.iea.org/data-and-statistics/data-tools/hydropower-data-explorer<br><br>The IEA publishes capacities in three categories:<br>• Operational: in operation in 2021<br>• Expected: expected to come online by 2030<br>• Accelerated: capacity that could come online by 2030 given an acceleration in efforts.<br><br>We assume the following thresholds for 2030 based on data provided by  the IEA:<br>• Lower, red:  10% less than currently operational capacities.<br>• Lower, yellow: 5% less than what is expected to come online according to the IEA by 2030.<br>• Upper, yellow: 5% more than what is expected to come online assuming accelerated efforts according to the IEA by 2030.<br>• Upper, red: 45% more than what is expected to come online assuming accelerated efforts according to the IEA by 2030.</p>
 <div>
 <!--| quarto-html-table-processing: none -->
-<table id="itables_8e6e15cd_53f3_4ec7_9111_ef9d13aac476">
+<table id="itables_a74be7b7_4c9a_4a66_b2ac_ab3834f4dd61">
   <tbody>
     <tr>
       <td style="vertical-align:middle; text-align:left"><a href=https://mwouts.github.io/itables/><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -2254,19 +2269,19 @@ width="64" viewBox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
 <script type="module">
     import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.5.5/dt_bundle.js';
 
-    document.querySelectorAll("#itables_8e6e15cd_53f3_4ec7_9111_ef9d13aac476:not(.dataTable)").forEach(table => {
+    document.querySelectorAll("#itables_a74be7b7_4c9a_4a66_b2ac_ab3834f4dd61:not(.dataTable)").forEach(table => {
         if (!(table instanceof HTMLTableElement))
             return;
 
         let dt_args = {
           "classes": ["display", "nowrap", "compact"],
           "columnDefs": [{"render": "function (data, type, row, meta) { return type === 'sort' || type === 'type' ? data[1] : data[0]; }", "targets": [5, 6]}],
-          "data_json": "[[\"Capacity|Electricity|Hydro\", \"World\", 2030, \"GW\", \"medium\", [\"1175.0\", 1175.0], [\"1607.0\", 1607.0]], [\"Capacity|Electricity|Hydro\", \"World\", 2030, \"GW\", \"strong\", [\"979.0\", 979.0], [\"2118.0\", 2118.0]]]",
+          "data_json": "[[\"Capacity|Electricity|Hydro\", \"World\", 2030, \"GW\", \"high\", [\"979.0\", 979.0], [\"2118.0\", 2118.0]], [\"Capacity|Electricity|Hydro\", \"World\", 2030, \"GW\", \"medium\", [\"1175.0\", 1175.0], [\"1607.0\", 1607.0]]]",
           "keys_to_be_evaluated": [["columnDefs", 0, "render"]],
           "layout": {"bottomEnd": null, "bottomStart": null, "topEnd": null, "topStart": null},
           "order": [],
           "style": {"width": "100%"},
-          "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Variable</th>\n      <th>Region</th>\n      <th>Year</th>\n      <th>Unit</th>\n      <th>Level of concern</th>\n      <th>Lower (abs)</th>\n      <th>Upper (abs)</th>\n    </tr>\n  </thead></table>",
+          "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Variable</th>\n      <th>Region</th>\n      <th>Year</th>\n      <th>Unit</th>\n      <th>Validation outcome</th>\n      <th>Lower (abs)</th>\n      <th>Upper (abs)</th>\n    </tr>\n  </thead></table>",
           "text_in_header_can_be_selected": true
         };
         new ITable(table, dt_args);
@@ -2280,7 +2295,7 @@ width="64" viewBox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
 <p><strong>Why this threshold?</strong> Data on nuclear power plants is published by the International Atomic Energy Agency and, including plant-level data <a href="#IAEA-PRIS-2024">(IAEA, 2024b)</a> and estimates until 2050 <a href="#IAEA-E50-2024">(IAEA, 2024a)</a>.<br><br>The IAEA publishes capacities in three categories:<br>• Operational: in operation in 2024<br>• Construction: currently under construction<br>• Retired: inactive capacity that has been retired<br><br>We assume the following thresholds for 2030 based on the plant-level data:<br>• Lower, red:  0.0 GW to account for the fact that nuclear energy could, in principle, be phased out quickly, as observed in a few countries (e.g. Germany).<br>• Lower, yellow:  15% less than currently operational capacities <a href="#IAEA-PRIS-2024">(IAEA, 2024b)</a>.<br>• Upper, yellow:  5% more than plants operational today plus bringing retired plants in Japan back online plus 75% of plants under construction <a href="#IAEA-PRIS-2024">(IAEA, 2024b)</a>.<br>• Upper, red:  10% more than the highest estimate (461 GW) published by the <a href="#IAEA-E50-2024">IAEA (2024a)</a>.</p>
 <div>
 <!--| quarto-html-table-processing: none -->
-<table id="itables_6e38fc2b_046d_45d8_a6f7_ca62cd93019b">
+<table id="itables_9facb00b_1171_4995_987e_85e329de451e">
   <tbody>
     <tr>
       <td style="vertical-align:middle; text-align:left"><a href=https://mwouts.github.io/itables/><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -2383,19 +2398,19 @@ width="64" viewBox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
 <script type="module">
     import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.5.5/dt_bundle.js';
 
-    document.querySelectorAll("#itables_6e38fc2b_046d_45d8_a6f7_ca62cd93019b:not(.dataTable)").forEach(table => {
+    document.querySelectorAll("#itables_9facb00b_1171_4995_987e_85e329de451e:not(.dataTable)").forEach(table => {
         if (!(table instanceof HTMLTableElement))
             return;
 
         let dt_args = {
           "classes": ["display", "nowrap", "compact"],
           "columnDefs": [{"render": "function (data, type, row, meta) { return type === 'sort' || type === 'type' ? data[1] : data[0]; }", "targets": [5, 6]}],
-          "data_json": "[[\"Capacity|Electricity|Nuclear\", \"World\", 2030, \"GW\", \"medium\", [\"320.0\", 320.0], [\"442.0\", 442.0]], [\"Capacity|Electricity|Nuclear\", \"World\", 2030, \"GW\", \"strong\", [\"0.0\", 0.0], [\"507.0\", 507.0]]]",
+          "data_json": "[[\"Capacity|Electricity|Nuclear\", \"World\", 2030, \"GW\", \"high\", [\"0.0\", 0.0], [\"507.0\", 507.0]], [\"Capacity|Electricity|Nuclear\", \"World\", 2030, \"GW\", \"medium\", [\"320.0\", 320.0], [\"442.0\", 442.0]]]",
           "keys_to_be_evaluated": [["columnDefs", 0, "render"]],
           "layout": {"bottomEnd": null, "bottomStart": null, "topEnd": null, "topStart": null},
           "order": [],
           "style": {"width": "100%"},
-          "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Variable</th>\n      <th>Region</th>\n      <th>Year</th>\n      <th>Unit</th>\n      <th>Level of concern</th>\n      <th>Lower (abs)</th>\n      <th>Upper (abs)</th>\n    </tr>\n  </thead></table>",
+          "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Variable</th>\n      <th>Region</th>\n      <th>Year</th>\n      <th>Unit</th>\n      <th>Validation outcome</th>\n      <th>Lower (abs)</th>\n      <th>Upper (abs)</th>\n    </tr>\n  </thead></table>",
           "text_in_header_can_be_selected": true
         };
         new ITable(table, dt_args);
@@ -2409,7 +2424,7 @@ width="64" viewBox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
 <p><strong>Why this threshold?</strong> Existing capacities in 2022 are reported by <a href="#Ember-2024">Ember (2024)</a>. Yearly  additions for 2023–2028 are estimated in a market outlook by the  <a href="#GWEC-2024">GWEC (2024)</a>.<br><br>This outlook is based on input from regional wind associations,  government targets, tender results, announced auction plans, available  project pipeline, and input from industry experts.<br><br>We assume the following thresholds for 2030:<br>• Lower, red: 10% less than existing capacities plus 37.5% of market outlook.<br>• Lower, yellow: 5% less than existing capacities plus 75% of market outlook.<br>• Upper, yellow: 5% more than existing capacities plus 150% of market outlook.<br>• Upper, red: 10% more than existing capacities plus 200% of market outlook.</p>
 <div>
 <!--| quarto-html-table-processing: none -->
-<table id="itables_bb2687da_2dbe_4c11_b915_b51198496ee8">
+<table id="itables_efd7624c_3a1e_4f0e_8ba1_660c1c76bf3c">
   <tbody>
     <tr>
       <td style="vertical-align:middle; text-align:left"><a href=https://mwouts.github.io/itables/><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -2512,19 +2527,19 @@ width="64" viewBox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
 <script type="module">
     import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.5.5/dt_bundle.js';
 
-    document.querySelectorAll("#itables_bb2687da_2dbe_4c11_b915_b51198496ee8:not(.dataTable)").forEach(table => {
+    document.querySelectorAll("#itables_efd7624c_3a1e_4f0e_8ba1_660c1c76bf3c:not(.dataTable)").forEach(table => {
         if (!(table instanceof HTMLTableElement))
             return;
 
         let dt_args = {
           "classes": ["display", "nowrap", "compact"],
           "columnDefs": [{"render": "function (data, type, row, meta) { return type === 'sort' || type === 'type' ? data[1] : data[0]; }", "targets": [5, 6]}],
-          "data_json": "[[\"Capacity|Electricity|Wind|Onshore\", \"World\", 2030, \"GW\", \"medium\", [\"1719.0\", 1719.0], [\"2853.0\", 2853.0]], [\"Capacity|Electricity|Wind|Onshore\", \"World\", 2030, \"GW\", \"strong\", [\"1220.0\", 1220.0], [\"3655.0\", 3655.0]]]",
+          "data_json": "[[\"Capacity|Electricity|Wind|Onshore\", \"World\", 2030, \"GW\", \"high\", [\"1220.0\", 1220.0], [\"3655.0\", 3655.0]], [\"Capacity|Electricity|Wind|Onshore\", \"World\", 2030, \"GW\", \"medium\", [\"1719.0\", 1719.0], [\"2853.0\", 2853.0]]]",
           "keys_to_be_evaluated": [["columnDefs", 0, "render"]],
           "layout": {"bottomEnd": null, "bottomStart": null, "topEnd": null, "topStart": null},
           "order": [],
           "style": {"width": "100%"},
-          "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Variable</th>\n      <th>Region</th>\n      <th>Year</th>\n      <th>Unit</th>\n      <th>Level of concern</th>\n      <th>Lower (abs)</th>\n      <th>Upper (abs)</th>\n    </tr>\n  </thead></table>",
+          "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Variable</th>\n      <th>Region</th>\n      <th>Year</th>\n      <th>Unit</th>\n      <th>Validation outcome</th>\n      <th>Lower (abs)</th>\n      <th>Upper (abs)</th>\n    </tr>\n  </thead></table>",
           "text_in_header_can_be_selected": true
         };
         new ITable(table, dt_args);
@@ -2538,7 +2553,7 @@ width="64" viewBox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
 <p><strong>Why this threshold?</strong> Existing capacities in 2023 are reported by <a href="#Ember-2024">Ember (2024)</a>. Yearly  additions for 2024–2030 are estimated in a market outlook by  <a href="#BNEF-2024">BNEF (2024)</a>.<br><br>We assume the following thresholds for 2030:<br>• Lower, red: 10% less than existing capacities plus 37.5% of market outlook.<br>• Lower, yellow: 5% less than existing capacities plus 75% of market outlook.<br>• Upper, yellow: 5% more than existing capacities plus 150% of market outlook.<br>• Upper, red: 10% more than existing capacities plus 200% of market outlook.</p>
 <div>
 <!--| quarto-html-table-processing: none -->
-<table id="itables_e0a46262_2ba0_49ad_92c4_810946d945b4">
+<table id="itables_47965393_a929_4785_ac98_3489e2d56188">
   <tbody>
     <tr>
       <td style="vertical-align:middle; text-align:left"><a href=https://mwouts.github.io/itables/><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -2641,19 +2656,19 @@ width="64" viewBox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
 <script type="module">
     import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.5.5/dt_bundle.js';
 
-    document.querySelectorAll("#itables_e0a46262_2ba0_49ad_92c4_810946d945b4:not(.dataTable)").forEach(table => {
+    document.querySelectorAll("#itables_47965393_a929_4785_ac98_3489e2d56188:not(.dataTable)").forEach(table => {
         if (!(table instanceof HTMLTableElement))
             return;
 
         let dt_args = {
           "classes": ["display", "nowrap", "compact"],
           "columnDefs": [{"render": "function (data, type, row, meta) { return type === 'sort' || type === 'type' ? data[1] : data[0]; }", "targets": [5, 6]}],
-          "data_json": "[[\"Capacity|Electricity|Solar\", \"World\", 2030, \"GW\", \"medium\", [\"4350.0\", 4350.0], [\"8164.0\", 8164.0]], [\"Capacity|Electricity|Solar\", \"World\", 2030, \"GW\", \"strong\", [\"2683.0\", 2683.0], [\"10896.0\", 10896.0]]]",
+          "data_json": "[[\"Capacity|Electricity|Solar\", \"World\", 2030, \"GW\", \"high\", [\"2683.0\", 2683.0], [\"10896.0\", 10896.0]], [\"Capacity|Electricity|Solar\", \"World\", 2030, \"GW\", \"medium\", [\"4350.0\", 4350.0], [\"8164.0\", 8164.0]]]",
           "keys_to_be_evaluated": [["columnDefs", 0, "render"]],
           "layout": {"bottomEnd": null, "bottomStart": null, "topEnd": null, "topStart": null},
           "order": [],
           "style": {"width": "100%"},
-          "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Variable</th>\n      <th>Region</th>\n      <th>Year</th>\n      <th>Unit</th>\n      <th>Level of concern</th>\n      <th>Lower (abs)</th>\n      <th>Upper (abs)</th>\n    </tr>\n  </thead></table>",
+          "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Variable</th>\n      <th>Region</th>\n      <th>Year</th>\n      <th>Unit</th>\n      <th>Validation outcome</th>\n      <th>Lower (abs)</th>\n      <th>Upper (abs)</th>\n    </tr>\n  </thead></table>",
           "text_in_header_can_be_selected": true
         };
         new ITable(table, dt_args);
@@ -2671,7 +2686,7 @@ width="64" viewBox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
 <p><strong>Why this threshold?</strong> The lower bounds are derived from the same sources as the Onshore Wind Capacity criterion. Existing capacities in 2022 are reported by <a href="#Ember-2024">Ember (2024)</a>. Yearly additions for 2023–2028 are estimated in a market outlook by the <a href="#GWEC-2024">GWEC (2024)</a>.<br><br>This outlook is based on input from regional wind associations, government targets, tender results, announced auction plans, available project pipeline, and input from industry experts.<br><br>The same lower bounds as for Onshore Wind Capacity are applied to total wind capacity, reflecting the assumption that onshore wind alone provides a sufficient lower bound for total deployment:<br>• Lower, red: 10% less than existing capacities plus 37.5% of market outlook.<br>• Lower, yellow: 5% less than existing capacities plus 75% of market outlook.</p>
 <div>
 <!--| quarto-html-table-processing: none -->
-<table id="itables_e73e5d35_a311_433f_80e9_641b9cd6fec1">
+<table id="itables_43c1476f_9f74_401f_ac12_e9db8dab12d7">
   <tbody>
     <tr>
       <td style="vertical-align:middle; text-align:left"><a href=https://mwouts.github.io/itables/><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -2774,19 +2789,19 @@ width="64" viewBox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
 <script type="module">
     import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.5.5/dt_bundle.js';
 
-    document.querySelectorAll("#itables_e73e5d35_a311_433f_80e9_641b9cd6fec1:not(.dataTable)").forEach(table => {
+    document.querySelectorAll("#itables_43c1476f_9f74_401f_ac12_e9db8dab12d7:not(.dataTable)").forEach(table => {
         if (!(table instanceof HTMLTableElement))
             return;
 
         let dt_args = {
           "classes": ["display", "nowrap", "compact"],
           "columnDefs": [{"render": "function (data, type, row, meta) { return type === 'sort' || type === 'type' ? data[1] : data[0]; }", "targets": [5]}],
-          "data_json": "[[\"Capacity|Electricity|Wind\", \"World\", 2030, \"GW\", \"medium\", [\"1719.0\", 1719.0]], [\"Capacity|Electricity|Wind\", \"World\", 2030, \"GW\", \"strong\", [\"1220.0\", 1220.0]]]",
+          "data_json": "[[\"Capacity|Electricity|Wind\", \"World\", 2030, \"GW\", \"high\", [\"1220.0\", 1220.0]], [\"Capacity|Electricity|Wind\", \"World\", 2030, \"GW\", \"medium\", [\"1719.0\", 1719.0]]]",
           "keys_to_be_evaluated": [["columnDefs", 0, "render"]],
           "layout": {"bottomEnd": null, "bottomStart": null, "topEnd": null, "topStart": null},
           "order": [],
           "style": {"width": "100%"},
-          "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Variable</th>\n      <th>Region</th>\n      <th>Year</th>\n      <th>Unit</th>\n      <th>Level of concern</th>\n      <th>Lower (abs)</th>\n    </tr>\n  </thead></table>",
+          "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Variable</th>\n      <th>Region</th>\n      <th>Year</th>\n      <th>Unit</th>\n      <th>Validation outcome</th>\n      <th>Lower (abs)</th>\n    </tr>\n  </thead></table>",
           "text_in_header_can_be_selected": true
         };
         new ITable(table, dt_args);
@@ -2796,12 +2811,20 @@ width="64" viewBox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
 </div>
 
 <h2 id="exec-2--sustainability-concern">Sustainability Concern</h2>
+<p>Sustainability criteria check for the alignment of scenarios with sustainability targets other than climate-change mitigation. Scenarios are flagged if they report the use of technologies, activities or practices at a level that goes beyond what would be sustainable in those other non-climate ecosystem targets. The thresholds for sustainability criteria are derived from literature focussing on the respective sustainability targets. Misalignment of a scenario does not mean that the scenario is impossible or infeasible, but rather that it is undesirable from a non-climate sustainability perspective.</p>
+<p><strong>Possible validation outcomes:</strong></p>
+<ul>
+<li><code>ok</code> — No sustainability concerns</li>
+<li><code>medium</code> — Moderate sustainability concerns</li>
+<li><code>high</code> — Strong sustainability concerns</li>
+<li><code>not assigned</code> — Variable not reported</li>
+</ul>
 <h3 id="exec-2--exceeding-prudent-limit-for-geological-carbon-storage">Exceeding Prudent Limit For Geological Carbon Storage</h3>
 <p><strong>Why this criterion?</strong> Some scenarios rely strongly on the use of carbon capture and  sequestration (CCS). We use geological carbon storage volumes that  exceed prudent technical and sustainability limits as upper bounds  on cumulative CCS as quantified by Gidden et al (2025).</p>
 <p><strong>Why this threshold?</strong> Estimates are provided by <a href="#Gidden-2025">Gidden (2025)</a>.<br><br>• Upper threshold, major concern: exceeding cumulative CCS of  1,460 Gt CO2 until the end of the century, which was identified as the  median of the range when combining spatial risk layers.<br>• Upper threshold, medium concern: exceeding cumulative CCS of 1,290 Gt CO2 until the end of the century, which was identified as the  lower bound of the range when combining spatial risk layers.</p>
 <div>
 <!--| quarto-html-table-processing: none -->
-<table id="itables_682174c1_e861_4446_a6cf_ad6275d2fb0e">
+<table id="itables_474c3118_c891_49d8_8d95_7612c6c1fdf2">
   <tbody>
     <tr>
       <td style="vertical-align:middle; text-align:left"><a href=https://mwouts.github.io/itables/><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -2904,19 +2927,19 @@ width="64" viewBox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
 <script type="module">
     import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.5.5/dt_bundle.js';
 
-    document.querySelectorAll("#itables_682174c1_e861_4446_a6cf_ad6275d2fb0e:not(.dataTable)").forEach(table => {
+    document.querySelectorAll("#itables_474c3118_c891_49d8_8d95_7612c6c1fdf2:not(.dataTable)").forEach(table => {
         if (!(table instanceof HTMLTableElement))
             return;
 
         let dt_args = {
           "classes": ["display", "nowrap", "compact"],
           "columnDefs": [{"render": "function (data, type, row, meta) { return type === 'sort' || type === 'type' ? data[1] : data[0]; }", "targets": [5]}],
-          "data_json": "[[\"Carbon Capture|Geological Storage\", \"World\", \"cumulative[2020-2100]\", \"Gt CO2\", \"medium\", [\"1290.0\", 1290.0]], [\"Carbon Capture|Geological Storage\", \"World\", \"cumulative[2020-2100]\", \"Gt CO2\", \"strong\", [\"1460.0\", 1460.0]]]",
+          "data_json": "[[\"Carbon Capture|Geological Storage\", \"World\", \"cumulative[2020-2100]\", \"Gt CO2\", \"high\", [\"1460.0\", 1460.0]], [\"Carbon Capture|Geological Storage\", \"World\", \"cumulative[2020-2100]\", \"Gt CO2\", \"medium\", [\"1290.0\", 1290.0]]]",
           "keys_to_be_evaluated": [["columnDefs", 0, "render"]],
           "layout": {"bottomEnd": null, "bottomStart": null, "topEnd": null, "topStart": null},
           "order": [],
           "style": {"width": "100%"},
-          "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Variable</th>\n      <th>Region</th>\n      <th>Year</th>\n      <th>Unit</th>\n      <th>Level of concern</th>\n      <th>Upper (abs)</th>\n    </tr>\n  </thead></table>",
+          "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Variable</th>\n      <th>Region</th>\n      <th>Year</th>\n      <th>Unit</th>\n      <th>Validation outcome</th>\n      <th>Upper (abs)</th>\n    </tr>\n  </thead></table>",
           "text_in_header_can_be_selected": true
         };
         new ITable(table, dt_args);
@@ -2930,7 +2953,7 @@ width="64" viewBox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
 <p><strong>Why this threshold?</strong> According to the <a href="#FRA-2020">Food and Agriculture Organization of the United Nations (FAO) (2020)</a>, the Minimum Dietary Energy  Requirement is 2,100 kilo calories per person per day, which is used as  the lower threshold. Meanwhile, the highest historical level of food  availability is 4,000 kilo calories per person per day, so that the  threshold is set at 5,000 kilo calories per person per day.</p>
 <div>
 <!--| quarto-html-table-processing: none -->
-<table id="itables_242cea45_2419_4bfe_9704_e239debde633">
+<table id="itables_c8aadcc4_7e10_45a9_b464_e7c8a01445f2">
   <tbody>
     <tr>
       <td style="vertical-align:middle; text-align:left"><a href=https://mwouts.github.io/itables/><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -3033,7 +3056,7 @@ width="64" viewBox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
 <script type="module">
     import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.5.5/dt_bundle.js';
 
-    document.querySelectorAll("#itables_242cea45_2419_4bfe_9704_e239debde633:not(.dataTable)").forEach(table => {
+    document.querySelectorAll("#itables_c8aadcc4_7e10_45a9_b464_e7c8a01445f2:not(.dataTable)").forEach(table => {
         if (!(table instanceof HTMLTableElement))
             return;
 
@@ -3045,7 +3068,7 @@ width="64" viewBox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
           "layout": {"bottomEnd": null, "bottomStart": null, "topEnd": null, "topStart": null},
           "order": [],
           "style": {"width": "100%"},
-          "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Variable</th>\n      <th>Region</th>\n      <th>Year</th>\n      <th>Unit</th>\n      <th>Level of concern</th>\n      <th>Lower (abs)</th>\n      <th>Upper (abs)</th>\n    </tr>\n  </thead></table>",
+          "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Variable</th>\n      <th>Region</th>\n      <th>Year</th>\n      <th>Unit</th>\n      <th>Validation outcome</th>\n      <th>Lower (abs)</th>\n      <th>Upper (abs)</th>\n    </tr>\n  </thead></table>",
           "text_in_header_can_be_selected": true
         };
         new ITable(table, dt_args);
@@ -3059,7 +3082,7 @@ width="64" viewBox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
 <p><strong>Why this threshold?</strong> <a href="#Creutzig-2014">Creutzig (2014)</a> have derived an upper limit for sustainable  biomass use of 100–300 EJ/yr. In the 6th Assessment Report of Working  Group 3 of the Intergovernmental Panel on Climate Change (IPCC), a  value of 100 EJ/yr is defined as the threshold for the onset of  medium concern and 245 EJ/yr a threshold for the onset of high concern  <a href="#IPCC-AR6-WG3-ANX3-2022">(IPCC, 2022)</a>. Another study by <a href="#Deprez-2024">Deprez (2024)</a>  suggests that medium sustainablity risks arise at 50 EJ/yr and high  risks at 120 EJ/yr. Based on those studies the threshold for this  sustainablity concern flag is set at 100 EJ/yr.</p>
 <div>
 <!--| quarto-html-table-processing: none -->
-<table id="itables_776a7762_635b_462e_a00f_da9731c44854">
+<table id="itables_271c65ae_2b14_499a_899c_a8a2c7ac85e1">
   <tbody>
     <tr>
       <td style="vertical-align:middle; text-align:left"><a href=https://mwouts.github.io/itables/><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -3162,19 +3185,19 @@ width="64" viewBox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
 <script type="module">
     import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.5.5/dt_bundle.js';
 
-    document.querySelectorAll("#itables_776a7762_635b_462e_a00f_da9731c44854:not(.dataTable)").forEach(table => {
+    document.querySelectorAll("#itables_271c65ae_2b14_499a_899c_a8a2c7ac85e1:not(.dataTable)").forEach(table => {
         if (!(table instanceof HTMLTableElement))
             return;
 
         let dt_args = {
           "classes": ["display", "nowrap", "compact"],
           "columnDefs": [{"render": "function (data, type, row, meta) { return type === 'sort' || type === 'type' ? data[1] : data[0]; }", "targets": [5]}],
-          "data_json": "[[\"Primary Energy|Biomass\", \"World\", \"\", \"EJ/yr\", \"medium\", [\"100.0\", 100.0]], [\"Primary Energy|Biomass\", \"World\", \"\", \"EJ/yr\", \"strong\", [\"245.0\", 245.0]]]",
+          "data_json": "[[\"Primary Energy|Biomass\", \"World\", \"\", \"EJ/yr\", \"high\", [\"245.0\", 245.0]], [\"Primary Energy|Biomass\", \"World\", \"\", \"EJ/yr\", \"medium\", [\"100.0\", 100.0]]]",
           "keys_to_be_evaluated": [["columnDefs", 0, "render"]],
           "layout": {"bottomEnd": null, "bottomStart": null, "topEnd": null, "topStart": null},
           "order": [],
           "style": {"width": "100%"},
-          "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Variable</th>\n      <th>Region</th>\n      <th>Year</th>\n      <th>Unit</th>\n      <th>Level of concern</th>\n      <th>Upper (abs)</th>\n    </tr>\n  </thead></table>",
+          "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Variable</th>\n      <th>Region</th>\n      <th>Year</th>\n      <th>Unit</th>\n      <th>Validation outcome</th>\n      <th>Upper (abs)</th>\n    </tr>\n  </thead></table>",
           "text_in_header_can_be_selected": true
         };
         new ITable(table, dt_args);
